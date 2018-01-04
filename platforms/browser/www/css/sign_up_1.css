@@ -1,0 +1,26 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#header_wrapper {
+  width: 100%;
+  height: 5vh;
+  background: rgba(212, 123, 35, 0.5);
+}
+
+#back_btn_wrapper {
+  padding-top: 1vh;
+  float: left;
+}
+
+.page_title_wrapper {
+  padding-top: 1vh;
+  text-align: center;
+}
+
+#question_wrapper {
+  margin-top: 5vh;
+}

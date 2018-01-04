@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
+      <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+      <!-- 아이콘 불러오기 -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <title>platfrom_test</title>
+
+      <!-- <script>
+      $(function() {
+        $('#main_wrap').load("show_goods.html");
+      });
+      </script> -->
+  </head>
+  <body>
+    <header>
+      <div id="header_wrapper">
+          <p class="no_margin"> LOGO </p>
+        <div>
+          <ul id="tabs" class="tabs">
+            <li class="tab col s3"><a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons some_margin_top">menu</i></a>/li> <!-- side-nav tab -->
+            <li class="tab col s3"><a class="active" href="#test-swipe-1">Test 2</a></li>
+            <li class="tab col s3"><a href="#test-swipe-2">Test 3</a></li>
+            <li class="tab col s3"><a href="#test-swipe-3">Test 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- side-nav items -->
+    <ul id="slide-out" class="side-nav">
+      <li><div class="user-view">
+        <div class="background">
+          <img src="img/main_background.png">
+        </div>
+        <a href="#!user"><img class="circle" src="img/logo.png"></a>
+        <a href="#!name"><span class="white-text name">John Doe</span></a>
+        <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+      </div></li>
+      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+      <li><a href="#!">Second Link</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Subheader</a></li>
+      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+
+
+
+    <!-- tabs-swipe-demo items -->
+    <!-- <iframe id="test-swipe-1" class="col s12 blue" src="show_style.html" frameborder=0>Test 1</iframe>
+    <iframe id="test-swipe-2" class="col s12 red" src="show_goods.html" frameborder=0>Test 1</iframe> -->
+
+    <!-- <div id="test-swipe-1" class="col s12 blue">
+      <iframe id="main_iframe" src="show_style.html" width="100%" height="100%">show_style</iframe>
+    </div>
+    <div id="test-swipe-2" class="col s12 blue">
+      <iframe id="main_iframe" src="show_style.html" width="100%" height="100%">show_style</iframe>
+    </div>
+    <div id="test-swipe-3" class="col s12 blue">
+      test3
+    </div>
+    <div id="test-swipe-4" class="col s12 blue">
+      test4
+    </div> -->
+    <div id="test-swipe-1" class="col s12 blue">Test 1</div>
+    <div id="test-swipe-2" class="col s12 red">Test 2</div>
+    <div id="test-swipe-3" class="col s12 green">Test 3</div>
+    <!-- <div id="test-swipe-4" class="col s12 yellow">Test 4</div> -->
+
+    <!-- 스타일링 받기 서비스 -->
+    <!-- <div class="fixed-action-btn click-to-toggle">
+      <a class="btn-floating btn-large red">
+        <i class="large material-icons">mode_edit</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+        <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+        <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+        <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+      </ul>
+    </div> -->
+
+    <!-- <div id="main_wrap" class="valign-wrapper">
+      <a id="receive_style" class="waves-effect waves-light btn-large btn_long">스타일링 받기</a>
+      <a id="show_style" class="waves-effect waves-light btn-large btn_long">스타일링 보기</a>
+    </div>
+
+    <iframe src="show_style.html" width="100%" height="100%" frameborder="0">??????</iframe> -->
+
+    <script>
+
+      $(function() {
+        // '스타일링 받기' 버튼 클릭
+        $('#receive_style').on('click', function() {
+          location.href="receive_style.html";
+        });
+
+        // '스타일링 보기' 버튼 클릭
+        $('#show_style').on('click', function() {
+          location.href="show_style.html";
+        });
+
+        // $('ul.tabs').tabs();
+        // $('ul.tabs').tabs('select_stab', 'tab_id');
+
+        // 상단 탭 swipe 가능하도록 설정
+        // $('ul.tabs').tabs({swipeable: true});
+        $('ul.tabs').tabs();
+
+        // $('ul.tabs').bind("tabsselect", function(e, tab) {
+        //   alert(tab.index + "selected");
+        // });
+
+
+        // side-nav
+        // Initialize collapse button
+        $('.button-collapse').sideNav();
+        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+        // $('.collapsible').collapsible();
+        // Show sideNav
+        // $('.button-collapse').sideNav('show');
+        // Hide sideNav
+        // $('.button-collapse').sideNav('hide');
+      });
+    </script>
+  </body>
+</html>

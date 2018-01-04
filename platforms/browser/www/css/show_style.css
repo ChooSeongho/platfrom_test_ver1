@@ -1,0 +1,68 @@
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+#body_wrap {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.style_img {
+  width: 100%;
+	height: 200px;
+  background-image: url(../img/main_background.png);
+  background-repeat: no-repeat;
+	background-size: 100% 200px;
+}
+
+.style_img .grade {
+	position: relative;
+	top: 60%;
+	right: 5%;
+	font-size: 4rem;
+	text-align: right;
+	font-family: 'Archivo Black', sans-serif;
+}
+
+.pro_info_wrap {
+	height: 50px;
+	margin-top: 5px;
+}
+
+.img_wrap {
+	height: 50px;
+	vertical-align: middle;
+}
+
+.small_img {
+	width: 50px;
+	height: 50px !important;
+	object-fit: cover;
+	object-position: top;
+}
+
+.some_padding {
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.consumer_info {
+	background-color: rgba(253, 125, 250, 0.5);
+}
+
+.dont_margin {
+	margin-bottom: 0px;
+}
+
+.btn_long {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+  height: 10%;
+	line-height: 75px;
+  text-align: center;
+	margin-bottom: 30px;
+}
