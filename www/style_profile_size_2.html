@@ -28,28 +28,78 @@
           <i id="back_btn" class="material-icons">chevron_left</i>
         </div>
         <div class="page_title_wrapper">
-          <span class="page_title"> 회원가입 </span>
+          <span class="page_title"> 스타일프로필 </span>
+        </div>
+      </div>
+      <div id="progressbar_wrapper">
+        <div id="progressbar">
+          <div id="progress_size">
+          </div>
+        </div>
+        <div class="row white">
+          <div class="col percent_20"><b> SIZE </b></div>
+          <div class="col percent_20"> FIT/CUT </div>
+          <div class="col percent_20"> STYLE </div>
+          <div class="col percent_20"> PRICE </div>
+          <div class="col percent_20"> ABOUT YOU </div>
         </div>
       </div>
     </header>
 
-    <form id="personal_information_wrapper">
+    <form id="personal_information_wrapper" style="padding-top:5vh;">
       <div class="input-field col s6">
-        <p class="info_question"> 이름</p>
-        <input placeholder="" id="input_name" type="text" class="input_name">
-        <label for="input_name"></label>
+        <p class="info_question"> 어깨 </p>
+        <select>
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="1"> 넓음 </option>
+          <option value="2"> 보통 </option>
+          <option value="3"> 좁음 </option>
+        </select>
       </div>
       <div class="input-field col s6">
-        <p class="info_question"> 연락처</p>
-        <input placeholder="" id="input_tel" type="text" class="input_tel">
-        <label for="input_tel"></label>
+        <p class="info_question"> 팔 </p>
+        <select>
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="1"> 긴편 </option>
+          <option value="2"> 보통 </option>
+          <option value="3"> 짧은편 </option>
+        </select>
       </div>
       <div class="input-field col s6">
-        <p class="info_question"> 수령주소</p>
-        <input placeholder="ex) 서울특별시 중구" id="input_address" type="text" class="input_address">
-        <label for="input_address"></label>
-        <input placeholder="ex) 세종대로 110" id="input_address_detail" type="text" class="input_address_detail">
-        <label for="input_address_detail"></label>
+        <p class="info_question"> 밑위 </p>
+        <select>
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="1"> 긴편 </option>
+          <option value="2"> 보통 </option>
+          <option value="3"> 짧은편 </option>
+        </select>
+      </div>
+      <div class="input-field col s6">
+        <p class="info_question"> 엉덩이 </p>
+        <select>
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="1"> 넓음 </option>
+          <option value="2"> 보통 </option>
+          <option value="3"> 좁음 </option>
+        </select>
+      </div>
+      <div class="input-field col s6">
+        <p class="info_question"> 다리 </p>
+        <select>
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="1"> 긴편 </option>
+          <option value="2"> 보통 </option>
+          <option value="3"> 짧은편 </option>
+        </select>
+      </div>
+      <div class="input-field col s6">
+        <p class="info_question"> 발볼 </p>
+        <select>
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="1"> 넓음 </option>
+          <option value="2"> 보통 </option>
+          <option value="3"> 좁음 </option>
+        </select>
       </div>
     </form>
     <!-- <div id="question_wrapper">
@@ -62,13 +112,6 @@
 
     <footer>
       <div class="footer_wrapper">
-        <div id="agree">
-          <span class="agree_title"> 서비스 이용 개인정보 수집 &#183; 활용에 동의 하시나요? </span>
-          <p></p>
-          <span class="agree_contents"> 서비스 이용을 위해 최소한의 정보를 수집하고 있습니다. <br>
-            수집한 개인정보는 본인 확인 및 불편사항 상담 등을 위해서만 이용하고 다른 용도로는 사용하지 않습니다.
-          </span>
-        </div>
         <a id="next_btn" class="waves-effect waves-light btn btn_long">다음</a>
       </div>
     </footer>
@@ -78,12 +121,12 @@
       $(function() {
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
-          location.href="sign_up_1.html";
+          location.href="style_profile_size_1.html";
         });
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_1.html";
+          location.href="style_profile_size_2.html";
         });
 
         // $('ul.tabs').tabs();
@@ -107,6 +150,9 @@
         // $('.button-collapse').sideNav('show');
         // Hide sideNav
         // $('.button-collapse').sideNav('hide');
+
+        // select option
+        $('select').material_select();
       });
     </script>
   </body>

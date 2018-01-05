@@ -3,6 +3,7 @@ body {
 
 #header_wrapper {
   height: 10vh;
+  z-index: 2012;
 }
 
 [id^='test-swipe'] {
