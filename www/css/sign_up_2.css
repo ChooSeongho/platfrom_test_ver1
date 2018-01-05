@@ -1,6 +1,6 @@
 body {
-  padding-top: 12vh;
-  padding-bottom: 7vh;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
 }
 
 #header_wrapper {
@@ -21,6 +21,28 @@ body {
   padding-top: 2vh;
   padding-right: 4vh;
   text-align: center;
+}
+
+#progressbar_wrapper {
+  width: 100%;
+  position: fixed;
+  top: 7vh;;
+}
+
+#progressbar {
+  width: 100%;
+  background-color: grey;
+}
+
+#progress_size {
+  width: 20%;
+  height: 1vh;
+  background-color: blue;
+}
+
+.percent_20 {
+  text-align: center;
+  width: 20%;
 }
 
 #personal_information_wrapper {
