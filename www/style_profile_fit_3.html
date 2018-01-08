@@ -8,7 +8,7 @@
       <!-- Compiled and minified JavaScript -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
-      <link rel="stylesheet" type="text/css" href="css/sign_up_2.css" />
+      <link rel="stylesheet" type="text/css" href="css/style_profile_fit.css" />
 
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -37,8 +37,8 @@
           </div>
         </div>
         <div class="row white">
-          <div class="col percent_20"><b> SIZE </b></div>
-          <div class="col percent_20"> FIT/CUT </div>
+          <div class="col percent_20"> SIZE </div>
+          <div class="col percent_20"><b> FIT/CUT </b></div>
           <div class="col percent_20"> STYLE </div>
           <div class="col percent_20"> PRICE </div>
           <div class="col percent_20"> ABOUT YOU </div>
@@ -46,60 +46,52 @@
       </div>
     </header>
 
-    <form id="personal_information_wrapper" style="padding-top:5vh;">
-      <div class="input-field col s6">
-        <p class="info_question"> 어깨 </p>
-        <select>
-          <!-- <option value="" disabled selected>Choose your option</option> -->
-          <option value="1"> 넓음 </option>
-          <option value="2"> 보통 </option>
-          <option value="3"> 좁음 </option>
-        </select>
+    <form id="question_wrapper">
+      <div class="question">
+        <span id="question_content"> 스커트에서 선호하는 핏을 모두 선택해주세요. </span>
       </div>
-      <div class="input-field col s6">
-        <p class="info_question"> 팔 </p>
-        <select>
-          <!-- <option value="" disabled selected>Choose your option</option> -->
-          <option value="1"> 긴편 </option>
-          <option value="2"> 보통 </option>
-          <option value="3"> 짧은편 </option>
-        </select>
+      <p>
+      <div class="question_detail">
+        <div class="question_detail_content">
+          <img src="img/main_background.png" width="300px" height="300px">
+          <input type="checkbox" name="jean_skinny" id="jean_skinny" class="check_btn" value="skinny">
+          <label for="jean_skinny" class="input-label radio"> 스키니핏 </label>
+          <p>
+            <img src="img/main_background.png" width="300px" height="300px">
+          <input type="checkbox" name="jean_slim" id="jean_slim" class="check_btn" value="slim">
+          <label for="jean_slim" class="input-label radio"> 슬림핏 </label>
+          <p>
+          <input type="checkbox" name="jean_straight" id="jean_straight" class="check_btn" value="straight">
+          <label for="jean_straight" class="input-label radio"> 스트레이트핏 </label>
+          <p>
+          <input type="checkbox" name="jean_boots" id="jean_boots" class="check_btn" value="boots">
+          <label for="jean_boots" class="input-label radio"> 부츠컷 </label>
+          <p>
+          <input type="checkbox" name="jean_wide" id="jean_wide" class="check_btn" value="wide">
+          <label for="jean_wide" class="input-label radio"> 와이드핏 </label>
+          <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
+        </div>
       </div>
-      <div class="input-field col s6">
-        <p class="info_question"> 밑위 </p>
-        <select>
-          <!-- <option value="" disabled selected>Choose your option</option> -->
-          <option value="1"> 긴편 </option>
-          <option value="2"> 보통 </option>
-          <option value="3"> 짧은편 </option>
-        </select>
+      <p>
+      <div class="question">
+        <span id="question_content"> 원피스에서 선호하는 핏을 모두 선택해주세요. </span>
       </div>
-      <div class="input-field col s6">
-        <p class="info_question"> 엉덩이 </p>
-        <select>
-          <!-- <option value="" disabled selected>Choose your option</option> -->
-          <option value="1"> 넓음 </option>
-          <option value="2"> 보통 </option>
-          <option value="3"> 좁음 </option>
-        </select>
-      </div>
-      <div class="input-field col s6">
-        <p class="info_question"> 다리 </p>
-        <select>
-          <!-- <option value="" disabled selected>Choose your option</option> -->
-          <option value="1"> 긴편 </option>
-          <option value="2"> 보통 </option>
-          <option value="3"> 짧은편 </option>
-        </select>
-      </div>
-      <div class="input-field col s6">
-        <p class="info_question"> 발볼 </p>
-        <select>
-          <!-- <option value="" disabled selected>Choose your option</option> -->
-          <option value="1"> 넓음 </option>
-          <option value="2"> 보통 </option>
-          <option value="3"> 좁음 </option>
-        </select>
+      <p>
+      <div class="question_detail">
+        <div class="question_detail_content">
+          <input type="checkbox" name="pants_slim" id="pants_slim" class="check_btn" value="slim">
+          <label for="pants_slim" class="input-label radio"> 슬림핏 </label>
+          <p>
+          <input type="checkbox" name="pants_straight" id="pants_straight" class="check_btn" value="straight">
+          <label for="pants_straight" class="input-label radio"> 스트레이트핏 </label>
+          <p>
+          <input type="checkbox" name="pants_boots" id="pants_boots" class="check_btn" value="boots">
+          <label for="pants_boots" class="input-label radio"> 부츠컷 </label>
+          <p>
+          <input type="checkbox" name="pants_wide" id="pants_wide" class="check_btn" value="wide">
+          <label for="pants_wide" class="input-label radio"> 와이드핏 </label>
+          <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
+        </div>
       </div>
     </form>
     <!-- <div id="question_wrapper">
@@ -121,12 +113,12 @@
       $(function() {
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
-          location.href="style_profile_size_1.html";
+          location.href="style_profile_fit_2.html";
         });
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_fit_1.html";
+          location.href="style_profile_style_1.html";
         });
 
         // $('ul.tabs').tabs();
@@ -150,9 +142,6 @@
         // $('.button-collapse').sideNav('show');
         // Hide sideNav
         // $('.button-collapse').sideNav('hide');
-
-        // select option
-        $('select').material_select();
       });
     </script>
   </body>
