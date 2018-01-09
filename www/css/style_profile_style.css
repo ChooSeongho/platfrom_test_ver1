@@ -75,8 +75,18 @@ body {
   background-color: #ffffff;
 }
 
+.question_image_container {
+  cursor: pointer;
+}
+
+.question_image {
+  width: 100%
+}
+
 .question_checkmark {
   display: none;
+  bottom: 1vh;
+  right: 1vh;
 }
 
 .btn_long {
