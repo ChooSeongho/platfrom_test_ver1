@@ -21,11 +21,21 @@
 
       <script>
         $(function() {
-          function onBackKey() {
-            navigator.notification.confirm('msg', onBackKeyResult, '한번 더 누르시면 앱을 종료합니다.', 'N', 'Y');
+          function onLoad() {
+    		    document.addEventListener("deviceready", onDeviceReady, false);
+      		}
+
+          function onDeviceReady() {
+            document.addEventListener("backbutton", onBackKeyDown, true);
+            // createIframe(); //아이프레임으로 띄운 상태
           }
-          function onBackKeyResult(index) {
-            if(index == 2) {
+
+          function onBackKeyDown() {
+            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
+          }
+
+          function onBackKeyDownMsg(button) {
+            if(button == 2) {
               navigator.app.exitApp();
             }
           }
