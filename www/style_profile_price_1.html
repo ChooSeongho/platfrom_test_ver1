@@ -244,6 +244,7 @@
         var range = document.getElementsByClassName('price_range');
 
         $(range).each(function(index, value) {
+          alert("hoehow");
           alert($(range[index]).attr('name'));
           noUiSlider.create(range[index], {
             start: [1000, 4000],
