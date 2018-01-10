@@ -9,6 +9,20 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
       <link rel="stylesheet" type="text/css" href="css/receive_style.css" />
+
+      <script>
+        $(function() {
+          function onBackKey() {
+            navigator.notification.confirm('msg', onBackKeyResult, '한번 더 누르시면 앱을 종료합니다.', 'N', 'Y');
+          }
+          function onBackKeyResult(index) {
+            if(index == 2) {
+              navigator.app.exitApp();
+            }
+          }
+        });
+      </script>
+      
       <title>platfrom_test</title>
   </head>
   <body>

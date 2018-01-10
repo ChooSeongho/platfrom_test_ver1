@@ -31,7 +31,7 @@ body {
 }
 
 #progress_size {
-  width: 60%;
+  width: 80%;
   height: 1vh;
   background-color: blue;
 }
@@ -53,6 +53,12 @@ body {
   padding-left: 5vh;
   padding-right: 5vh;
   /* height: 86vh; */
+}
+
+.comment {
+  text-align: center;
+  font-size: 0.8em;
+  padding-bottom: 5vh;
 }
 
 .question {
@@ -88,21 +94,21 @@ body {
   display: none;
 }
 
-/* input color */
-.input-field input[type=text] {
-  border: 1px solid #880e4f;
-}
-/* label color */
-.input-field label {
-  color: #3e2723;
-}
-/* label underline focus color */
-.input-field input[type=text]:focus {
-  border: 1px solid #880e4f !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
+.price_range_output {
+  text-align: center;
+  padding-bottom: 2vh;
 }
 
+.price_selected {
+  padding: 2vh;
+}
+
+.range_container {
+  padding-top: 3vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
+  padding-bottom: 10vh;
+}
 
 .btn_long {
 	display: block;
@@ -118,4 +124,5 @@ body {
   width: 100%;
   bottom: 0;
   margin-bottom: 0;
+  z-index: 2012;
 }
