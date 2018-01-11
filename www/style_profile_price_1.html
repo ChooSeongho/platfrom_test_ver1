@@ -209,109 +209,109 @@
 
 
         // use noslider
-        var range = document.getElementById('price_range');
-
-        noUiSlider.create(range, {
-          start: [1000, 4000],
-          connect: true,
-          behaviour: 'tap-drag',
-          orientation: 'horizontal',
-          step: 1000,
-          range: {
-            'min' : 0,
-            'max' : 10000
-          },
-          pips: {
-            mode: 'steps',
-            stepped: true,
-            density: 4
-          },
-          format: wNumb({
-            decimal: 3,
-            thousand: ',',
-          })
-        });
-
-        var values_range = [
-          document.getElementById('price-selected-investment-1'),
-          document.getElementById('price-selected-investment-2')
-        ];
-
-        range.noUiSlider.on('update', function( values, handle ) {
-        	values_range[handle].innerHTML = values[handle] + " 원";
-        });
-
-        // var range = document.getElementsByClassName('price_range');
+        // var range = document.getElementById('price_range');
         //
-        // $(range).each(function(index, value) {
-        //   alert($(range[index]).attr('name'));
-        //   noUiSlider.create(range[index], {
-        //     start: [1000, 4000],
-        //     connect: true,
-        //     behaviour: 'tap-drag',
-        //     orientation: 'horizontal',
-        //     step: 1000,
-        //     range: {
-        //       'min' : 0,
-        //       'max' : 10000
-        //     },
-        //     pips: {
-        //       mode: 'steps',
-        //       stepped: true,
-        //       density: 4
-        //     },
-        //     format: wNumb({
-        //       decimal: 3,
-        //       thousand: ',',
-        //     })
-        //   });
+        // noUiSlider.create(range, {
+        //   start: [1000, 4000],
+        //   connect: true,
+        //   behaviour: 'tap-drag',
+        //   orientation: 'horizontal',
+        //   step: 1000,
+        //   range: {
+        //     'min' : 0,
+        //     'max' : 10000
+        //   },
+        //   pips: {
+        //     mode: 'steps',
+        //     stepped: true,
+        //     density: 4
+        //   },
+        //   format: wNumb({
+        //     decimal: 3,
+        //     thousand: ',',
+        //   })
         // });
-        //
         //
         // var values_range = [
         //   document.getElementById('price-selected-investment-1'),
-        //   document.getElementById('price-selected-investment-2'),
-        //   document.getElementById('price-selected-top-1'),
-        //   document.getElementById('price-selected-top-2'),
-        //   document.getElementById('price-selected-bottom-1'),
-        //   document.getElementById('price-selected-bottom-2'),
-        //   document.getElementById('price-selected-coat-1'),
-        //   document.getElementById('price-selected-coat-2'),
-        //   document.getElementById('price-selected-jacket-1'),
-        //   document.getElementById('price-selected-jacket-2'),
-        //   document.getElementById('price-selected-set-1'),
-        //   document.getElementById('price-selected-set-2'),
-        //   document.getElementById('price-selected-shoes-1'),
-        //   document.getElementById('price-selected-shoes-2'),
-        //   document.getElementById('price-selected-bag-1'),
-        //   document.getElementById('price-selected-bag-2'),
-        //   document.getElementById('price-selected-acc-1'),
-        //   document.getElementById('price-selected-acc-2')
+        //   document.getElementById('price-selected-investment-2')
         // ];
         //
-        // $(range).each(function(index, value) {
-        //   range[index].noUiSlider.on('update', function( values, handle ) {
-        //   	if($(value).attr('name') == "investment") {
-        //       values_range[handle].innerHTML = values[handle] + " 원";
-        //     } else if ($(value).attr('name') == "top") {
-        //       values_range[handle+2].innerHTML = values[handle] + " 원";
-        //     } else if ($(value).attr('name') == "bottom") {
-        //       values_range[handle+4].innerHTML = values[handle] + " 원";
-        //     } else if ($(value).attr('name') == "coat") {
-        //       values_range[handle+6].innerHTML = values[handle] + " 원";
-        //     } else if ($(value).attr('name') == "jacket") {
-        //       values_range[handle+8].innerHTML = values[handle] + " 원";
-        //     } else if ($(value).attr('name') == "set") {
-        //       values_range[handle+10].innerHTML = values[handle] + " 원";
-        //     } else if ($(value).attr('name') == "shoes") {
-        //       values_range[handle+12].innerHTML = values[handle] + " 원";
-        //     } else if ($(value).attr('name') == "bag") {
-        //       values_range[handle+14].innerHTML = values[handle] + " 원";
-        //     } else if ($(value).attr('name') == "acc") {
-        //       values_range[handle+16].innerHTML = values[handle] + " 원";
-        //     }
-        //   });
+        // range.noUiSlider.on('update', function( values, handle ) {
+        // 	values_range[handle].innerHTML = values[handle] + " 원";
         // });
+
+        var range = document.getElementsByClassName('price_range');
+
+        $(range).each(function(index, value) {
+          // alert($(range[index]).attr('name'));
+          noUiSlider.create(range[index], {
+            start: [1000, 4000],
+            connect: true,
+            behaviour: 'tap-drag',
+            orientation: 'horizontal',
+            step: 1000,
+            range: {
+              'min' : 0,
+              'max' : 10000
+            },
+            pips: {
+              mode: 'steps',
+              stepped: true,
+              density: 4
+            },
+            format: wNumb({
+              decimal: 3,
+              thousand: ',',
+            })
+          });
+        });
+
+
+        var values_range = [
+          document.getElementById('price-selected-investment-1'),
+          document.getElementById('price-selected-investment-2'),
+          document.getElementById('price-selected-top-1'),
+          document.getElementById('price-selected-top-2'),
+          document.getElementById('price-selected-bottom-1'),
+          document.getElementById('price-selected-bottom-2'),
+          document.getElementById('price-selected-coat-1'),
+          document.getElementById('price-selected-coat-2'),
+          document.getElementById('price-selected-jacket-1'),
+          document.getElementById('price-selected-jacket-2'),
+          document.getElementById('price-selected-set-1'),
+          document.getElementById('price-selected-set-2'),
+          document.getElementById('price-selected-shoes-1'),
+          document.getElementById('price-selected-shoes-2'),
+          document.getElementById('price-selected-bag-1'),
+          document.getElementById('price-selected-bag-2'),
+          document.getElementById('price-selected-acc-1'),
+          document.getElementById('price-selected-acc-2')
+        ];
+
+        $(range).each(function(index, value) {
+          range[index].noUiSlider.on('update', function( values, handle ) {
+          	if($(value).attr('name') == "investment") {
+              values_range[handle].innerHTML = values[handle] + " 원";
+            } else if ($(value).attr('name') == "top") {
+              values_range[handle+2].innerHTML = values[handle] + " 원";
+            } else if ($(value).attr('name') == "bottom") {
+              values_range[handle+4].innerHTML = values[handle] + " 원";
+            } else if ($(value).attr('name') == "coat") {
+              values_range[handle+6].innerHTML = values[handle] + " 원";
+            } else if ($(value).attr('name') == "jacket") {
+              values_range[handle+8].innerHTML = values[handle] + " 원";
+            } else if ($(value).attr('name') == "set") {
+              values_range[handle+10].innerHTML = values[handle] + " 원";
+            } else if ($(value).attr('name') == "shoes") {
+              values_range[handle+12].innerHTML = values[handle] + " 원";
+            } else if ($(value).attr('name') == "bag") {
+              values_range[handle+14].innerHTML = values[handle] + " 원";
+            } else if ($(value).attr('name') == "acc") {
+              values_range[handle+16].innerHTML = values[handle] + " 원";
+            }
+          });
+        });
 
       });
     </script>
