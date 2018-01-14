@@ -8,7 +8,7 @@
       <!-- Compiled and minified JavaScript -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
-      <link rel="stylesheet" type="text/css" href="css/style_profile_about.css" />
+      <link rel="stylesheet" type="text/css" href="css/style_profile_style.css" />
 
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -62,90 +62,59 @@
         <div class="row white">
           <div class="col percent_20"> SIZE </div>
           <div class="col percent_20"> FIT/CUT </div>
-          <div class="col percent_20"> STYLE </div>
+          <div class="col percent_20"><b> STYLE </b></div>
           <div class="col percent_20"> PRICE </div>
-          <div class="col percent_20"><b> ABOUT YOU </b></div>
+          <div class="col percent_20"> ABOUT YOU </div>
         </div>
       </div>
     </header>
 
     <div class="question">
-      <span id="question_content"> 받고 싶지 않은 품목은 어떤 것이 있나요? </span>
+      <span id="question_content"> 어떤 스타일이 당신에게 어울리나요? <br> 또 어떤 스타일로 보여지고 싶나요? </span>
     </div>
     <p>
     <div class="question_detail center-align">
       <div class="row middle">
         <div class="col s3 question_detail_content">
-          <label> 원피스 </lable>
+          <label> 러블리 </lable>
         </div>
         <div class="col s1"> </div>
         <div class="col s3 question_detail_content">
-          <label> 맨투맨 </lable>
+          <label> 럭셔리 </lable>
         </div>
         <div class="col s1"> </div>
         <div class="col s3 question_detail_content">
-          <label> 블라우스 </lable>
+          <label> 빈티지 </lable>
         </div>
         <div class="col s3 question_detail_content">
-          <label> 니트 </lable>
+          <label> 섹시 </lable>
         </div>
         <div class="col s1"> </div>
         <div class="col s3 question_detail_content">
-          <label> 스커트 </lable>
+          <label> 스포티 </lable>
         </div>
         <div class="col s1"> </div>
         <div class="col s3 question_detail_content">
-          <label> 바지 </lable>
+          <label> 심플베이직 </lable>
         </div>
         <div class="col s3 question_detail_content">
-          <label> 청바지 </lable>
+          <label> 시크모던 </lable>
         </div>
         <div class="col s1"> </div>
+        </div>
       </div>
     </div>
 
     <div class="question">
-      <span id="question_content"> 악세사리도 추천해 드릴까요? </span>
+      <span id="question_content"> 선호하는 브랜드나 쇼핑몰이 있나요?? </span>
     </div>
     <p>
     <div class="question_detail center-align">
-      <div class="row">
-        <div class="col s3 question_detail_content">
-          <label> 네 </lable>
-        </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_content">
-          <label> 아니오 </lable>
-        </div>
+      <div class="input-field col s6">
+        <input placeholder="" id="input_height" type="text" class="input_height">
+        <label for="input_height"></label>
       </div>
     </div>
-
-    <!-- <form id="question_wrapper">
-      <div class="question">
-        <span id="question_content"> 이 색깔만은 싫다! <br> 피하고 싶은 색깔을 모두 골라주세요! </span>
-      </div>
-      <p>
-      <div class="question_detail">
-        <div class="question_detail_content">
-          <img src="img/main_background.png" width="300px" height="300px">
-          <input type="checkbox" name="jean_skinny" id="jean_skinny" class="check_btn" value="skinny">
-          <label for="jean_skinny" class="input-label radio"> 스키니핏 </label>
-          <p>
-          <img src="img/main_background.png" width="300px" height="300px">
-          <input type="checkbox" name="jean_slim" id="jean_slim" class="check_btn" value="slim">
-          <label for="jean_slim" class="input-label radio"> 슬림핏 </label>
-          <p>
-          <input type="checkbox" name="jean_straight" id="jean_straight" class="check_btn" value="straight">
-          <label for="jean_straight" class="input-label radio"> 스트레이트핏 </label>
-          <p>
-          <input type="checkbox" name="jean_boots" id="jean_boots" class="check_btn" value="boots">
-          <label for="jean_boots" class="input-label radio"> 부츠컷 </label>
-          <p>
-          <input type="checkbox" name="jean_wide" id="jean_wide" class="check_btn" value="wide">
-          <label for="jean_wide" class="input-label radio"> 와이드핏 </label>
-        </div>
-      </div>
-    </form> -->
 
     <footer>
       <div class="footer_wrapper">
@@ -158,12 +127,12 @@
       $(function() {
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
-          location.href="style_profile_price_1.html";
+          location.href="style_profile_style_4.html";
         });
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_about_2.html";
+          location.href="style_profile_price_1.html";
         });
 
         $('.question_detail_content').on('click', function() {

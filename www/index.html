@@ -48,6 +48,8 @@
     <!-- 아이콘 불러오기 -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <script type="text/javascript" src="js/index.js"></script>
+
     <script>
       $(function() {
         function onLoad() {
@@ -55,7 +57,7 @@
     		}
 
         function onDeviceReady() {
-          document.addEventListener("backbutton", onBackKeyDown, true);
+          document.addEventListener("backbutton", onBackKeyDown, false);
           // createIframe(); //아이프레임으로 띄운 상태
         }
 
@@ -131,6 +133,9 @@
         // app.initialize();
 
         $(document).ready(function() {
+
+          app.initialize();
+
           // 로그인버튼 클릭했을 때.
           $('#signin').on('click', function() {
             // alert('signin');

@@ -8,7 +8,7 @@
       <!-- Compiled and minified JavaScript -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
-      <link rel="stylesheet" type="text/css" href="css/style_profile_about.css" />
+      <link rel="stylesheet" type="text/css" href="css/style_profile_style.css" />
 
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -62,45 +62,46 @@
         <div class="row white">
           <div class="col percent_20"> SIZE </div>
           <div class="col percent_20"> FIT/CUT </div>
-          <div class="col percent_20"> STYLE </div>
+          <div class="col percent_20"><b> STYLE </b></div>
           <div class="col percent_20"> PRICE </div>
-          <div class="col percent_20"><b> ABOUT YOU </b></div>
+          <div class="col percent_20"> ABOUT YOU </div>
         </div>
       </div>
     </header>
 
     <div class="question">
-      <span id="question_content"> 받고 싶지 않은 품목은 어떤 것이 있나요? </span>
+      <span id="question_content"> 어떨 때 당신은 옷을 신경쓰고 싶나요? <br> 또 평소에 어떤 룩들을 좋아하시나요? </span>
     </div>
     <p>
     <div class="question_detail center-align">
       <div class="row middle">
         <div class="col s3 question_detail_content">
-          <label> 원피스 </lable>
+          <label> 데이트룩 </lable>
         </div>
         <div class="col s1"> </div>
         <div class="col s3 question_detail_content">
-          <label> 맨투맨 </lable>
+          <label> 데일리룩 </lable>
         </div>
         <div class="col s1"> </div>
         <div class="col s3 question_detail_content">
-          <label> 블라우스 </lable>
+          <label> 캠퍼스룩 </lable>
         </div>
         <div class="col s3 question_detail_content">
-          <label> 니트 </lable>
+          <label> 오피스룩 </lable>
         </div>
         <div class="col s1"> </div>
         <div class="col s3 question_detail_content">
-          <label> 스커트 </lable>
+          <label> 모임룩 </lable>
         </div>
         <div class="col s1"> </div>
         <div class="col s3 question_detail_content">
-          <label> 바지 </lable>
+          <label> 나들이룩 </lable>
         </div>
         <div class="col s3 question_detail_content">
-          <label> 청바지 </lable>
+          <label> 여행룩 </lable>
         </div>
         <div class="col s1"> </div>
+        </div>
       </div>
     </div>
 
@@ -158,12 +159,12 @@
       $(function() {
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
-          location.href="style_profile_price_1.html";
+          location.href="style_profile_fit_3.html";
         });
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_about_2.html";
+          location.href="style_profile_style_2.html";
         });
 
         $('.question_detail_content').on('click', function() {

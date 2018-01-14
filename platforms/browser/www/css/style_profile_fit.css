@@ -1,5 +1,5 @@
 body {
-  padding-top: 18vh;
+  padding-top: 10vh;
   padding-bottom: 10vh;
 }
 
@@ -31,7 +31,7 @@ body {
 }
 
 #progress_size {
-  width: 80%;
+  width: 40%;
   height: 1vh;
   background-color: blue;
 }
@@ -55,12 +55,6 @@ body {
   /* height: 86vh; */
 }
 
-.comment {
-  text-align: center;
-  font-size: 0.8em;
-  padding-bottom: 5vh;
-}
-
 .question {
   padding: 2vh;
   background-color: #FFDFFF;
@@ -69,46 +63,37 @@ body {
   border-radius: 2px;
 }
 
-.question_detail {
-  padding-left: 3vh;
-  padding-right: 3vh;
-}
-
-.question_detail_content {
-  cursor: pointer;
-  margin: 1vh;
-  border: 2px solid #adceff;
-  background-color: #ffffff;
-}
-
-.question_image_container {
-  cursor: pointer;
-}
-
-.question_image {
-  width: 100%;
-}
-
-.question_checkmark {
-  position: absolute;
+/* 라디오버튼 숨기기 */
+/* input[type="radio"] {
   display: none;
+} */
+
+/* 글씨 색  등 라벨 설정*/
+input[type="checkbox"] + label {
+  font-size: 1em !important;
+  color: #000000;
+  margin-top: 2vh;
+  margin-bottom: 1vh;
 }
 
-.price_range_output {
-  text-align: center;
-  padding-bottom: 2vh;
+/* 라디오버튼 선택 전 border 색 */
+input[type="checkbox"]:not(:checked)+label:before, input[type="radio"]:not(:checked)+label:after {
+  border: 1px solid #5a5a5a;
 }
 
-.price_selected {
-  padding: 2vh;
+/* 라디오버튼 선택 시 체크 표시 */
+input[type="checkbox"]:checked+label:after, input[type="radio"].with-gap:checked+label:after {
+  background: url(../img/check.png) top no-repeat;
 }
 
-.range_container {
-  margin-top: 3vh;
-  margin-left: 5vh;
-  margin-right: 5vh;
-  margin-bottom: 10vh;
+/* 라디오버튼 선택 시 border */
+input[type="checkbox"]:checked+label:after, input[type="radio"].with-gap:checked+label:before, input[type="radio"].with-gap:checked+label:after {
+  border: 0px;
 }
+
+/* .check_btn {
+  border: 2px solid #26a69a;
+} */
 
 .btn_long {
 	display: block;
@@ -124,5 +109,4 @@ body {
   width: 100%;
   bottom: 0;
   margin-bottom: 0;
-  z-index: 2012;
 }

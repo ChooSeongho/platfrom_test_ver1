@@ -31,7 +31,7 @@ body {
 }
 
 #progress_size {
-  width: 80%;
+  width: 60%;
   height: 1vh;
   background-color: blue;
 }
@@ -53,12 +53,6 @@ body {
   padding-left: 5vh;
   padding-right: 5vh;
   /* height: 86vh; */
-}
-
-.comment {
-  text-align: center;
-  font-size: 0.8em;
-  padding-bottom: 5vh;
 }
 
 .question {
@@ -94,21 +88,21 @@ body {
   display: none;
 }
 
-.price_range_output {
-  text-align: center;
-  padding-bottom: 2vh;
+/* input color */
+.input-field input[type=text] {
+  border: 1px solid #880e4f;
+}
+/* label color */
+.input-field label {
+  color: #3e2723;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border: 1px solid #880e4f !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
 
-.price_selected {
-  padding: 2vh;
-}
-
-.range_container {
-  margin-top: 3vh;
-  margin-left: 5vh;
-  margin-right: 5vh;
-  margin-bottom: 10vh;
-}
 
 .btn_long {
 	display: block;
@@ -124,5 +118,4 @@ body {
   width: 100%;
   bottom: 0;
   margin-bottom: 0;
-  z-index: 2012;
 }

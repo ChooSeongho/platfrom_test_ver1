@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
+      <link rel="stylesheet" type="text/css" href="css/show_style.css" />
+
+      <!-- 스타일링 받기 서비스 아이콘 불러오기 -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <script>
+        $(function() {
+          function onLoad() {
+    		    document.addEventListener("deviceready", onDeviceReady, false);
+      		}
+
+          function onDeviceReady() {
+            document.addEventListener("backbutton", onBackKeyDown, true);
+            // createIframe(); //아이프레임으로 띄운 상태
+          }
+
+          function onBackKeyDown() {
+            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
+          }
+
+          function onBackKeyDownMsg(button) {
+            if(button == 2) {
+              navigator.app.exitApp();
+            }
+          }
+        });
+      </script>
+
+      <title>platfrom_test</title>
+  </head>
+  <body>
+    <div id="body_wrap">
+      <div class="style_wrapper some_padding">
+        <div class="style_img">
+          <div class="grade">
+            <h1> 4.2 </h1>
+          </div>
+          <!-- <img class="responsive-img middle_img" src="img/logo.png"/> -->
+        </div>
+        <div class="row valign-wrapper pro_info_wrap some_padding">
+          <div class="img_wrap">
+            <img src="img/main_background.png" alt="" class="circle responsive-img small_img">
+          </div>
+          <div class="col s4">
+            <span id="provider_name"> MONO SANA </span>
+          </div>
+          <div class="col s6 right right-align">
+            <span id="avg_satisfaction"> 평균만족도 3.4 </span>
+          </div>
+        </div>
+      </div>
+      <div class="consumer_info some_padding">
+        <span class="some_padding"> 고객정보 </span>
+        <div class = "row dont_margin">
+          <span class="col s4"> 성별 : 남 </span>
+          <span class="col s4"> 키 : 181 </span>
+          <span class="col s4"> 몸무게 : 78 </span>
+        </div>
+        <span class="some_padding"> 선호스타일 : 시크모던, 아메카지 </span>
+    </div>
+
+
+    <!-- <a id='show_goods' class="waves-effect waves-light btn-large btn_long">스타일링 상품 보러가기</a> -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#style_img').on('click', function() {
+          location.href="show_goods.html";
+        });
+
+        // 스타일링 받기 서비스 버튼 script
+        $('.fixed-action-btn').openFAB();
+        $('.fixed-action-btn').closeFAB();
+        $('.fixed-action-btn.toolbar').openToolbar();
+        $('.fixed-action-btn.toolbar').closeToolbar();
+      });
+      </script>
+  </body>
+</html>

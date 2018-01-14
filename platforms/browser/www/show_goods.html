@@ -13,9 +13,48 @@
       <!-- 스타일링 받기 서비스 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+      <script>
+        $(function() {
+          function onLoad() {
+    		    document.addEventListener("deviceready", onDeviceReady, false);
+      		}
+
+          function onDeviceReady() {
+            document.addEventListener("backbutton", onBackKeyDown, true);
+            // createIframe(); //아이프레임으로 띄운 상태
+          }
+
+          function onBackKeyDown() {
+            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
+          }
+
+          function onBackKeyDownMsg(button) {
+            if(button == 2) {
+              navigator.app.exitApp();
+            }
+          }
+
+
+          var val = location.href.substr(location.href.lastIndexOf('=') + 1);
+          $('.page_title').html(val + "님의 상품");
+
+        });
+      </script>
+
       <title>platfrom_test</title>
   </head>
   <body>
+    <header>
+      <div id="header_wrapper" class="light-blue darken-4">
+        <div id="back_btn_wrapper">
+          <i id="back_btn" class="material-icons">chevron_left</i>
+        </div>
+        <div class="page_title_wrapper">
+          <span class="page_title">  </span>
+        </div>
+      </div>
+    </header>
+
     <div id="goods_wrapper">
       <div class="row some_bottom_padding">
         <div class="col s6">
@@ -86,19 +125,6 @@
       </div>
     </div>
 
-    <!-- 스타일링 받기 서비스 -->
-    <div class="fixed-action-btn">
-      <a class="btn-floating btn-large red">
-        <i class="large material-icons">mode_edit</i>
-      </a>
-      <ul>
-        <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-        <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-        <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-        <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-      </ul>
-    </div>
-
     <footer>
       <div class="footer_wrapper">
         <a id="pay_button" class="waves-effect waves-light btn-large btn_long">구매하기</a>
@@ -107,11 +133,11 @@
 
     <script style="text/javascript">
       $(function() {
-        // 스타일링 받기 서비스 버튼 script
-        $('.fixed-action-btn').openFAB();
-        $('.fixed-action-btn').closeFAB();
-        $('.fixed-action-btn.toolbar').openToolbar();
-        $('.fixed-action-btn.toolbar').closeToolbar();
+
+        $('#back_btn').click(function() {
+          location.href = "main.html?active=show_style";
+        });
+
       });
     </script>
   </body>

@@ -8,7 +8,7 @@
       <!-- Compiled and minified JavaScript -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
-      <link rel="stylesheet" type="text/css" href="css/style_profile_about.css" />
+      <link rel="stylesheet" type="text/css" href="css/style_profile_fit.css" />
 
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -61,77 +61,24 @@
         </div>
         <div class="row white">
           <div class="col percent_20"> SIZE </div>
-          <div class="col percent_20"> FIT/CUT </div>
+          <div class="col percent_20"><b> FIT/CUT </b></div>
           <div class="col percent_20"> STYLE </div>
           <div class="col percent_20"> PRICE </div>
-          <div class="col percent_20"><b> ABOUT YOU </b></div>
+          <div class="col percent_20"> ABOUT YOU </div>
         </div>
       </div>
     </header>
 
-    <div class="question">
-      <span id="question_content"> 받고 싶지 않은 품목은 어떤 것이 있나요? </span>
-    </div>
-    <p>
-    <div class="question_detail center-align">
-      <div class="row middle">
-        <div class="col s3 question_detail_content">
-          <label> 원피스 </lable>
-        </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_content">
-          <label> 맨투맨 </lable>
-        </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_content">
-          <label> 블라우스 </lable>
-        </div>
-        <div class="col s3 question_detail_content">
-          <label> 니트 </lable>
-        </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_content">
-          <label> 스커트 </lable>
-        </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_content">
-          <label> 바지 </lable>
-        </div>
-        <div class="col s3 question_detail_content">
-          <label> 청바지 </lable>
-        </div>
-        <div class="col s1"> </div>
-      </div>
-    </div>
-
-    <div class="question">
-      <span id="question_content"> 악세사리도 추천해 드릴까요? </span>
-    </div>
-    <p>
-    <div class="question_detail center-align">
-      <div class="row">
-        <div class="col s3 question_detail_content">
-          <label> 네 </lable>
-        </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_content">
-          <label> 아니오 </lable>
-        </div>
-      </div>
-    </div>
-
-    <!-- <form id="question_wrapper">
+    <form id="question_wrapper">
       <div class="question">
-        <span id="question_content"> 이 색깔만은 싫다! <br> 피하고 싶은 색깔을 모두 골라주세요! </span>
+        <span id="question_content"> 진(청바지)에서 선호하는 핏을 모두 선택해주세요. </span>
       </div>
       <p>
       <div class="question_detail">
         <div class="question_detail_content">
-          <img src="img/main_background.png" width="300px" height="300px">
           <input type="checkbox" name="jean_skinny" id="jean_skinny" class="check_btn" value="skinny">
           <label for="jean_skinny" class="input-label radio"> 스키니핏 </label>
           <p>
-          <img src="img/main_background.png" width="300px" height="300px">
           <input type="checkbox" name="jean_slim" id="jean_slim" class="check_btn" value="slim">
           <label for="jean_slim" class="input-label radio"> 슬림핏 </label>
           <p>
@@ -143,9 +90,38 @@
           <p>
           <input type="checkbox" name="jean_wide" id="jean_wide" class="check_btn" value="wide">
           <label for="jean_wide" class="input-label radio"> 와이드핏 </label>
+          <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
         </div>
       </div>
-    </form> -->
+      <p>
+      <div class="question">
+        <span id="question_content"> 바지(슬랙스, 면바지 등)에서 선호하는 핏을 모두 선택해주세요. </span>
+      </div>
+      <p>
+      <div class="question_detail">
+        <div class="question_detail_content">
+          <input type="checkbox" name="pants_slim" id="pants_slim" class="check_btn" value="slim">
+          <label for="pants_slim" class="input-label radio"> 슬림핏 </label>
+          <p>
+          <input type="checkbox" name="pants_straight" id="pants_straight" class="check_btn" value="straight">
+          <label for="pants_straight" class="input-label radio"> 스트레이트핏 </label>
+          <p>
+          <input type="checkbox" name="pants_boots" id="pants_boots" class="check_btn" value="boots">
+          <label for="pants_boots" class="input-label radio"> 부츠컷 </label>
+          <p>
+          <input type="checkbox" name="pants_wide" id="pants_wide" class="check_btn" value="wide">
+          <label for="pants_wide" class="input-label radio"> 와이드핏 </label>
+          <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
+        </div>
+      </div>
+    </form>
+    <!-- <div id="question_wrapper">
+      <div class="question">
+        <span id="question_content"> 당신은 옷 쇼핑을 즐기시는 편인가요? </span>
+      </div>
+      <div class="question_detail">
+      </div>
+    </div> -->
 
     <footer>
       <div class="footer_wrapper">
@@ -158,23 +134,35 @@
       $(function() {
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
-          location.href="style_profile_price_1.html";
+          location.href="style_profile_fit_1.html";
         });
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_about_2.html";
+          location.href="style_profile_fit_3.html";
         });
 
-        $('.question_detail_content').on('click', function() {
-          $(this).css('background-color', function(index, value) {
-            if(value == "rgb(255, 255, 255)") {
-              return $(this).css('background-color', '#c51162');
-            } else {
-              return $(this).css('background-color', '#ffffff');
-            }
-          });
-        });
+        // $('ul.tabs').tabs();
+        // $('ul.tabs').tabs('select_stab', 'tab_id');
+
+        // 상단 탭 swipe 가능하도록 설정
+        // $('ul.tabs').tabs({swipeable: true});
+        $('ul.tabs').tabs();
+
+        // $('ul.tabs').bind("tabsselect", function(e, tab) {
+        //   alert(tab.index + "selected");
+        // });
+
+
+        // side-nav
+        // Initialize collapse button
+        $('.button-collapse').sideNav();
+        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+        // $('.collapsible').collapsible();
+        // Show sideNav
+        // $('.button-collapse').sideNav('show');
+        // Hide sideNav
+        // $('.button-collapse').sideNav('hide');
       });
     </script>
   </body>

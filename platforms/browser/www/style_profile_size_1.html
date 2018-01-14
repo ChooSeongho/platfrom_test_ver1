@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
+      <link rel="stylesheet" type="text/css" href="css/sign_up_2.css" />
+
+      <!-- 아이콘 불러오기 -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <script>
+        $(function() {
+          function onLoad() {
+    		    document.addEventListener("deviceready", onDeviceReady, false);
+      		}
+
+          function onDeviceReady() {
+            document.addEventListener("backbutton", onBackKeyDown, true);
+            // createIframe(); //아이프레임으로 띄운 상태
+          }
+
+          function onBackKeyDown() {
+            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
+          }
+
+          function onBackKeyDownMsg(button) {
+            if(button == 2) {
+              navigator.app.exitApp();
+            }
+          }
+        });
+      </script>
+
+      <title>platfrom_test</title>
+
+      <!-- <script>
+      $(function() {
+        $('#main_wrap').load("show_goods.html");
+      });
+      </script> -->
+  </head>
+  <body>
+    <header>
+      <div id="header_wrapper" class="light-blue darken-4">
+        <div id="back_btn_wrapper">
+          <i id="back_btn" class="material-icons">chevron_left</i>
+        </div>
+        <div class="page_title_wrapper">
+          <span class="page_title"> 스타일프로필 </span>
+        </div>
+      </div>
+      <div id="progressbar_wrapper">
+        <div id="progressbar">
+          <div id="progress_size">
+          </div>
+        </div>
+        <div class="row white">
+          <div class="col percent_20"><b> SIZE </b></div>
+          <div class="col percent_20"> FIT/CUT </div>
+          <div class="col percent_20"> STYLE </div>
+          <div class="col percent_20"> PRICE </div>
+          <div class="col percent_20"> ABOUT YOU </div>
+        </div>
+      </div>
+    </header>
+
+    <form id="personal_information_wrapper" style="padding-top:5vh;">
+      <div class="input-field col s6">
+        <p class="info_question"> 키(cm) </p>
+        <input placeholder="" id="input_height" type="text" class="input_height">
+        <label for="input_height"></label>
+      </div>
+      <div class="input-field col s6">
+        <p class="info_question"> 몸무게(kg) </p>
+        <input placeholder="" id="input_weight" type="text" class="input_weight">
+        <label for="input_weight"></label>
+      </div>
+      <div class="input-field col s6">
+        <p class="info_question"> 상의 치수는 무엇인가요?</p>
+        <input placeholder="" id="input_top_measurement" type="text" class="input_top_measurement">
+        <label for="input_top_measurement"></label>
+      </div>
+      <div class="input-field col s6">
+        <p class="info_question"> 허리를 기준으로 하의 치수는 무엇인가요?</p>
+        <input placeholder="" id="input_bottom_measurement_waist" type="text" class="input_bottom_measurement_waist">
+        <label for="input_bottom_measurement_waist"></label>
+      </div>
+      <div class="input-field col s6">
+        <p class="info_question"> 엉덩이(골반)을 기준으로 하의 치수는 무엇인가요?</p>
+        <input placeholder="" id="input_bottom_measurement_pelvis" type="text" class="input_bottom_measurement_pelvis">
+        <label for="input_bottom_measurement_pelvis"></label>
+      </div>
+      <div class="input-field col s6">
+        <p class="info_question"> 신발 치수는 무엇인가요?</p>
+        <input placeholder="" id="input_shoes_measurement" type="text" class="input_shoes_measurement">
+        <label for="input_shoes_measurement"></label>
+      </div>
+    </form>
+    <!-- <div id="question_wrapper">
+      <div class="question">
+        <span id="question_content"> 당신은 옷 쇼핑을 즐기시는 편인가요? </span>
+      </div>
+      <div class="question_detail">
+      </div>
+    </div> -->
+
+    <footer>
+      <div class="footer_wrapper">
+        <a id="next_btn" class="waves-effect waves-light btn btn_long">다음</a>
+      </div>
+    </footer>
+
+    <script>
+
+      $(function() {
+        // '뒤로가기' 버튼 클릭
+        $('#back_btn').on('click', function() {
+          location.href="style_profile_1.html";
+        });
+
+        // '다음' 버튼 클릭
+        $('#next_btn').on('click', function() {
+          location.href="style_profile_size_2.html";
+        });
+
+        // $('ul.tabs').tabs();
+        // $('ul.tabs').tabs('select_stab', 'tab_id');
+
+        // 상단 탭 swipe 가능하도록 설정
+        // $('ul.tabs').tabs({swipeable: true});
+        $('ul.tabs').tabs();
+
+        // $('ul.tabs').bind("tabsselect", function(e, tab) {
+        //   alert(tab.index + "selected");
+        // });
+
+
+        // side-nav
+        // Initialize collapse button
+        $('.button-collapse').sideNav();
+        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+        // $('.collapsible').collapsible();
+        // Show sideNav
+        // $('.button-collapse').sideNav('show');
+        // Hide sideNav
+        // $('.button-collapse').sideNav('hide');
+      });
+    </script>
+  </body>
+</html>

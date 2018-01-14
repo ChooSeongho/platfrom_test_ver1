@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
+      <link rel="stylesheet" type="text/css" href="css/sign_up_2.css" />
+
+      <!-- 아이콘 불러오기 -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <script>
+        $(function() {
+          function onLoad() {
+    		    document.addEventListener("deviceready", onDeviceReady, false);
+      		}
+
+          function onDeviceReady() {
+            document.addEventListener("backbutton", onBackKeyDown, true);
+            // createIframe(); //아이프레임으로 띄운 상태
+          }
+
+          function onBackKeyDown() {
+            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
+          }
+
+          function onBackKeyDownMsg(button) {
+            if(button == 2) {
+              navigator.app.exitApp();
+            }
+          }
+        });
+      </script>
+
+      <title>platfrom_test</title>
+
+      <!-- <script>
+      $(function() {
+        $('#main_wrap').load("show_goods.html");
+      });
+      </script> -->
+  </head>
+  <body>
+    <header>
+      <div id="header_wrapper" class="light-blue darken-4">
+        <div id="back_btn_wrapper">
+          <i id="back_btn" class="material-icons">chevron_left</i>
+        </div>
+        <div class="page_title_wrapper">
+          <span class="page_title"> 스타일프로필 </span>
+        </div>
+      </div>
+      <div id="progressbar_wrapper">
+        <div id="progressbar">
+          <div id="progress_size">
+          </div>
+        </div>
+        <div class="row white">
+          <div class="col percent_20"><b> SIZE </b></div>
+          <div class="col percent_20"> FIT/CUT </div>
+          <div class="col percent_20"> STYLE </div>
+          <div class="col percent_20"> PRICE </div>
+          <div class="col percent_20"> ABOUT YOU </div>
+        </div>
+      </div>
+    </header>
+
+    <form id="personal_information_wrapper" style="padding-top:5vh;">
+      <div class="input-field col s6">
+        <p class="info_question"> 어깨 </p>
+        <select>
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="1"> 넓음 </option>
+          <option value="2"> 보통 </option>
+          <option value="3"> 좁음 </option>
+        </select>
+      </div>
+      <div class="input-field col s6">
+        <p class="info_question"> 팔 </p>
+        <select>
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="1"> 긴편 </option>
+          <option value="2"> 보통 </option>
+          <option value="3"> 짧은편 </option>
+        </select>
+      </div>
+      <div class="input-field col s6">
+        <p class="info_question"> 밑위 </p>
+        <select>
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="1"> 긴편 </option>
+          <option value="2"> 보통 </option>
+          <option value="3"> 짧은편 </option>
+        </select>
+      </div>
+      <div class="input-field col s6">
+        <p class="info_question"> 엉덩이 </p>
+        <select>
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="1"> 넓음 </option>
+          <option value="2"> 보통 </option>
+          <option value="3"> 좁음 </option>
+        </select>
+      </div>
+      <div class="input-field col s6">
+        <p class="info_question"> 다리 </p>
+        <select>
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="1"> 긴편 </option>
+          <option value="2"> 보통 </option>
+          <option value="3"> 짧은편 </option>
+        </select>
+      </div>
+      <div class="input-field col s6">
+        <p class="info_question"> 발볼 </p>
+        <select>
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="1"> 넓음 </option>
+          <option value="2"> 보통 </option>
+          <option value="3"> 좁음 </option>
+        </select>
+      </div>
+    </form>
+    <!-- <div id="question_wrapper">
+      <div class="question">
+        <span id="question_content"> 당신은 옷 쇼핑을 즐기시는 편인가요? </span>
+      </div>
+      <div class="question_detail">
+      </div>
+    </div> -->
+
+    <footer>
+      <div class="footer_wrapper">
+        <a id="next_btn" class="waves-effect waves-light btn btn_long">다음</a>
+      </div>
+    </footer>
+
+    <script>
+
+      $(function() {
+        // '뒤로가기' 버튼 클릭
+        $('#back_btn').on('click', function() {
+          location.href="style_profile_size_1.html";
+        });
+
+        // '다음' 버튼 클릭
+        $('#next_btn').on('click', function() {
+          location.href="style_profile_fit_1.html";
+        });
+
+        // $('ul.tabs').tabs();
+        // $('ul.tabs').tabs('select_stab', 'tab_id');
+
+        // 상단 탭 swipe 가능하도록 설정
+        // $('ul.tabs').tabs({swipeable: true});
+        $('ul.tabs').tabs();
+
+        // $('ul.tabs').bind("tabsselect", function(e, tab) {
+        //   alert(tab.index + "selected");
+        // });
+
+
+        // side-nav
+        // Initialize collapse button
+        $('.button-collapse').sideNav();
+        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+        // $('.collapsible').collapsible();
+        // Show sideNav
+        // $('.button-collapse').sideNav('show');
+        // Hide sideNav
+        // $('.button-collapse').sideNav('hide');
+
+        // select option
+        $('select').material_select();
+      });
+    </script>
+  </body>
+</html>

@@ -10,27 +10,72 @@
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
       <link rel="stylesheet" type="text/css" href="css/main.css" />
 
+      <script type="text/javascript" src="js/index.js"></script>
+
+
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <script>
+        $(function() {
+          // app.initialize();
+
+          function onLoad() {
+    		    document.addEventListener("deviceready", onDeviceReady, false);
+      		}
+
+          function onDeviceReady() {
+            document.addEventListener("backbutton", onBackKeyDown, true);
+            // createIframe(); //아이프레임으로 띄운 상태
+          }
+
+          function onBackKeyDown() {
+            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
+          }
+
+          function onBackKeyDownMsg(button) {
+            if(button == 2) {
+              navigator.app.exitApp();
+            }
+          }
+
+
+        });
+      </script>
 
       <title>platfrom_test</title>
 
       <!-- <script>
       $(function() {
-        $('#main_wrap').load("show_goods.html");
+        $('#test-swipe-2').load("show_style.html");
       });
       </script> -->
+
   </head>
   <body>
     <header>
-      <div id="header_wrapper">
-          <p class="no_margin"> LOGO </p>
+      <!-- <div id="header_wrapper">
+        <p class="no_margin"> LOGO </p>
         <div>
-          <ul id="tabs" class="tabs">
-            <li class="tab col s3"><a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons some_margin_top">menu</i></a>/li> <!-- side-nav tab -->
+          <ul id="tabs-swipe-demo" class="tabs">
+            <li class="tab col s3"><a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons some_margin_top">menu</i></a></li>  side-nav tab
             <li class="tab col s3"><a class="active" href="#test-swipe-1">Test 2</a></li>
             <li class="tab col s3"><a href="#test-swipe-2">Test 3</a></li>
             <li class="tab col s3"><a href="#test-swipe-3">Test 4</a></li>
+          </ul>
+        </div>
+      </div> -->
+
+      <div id="header_wrapper">
+        <div class="logo_container">
+          <img class='logo' src="img/logo_temp.png"> </img>
+        </div>
+        <div class="tabs_container">
+          <ul id="tabs-swipe-demo" class="tabs">
+            <a href="#" data-activates="slide-out" class="button-collapse menu_icon"><i class="material-icons some_margin_top">menu</i></a>     <!-- side-nav tab -->
+            <li class="tab col s3"><a class="active" href="#test-swipe-1"> MY 코디몬스터 </a></li>
+            <li class="tab col s3"><a href="#test-swipe-2"> 스타일링 보기 </a></li>
+            <li class="tab col s3"><a href="#test-swipe-3"> 스타일 평가 </a></li>
           </ul>
         </div>
       </div>
@@ -53,50 +98,25 @@
       <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
     </ul>
 
-
-
-    <!-- tabs-swipe-demo items -->
-    <!-- <iframe id="test-swipe-1" class="col s12 blue" src="show_style.html" frameborder=0>Test 1</iframe>
-    <iframe id="test-swipe-2" class="col s12 red" src="show_goods.html" frameborder=0>Test 1</iframe> -->
-
-    <!-- <div id="test-swipe-1" class="col s12 blue">
-      <iframe id="main_iframe" src="show_style.html" width="100%" height="100%">show_style</iframe>
+    <div id="main_wrap">
+      <div id="test-swipe-1" class="col s12"> MY 코디몬스터 </div>
+      <div id="test-swipe-2" class="col s12"> 스타일링 보기 </div>
+      <div id="test-swipe-3" class="col s12"> 스타일링 평가 </div>
     </div>
-    <div id="test-swipe-2" class="col s12 blue">
-      <iframe id="main_iframe" src="show_style.html" width="100%" height="100%">show_style</iframe>
-    </div>
-    <div id="test-swipe-3" class="col s12 blue">
-      test3
-    </div>
-    <div id="test-swipe-4" class="col s12 blue">
-      test4
-    </div> -->
-    <div id="test-swipe-1" class="col s12 blue">Test 1</div>
-    <div id="test-swipe-2" class="col s12 red">Test 2</div>
-    <div id="test-swipe-3" class="col s12 green">Test 3</div>
-    <!-- <div id="test-swipe-4" class="col s12 yellow">Test 4</div> -->
-
-    <!-- 스타일링 받기 서비스 -->
-    <!-- <div class="fixed-action-btn click-to-toggle">
-      <a class="btn-floating btn-large red">
-        <i class="large material-icons">mode_edit</i>
-      </a>
-      <ul>
-        <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-        <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-        <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-        <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-      </ul>
-    </div> -->
-
-    <!-- <div id="main_wrap" class="valign-wrapper">
-      <a id="receive_style" class="waves-effect waves-light btn-large btn_long">스타일링 받기</a>
-      <a id="show_style" class="waves-effect waves-light btn-large btn_long">스타일링 보기</a>
-    </div>
-
-    <iframe src="show_style.html" width="100%" height="100%" frameborder="0">??????</iframe> -->
 
     <script>
+
+      // 스타일링 보기 페이지 불러오기
+      $('#test-swipe-2').load("show_style.html");
+
+      // $(function() {
+      //   // 상단 탭 swipe 가능하도록 설정
+      //   $('ul.tabs').tabs({swipeable: true});
+      //
+      //   // side-nav
+      //   // Initialize collapse button
+      //   $('.button-collapse').sideNav();
+      // });
 
       $(function() {
         // '스타일링 받기' 버튼 클릭
@@ -104,17 +124,45 @@
           location.href="receive_style.html";
         });
 
-        // '스타일링 보기' 버튼 클릭
-        $('#show_style').on('click', function() {
-          location.href="show_style.html";
+        // 스타일링 보기 페이지 불러오기
+        // $('#test-swipe-2').load("show_style.html");
+
+        $(document).on('click','.style_img', function() {
+          alert("clicked_style_img");
+          location.href="show_goods.html";
         });
+
+        // $('.style_img').live('click', function() {
+        //   location.href="show_goods.html";
+        // });
+
+        // $.ajax({url: "show_style.html",
+        //       type : 'GET',
+        //       async: true,
+        //       success: function(result) {
+        //         $('#test-swipe-2').html(result);
+        //       }});
+
+        // $('.style_img').click(function() {
+        //   alert("click style_img");
+        //   location.href="show_goods.html";
+        // });
+        //
+        // // 스타일링 보기 페이지 불러오기
+        // $('#test-swipe-2').load("show_style.html", function() {
+        //   $('style_img').live('click', function() {
+        //     location.href="show_goods.html";
+        //   });
+        // });
 
         // $('ul.tabs').tabs();
         // $('ul.tabs').tabs('select_stab', 'tab_id');
 
         // 상단 탭 swipe 가능하도록 설정
-        // $('ul.tabs').tabs({swipeable: true});
-        $('ul.tabs').tabs();
+        $('ul.tabs').tabs({swipeable: true});
+        // $('ul.tabs').tabs();
+
+        // $('.carousel.carousel-slider').carousel({fullWidth: true});
 
         // $('ul.tabs').bind("tabsselect", function(e, tab) {
         //   alert(tab.index + "selected");
@@ -124,12 +172,16 @@
         // side-nav
         // Initialize collapse button
         $('.button-collapse').sideNav();
+
         // Initialize collapsible (uncomment the line below if you use the dropdown variation)
         // $('.collapsible').collapsible();
         // Show sideNav
         // $('.button-collapse').sideNav('show');
         // Hide sideNav
         // $('.button-collapse').sideNav('hide');
+
+
+
       });
     </script>
   </body>

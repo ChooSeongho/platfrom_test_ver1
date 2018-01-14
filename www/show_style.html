@@ -13,88 +13,91 @@
       <!-- 스타일링 받기 서비스 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-      <script>
-        $(function() {
-          function onLoad() {
-    		    document.addEventListener("deviceready", onDeviceReady, false);
-      		}
-
-          function onDeviceReady() {
-            document.addEventListener("backbutton", onBackKeyDown, true);
-            // createIframe(); //아이프레임으로 띄운 상태
-          }
-
-          function onBackKeyDown() {
-            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
-          }
-
-          function onBackKeyDownMsg(button) {
-            if(button == 2) {
-              navigator.app.exitApp();
-            }
-          }
-        });
-      </script>
-
       <title>platfrom_test</title>
+
+
   </head>
   <body>
     <div id="body_wrap">
       <div class="style_wrapper some_padding">
         <div class="style_img">
-          <div class="grade">
-            <h1> 4.2 </h1>
+          <div class="styling_info_container">
+            <div class="styling_info_wrap">
+              <div class="provider_name_wrap">
+                <span id="provider_name">MONO SANA</span>
+              </div>
+              <div class="stylinged_customer_info_wrap">
+                <span id="customer_body_info">Customer 남 키 : 181</span>
+                <br>
+                <span id="customer_style_info">Style 시크모던, 아메카지</span>
+              </div>
+            </div>
+            <div class="grade_wrapper">
+              <h1 class="grade">4.2</h1>
+            </div>
           </div>
           <!-- <img class="responsive-img middle_img" src="img/logo.png"/> -->
         </div>
-        <div class="row valign-wrapper pro_info_wrap some_padding">
-          <div class="img_wrap">
-            <img src="img/main_background.png" alt="" class="circle responsive-img small_img">
-          </div>
-          <div class="col s4">
-            <span id="provider_name"> MONO SANA </span>
-          </div>
-          <div class="col s6 right right-align">
-            <span id="avg_satisfaction"> 평균만족도 3.4 </span>
-          </div>
-        </div>
       </div>
-      <div class="consumer_info some_padding">
-        <span class="some_padding"> 고객정보 </span>
-        <div class = "row dont_margin">
-          <span class="col s4"> 성별 : 남 </span>
-          <span class="col s4"> 키 : 181 </span>
-          <span class="col s4"> 몸무게 : 78 </span>
-        </div>
-        <span class="some_padding"> 선호스타일 : 시크모던, 아메카지 </span>
     </div>
 
-    <!-- 스타일링 받기 서비스 -->
-    <div class="fixed-action-btn">
-      <a class="btn-floating btn-large red">
-        <i class="large material-icons">mode_edit</i>
-      </a>
-      <ul>
-        <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-        <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-        <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-        <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-      </ul>
-    </div>
 
-    <a id='show_goods' class="waves-effect waves-light btn-large btn_long">스타일링 상품 보러가기</a>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('#show_goods').on('click', function() {
-          location.href="show_goods.html";
+    <!-- <a id='show_goods' class="waves-effect waves-light btn-large btn_long">스타일링 상품 보러가기</a> -->
+    <script>
+
+      $(function() {
+
+        var container = document.createElement("div");
+        container.className = "style_wrapper some_padding";
+        var styleimg = document.createElement("div");
+        styleimg.className = "style_img";
+        var style_info_container = document.createElement("div");
+        style_info_container.className = "styling_info_container";
+
+        var styling_info = document.createElement("div");
+        styling_info.className = "styling_info_wrap";
+        var provider = document.createElement("div");
+        provider.className = "provider_name_wrap";
+        var providerName = document.createElement("span");
+        providerName.id = "provider_name";
+        providerName.innerHTML = "choo";
+        provider.appendChild(providerName);
+        styling_info.appendChild(provider);
+        var styled_customer_info_wrap = document.createElement("div");
+        styled_customer_info_wrap.className = "stylinged_customer_info_wrap";
+        var customer_bodyInfo = document.createElement("span");
+        customer_bodyInfo.id = "customer_body_info";
+        customer_bodyInfo.innerHTML = "Customer 남 키 : 122 <br>";
+        var customer_styleInfo = document.createElement("span");
+        customer_styleInfo.id = "customer_style_info";
+        customer_styleInfo.innerHTML = "Style 두영아, 메롱";
+        styled_customer_info_wrap.appendChild(customer_bodyInfo);
+        styled_customer_info_wrap.appendChild(customer_styleInfo);
+        styling_info.appendChild(styled_customer_info_wrap);
+
+        var grade_wrap = document.createElement("div");
+        grade_wrap.className = "grade_wrapper";
+        var grade_point = document.createElement("h1");
+        grade_point.className = "grade";
+        grade_point.innerHTML = "1.2";
+        grade_wrap.appendChild(grade_point);
+
+        style_info_container.appendChild(styling_info);
+        style_info_container.appendChild(grade_wrap);
+        styleimg.appendChild(style_info_container);
+        container.appendChild(styleimg);
+
+        var contents = document.getElementById("body_wrap");
+        contents.appendChild(container);
+
+        $('.style_img').click(function() {
+          var providerName_parameter = $(this).find('#provider_name').text();
+          // alert($(this).find('#provider_name').text());
+          location.href="show_goods.html?name=" + providerName_parameter;
         });
 
-        // 스타일링 받기 서비스 버튼 script
-        $('.fixed-action-btn').openFAB();
-        $('.fixed-action-btn').closeFAB();
-        $('.fixed-action-btn.toolbar').openToolbar();
-        $('.fixed-action-btn.toolbar').closeToolbar();
+
       });
-      </script>
+    </script>
   </body>
 </html>
