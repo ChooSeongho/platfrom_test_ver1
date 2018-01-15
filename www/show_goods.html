@@ -36,7 +36,8 @@
 
 
           var val = location.href.substr(location.href.lastIndexOf('=') + 1);
-          $('.page_title').html(val + "님의 상품");
+          var result = val.replace("%20", " ");
+          $('.page_title').html(result + "님의 상품");
 
         });
       </script>
