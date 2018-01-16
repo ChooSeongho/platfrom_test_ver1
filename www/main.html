@@ -7,6 +7,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
       <!-- Compiled and minified JavaScript -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
       <link rel="stylesheet" type="text/css" href="css/main.css" />
 
@@ -80,8 +81,8 @@
         <div class="tabs_container">
           <ul id="tabs-swipe-demo" class="tabs">
             <a href="#" data-activates="slide-out" class="button-collapse menu_icon"><i class="material-icons some_margin_top">menu</i></a>     <!-- side-nav tab -->
-            <li class="tab col s3"><a href="#test-swipe-1"> MY 코디몬스터 </a></li>
-            <li class="tab col s3"><a href="#test-swipe-2"> 스타일링 보기 </a></li>
+            <li class="tab col s3"><a href="#test-swipe-1"> 스타일링 보기 </a></li>
+            <li class="tab col s3"><a href="#test-swipe-2"> MY 코디몬스터</a></li>
             <li class="tab col s3"><a href="#test-swipe-3"> 스타일 평가 </a></li>
           </ul>
         </div>
@@ -106,18 +107,23 @@
     </ul>
 
     <div id="main_wrap">
-      <div id="test-swipe-1" class="col s12"> MY 코디몬스터 </div>
-      <div id="test-swipe-2" class="col s12"> 스타일링 보기 </div>
+      <div id="test-swipe-1" class="col s12"> 스타일링 보기 </div>
+      <div id="test-swipe-2" class="col s12"> MY 코디몬스터 </div>
       <div id="test-swipe-3" class="col s12"> 스타일링 평가 </div>
     </div>
 
     <script>
 
       // 스타일링 보기 페이지 불러오기
-      $('#test-swipe-2').load("show_style.html");
+      $('#test-swipe-1').load("show_style.html");
+
+      // MY 코디몬스터 페이지 불러오기
+      $('#test-swipe-2').load("my_codymonster.html");
+
 
       // 스타일링 평가 페이지 불러오기
       $('#test-swipe-3').load("appraisal_style.html");
+
 
       // $(function() {
       //   // 상단 탭 swipe 가능하도록 설정
@@ -236,11 +242,13 @@
         //   }
         // });
 
+
+
+
         var touchmoved;
-        $("#body_wrap").on("touchend touchcancel", ".style_img", function(e) {
+        $("#test-swipe-1").on("touchend touchcancel", ".style_img", function(e) {
           e.preventDefault();
           if(touchmoved != true) {
-            console.log("touchend in document");
             var providerName_parameter = $(this).find('#provider_name').text();
             location.href="show_goods.html?name=" + providerName_parameter;
           }
@@ -249,6 +257,25 @@
         }).on("touchstart", ".style_img", function(e) {
           touchmoved = false;
         });
+
+
+        var touchmoved;
+        $("#test-swipe-2").on("touchend touchcancel", ".monster_wrapper", function(e) {
+          e.preventDefault();
+          if(touchmoved != true) {
+            var providerName_parameter = $(this).find('#monster_name').text();
+            location.href="show_stylist_info.html?name=" + providerName_parameter;
+          }
+        }).on("touchmove", ".monster_wrapper", function(e) {
+          touchmoved = true;
+        }).on("touchstart", ".monster_wrapper", function(e) {
+          touchmoved = false;
+        });
+
+
+
+
+
 
         // $(".style_img").on("touchend",function(e) {
         //   console.log("touchend");
@@ -278,7 +305,7 @@
         //   alert("click style_img");
         //   location.href="show_goods.html";
         // });
-        //
+
         // // 스타일링 보기 페이지 불러오기
         // $('#test-swipe-2').load("show_style.html", function() {
         //   $('style_img').live('click', function() {

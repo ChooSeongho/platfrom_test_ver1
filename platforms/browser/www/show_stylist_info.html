@@ -8,7 +8,7 @@
       <!-- Compiled and minified JavaScript -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
-      <link rel="stylesheet" type="text/css" href="css/show_style.css" />
+      <link rel="stylesheet" type="text/css" href="css/show_stylist_info.css" />
 
       <!-- 스타일링 받기 서비스 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -33,55 +33,52 @@
               navigator.app.exitApp();
             }
           }
+
+          var val = location.href.substr(location.href.lastIndexOf('=') + 1);
+          var result = val.replace("%20", " ");
+          $('.page_title').html(result + "님의 상품");
+
         });
       </script>
 
       <title>platfrom_test</title>
   </head>
   <body>
-    <div id="body_wrap">
-      <div class="style_wrapper some_padding">
-        <div class="style_img">
-          <div class="grade">
-            <h1> 4.2 </h1>
-          </div>
-          <!-- <img class="responsive-img middle_img" src="img/logo.png"/> -->
+    <header>
+      <div id="header_wrapper" class="light-blue darken-4">
+        <div id="back_btn_wrapper">
+          <i id="back_btn" class="material-icons">chevron_left</i>
         </div>
-        <div class="row valign-wrapper pro_info_wrap some_padding">
-          <div class="img_wrap">
-            <img src="img/main_background.png" alt="" class="circle responsive-img small_img">
-          </div>
-          <div class="col s4">
-            <span id="provider_name"> MONO SANA </span>
-          </div>
-          <div class="col s6 right right-align">
-            <span id="avg_satisfaction"> 평균만족도 3.4 </span>
-          </div>
+        <div class="page_title_wrapper">
+          <span class="page_title">  </span>
         </div>
       </div>
-      <div class="consumer_info some_padding">
-        <span class="some_padding"> 고객정보 </span>
-        <div class = "row dont_margin">
-          <span class="col s4"> 성별 : 남 </span>
-          <span class="col s4"> 키 : 181 </span>
-          <span class="col s4"> 몸무게 : 78 </span>
-        </div>
-        <span class="some_padding"> 선호스타일 : 시크모던, 아메카지 </span>
+    </header>
+
+    <div id="body_wrap">
+      <div class="style_img"></div>
+      <div class="pro_info_wrap valign-wrapper">
+        <img src="img/main_background.png" alt="" class="circle small_img">
+        <div id="provider_name"> MONO SANA </div>
+        <div id="avg_satisfaction"> 평균만족도 3.4 </div>
+      </div>
     </div>
+
+      <footer>
+        <div class="footer_wrapper">
+          <a id="pay_button" class="waves-effect waves-light btn-large btn_long">스타일링신청</a>
+        </div>
+      </footer>
 
 
     <!-- <a id='show_goods' class="waves-effect waves-light btn-large btn_long">스타일링 상품 보러가기</a> -->
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('#style_img').on('click', function() {
-          location.href="show_goods.html";
-        });
+    <script>
+      $('#back_btn').click(function() {
+        history.back();
+      });
 
-        // 스타일링 받기 서비스 버튼 script
-        $('.fixed-action-btn').openFAB();
-        $('.fixed-action-btn').closeFAB();
-        $('.fixed-action-btn.toolbar').openToolbar();
-        $('.fixed-action-btn.toolbar').closeToolbar();
+      $('#pay_button').click(function() {
+        location.href = "buy_styling_goods.html";
       });
       </script>
   </body>
