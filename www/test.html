@@ -1,107 +1,222 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>jQuery example: touch events</title>
-        <style>
-            p {
-                width: 400px;
+  <head>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
+      <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+
+      <script type="text/javascript" src="js/index.js"></script>
+
+
+
+      <!-- 아이콘 불러오기 -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <script>
+        $(function() {
+          // app.initialize();
+
+          function onLoad() {
+    		    document.addEventListener("deviceready", onDeviceReady, false);
+      		}
+
+          function onDeviceReady() {
+            document.addEventListener("backbutton", onBackKeyDown, true);
+            // createIframe(); //아이프레임으로 띄운 상태
+          }
+
+          function onBackKeyDown() {
+            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
+          }
+
+          function onBackKeyDownMsg(button) {
+            if(button == 2) {
+              navigator.app.exitApp();
             }
-        </style>
-    </head>
-    <body>
-    <h1>Touch Events</h1>
-    <p class="test">
-    If you're using a mobile browser, touch the screen with one or more
-    fingers and see what happens.  If you're on a desktop browser you
-    can use Chrome Dev Tools to simulate touch events.  See the section on
-    <a href="https://developer.chrome.com/devtools/docs/device-mode#device-sensors">emulating sensors</a> for more details.
-    </p>
-    <p>
-    For a detailed explanation of the Touch Events standard please see the
-    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch_events"> touch events</a> page on the Mozilla Developer Network (MDN).
-    </p>
+          }
 
-    <!--source for jQuery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+          var val = location.href.substr(location.href.lastIndexOf('=') + 1);
+          if(val == "show_stylist") {
+            $('ul.tabs').tabs("select_tab", "test-swipe-2");
+          }
 
+        });
+      </script>
+
+      <title>platfrom_test</title>
+
+  </head>
+  <body>
+    <header>
+
+      <div id="header_wrapper">
+        <div class="logo_container">
+          <img class='logo' src="img/logo_temp.png"> </img>
+        </div>
+        <div class="tabs_container">
+          <ul id="tabs-swipe-demo" class="tabs">
+            <a href="#" data-activates="slide-out" class="button-collapse menu_icon"><i class="material-icons some_margin_top">menu</i></a>     <!-- side-nav tab -->
+            <li class="tab col s3"><a href="#test-swipe-1"> 스타일링 보기 </a></li>
+            <li class="tab col s3"><a href="#test-swipe-2"> MY 코디몬스터</a></li>
+            <li class="tab col s3"><a href="#test-swipe-3"> 스타일 평가 </a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- side-nav items -->
+    <ul id="slide-out" class="side-nav">
+      <li><div class="user-view">
+        <div class="background">
+          <img src="img/main_background.png">
+        </div>
+        <a href="#!user"><img class="circle" src="img/logo.png"></a>
+        <a href="#!name"><span class="white-text name">John Doe</span></a>
+        <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+      </div></li>
+      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+      <li><a href="#!">Second Link</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Subheader</a></li>
+      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+
+    <div id="main_wrap">
+      <div id="test-swipe-1" class="col s12"> 스타일링 보기 </div>
+      <div id="test-swipe-2" class="col s12"> MY 코디몬스터 </div>
+      <div id="test-swipe-3" class="col s12"> 스타일링 평가 </div>
+
+      <!-- Modal Trigger -->
+      <div class="fixed-action-btn">
+        <a class="waves-effect waves-light btn-floating btn-large modal-trigger" href="#modal1">Modal</a>
+      </div>
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content float_left">
+          <h4 class="modal_btn">남자</h4>
+        </div>
+        <div class="modal-content float_left">
+          <h4 class="modal_btn">여자</h4>
+        </div>
+      </div>
+    </div>
 
     <script>
-        // touchstart events when you first press the screen with
-        // your finger
-        $(document).on("touchstart", function(e) {
-            e.preventDefault();
 
-            // changedTouches contains all of the touchstart events
-            // that occurred at the same time
-            var changedTouches = e.originalEvent.changedTouches;
+      // 스타일링 보기 페이지 불러오기
+      $('#test-swipe-1').load("show_style.html");
 
-            for (var i = 0; i < changedTouches.length; i++) {
-                var touch = changedTouches[i];
+      // MY 코디몬스터 페이지 불러오기
+      $('#test-swipe-2').load("my_codymonster.html");
 
-                $("<img>").attr({
-                    src: "https://www.kasandbox.org/programming-images/avatars/mr-pink.png",
-                    // each touch has a unique identifier
-                    // we'll assign use this identifier as
-                    // the id so that each touch is paired
-                    // with an <img>
-                    id: touch.identifier
-                }).css({
-                    position: "absolute",
-                    left: touch.pageX,
-                    top: touch.pageY
-                }).appendTo(document.body);
-            }
+
+      // 스타일링 평가 페이지 불러오기
+      $('#test-swipe-3').load("appraisal_style.html");
+
+      $(function() {
+        // '스타일링 받기' 버튼 클릭
+        $('#receive_style').on('click', function() {
+          location.href="receive_style.html";
         });
 
-        // touchmove events occur when you drag your finger
-        $(document).on("touchmove", function(e) {
-            e.preventDefault();
 
-            var changedTouches = e.originalEvent.changedTouches;
+        // modal init
+        $('.modal').modal();
 
-            for (var i = 0; i < changedTouches.length; i++) {
-                var touch = changedTouches[i];
-                $("#" + touch.identifier).css({
-                    left: touch.pageX,
-                    top: touch.pageY
-                });
-            }
-        });
-
-        // touchend events occur when you lift your finger
-        $(document).on("touchstart", ".test", function(e) {
-            console.log("touchstart");
-            e.preventDefault();
-
-            var changedTouches = e.originalEvent.changedTouches;
-
-            for (var i = 0; i < changedTouches.length; i++) {
-                var touch = changedTouches[i];
-                $("#" + touch.identifier).remove();
-            }
-        }).on("touchend", ".test", function(e) {
+        var touchmoved;
+        $("#test-swipe-1").on("touchend touchcancel", ".style_img", function(e) {
           e.preventDefault();
-          console.log("touchend");
-        }).on("touchmove", ".test", function(e) {
+          if(touchmoved != true) {
+            var providerName_parameter = $(this).find('#provider_name').text();
+            location.href="show_goods.html?name=" + providerName_parameter;
+          }
+        }).on("touchmove", ".style_img", function(e) {
+          touchmoved = true;
+        }).on("touchstart", ".style_img", function(e) {
+          touchmoved = false;
+        });
+
+
+        var touchmoved;
+        $("#test-swipe-2").on("touchend touchcancel", ".monster_wrapper", function(e) {
           e.preventDefault();
-          console.log("touchmove");
+          if(touchmoved != true) {
+            var providerName_parameter = $(this).find('#monster_name').text();
+            location.href="show_stylist_info.html?name=" + providerName_parameter;
+          }
+        }).on("touchmove", ".monster_wrapper", function(e) {
+          touchmoved = true;
+        }).on("touchstart", ".monster_wrapper", function(e) {
+          touchmoved = false;
         });
 
-        // touchcancel events occur when you switch to a different program
-        // or do something to interrupt the stream of touch events
-        $(document).on("touchcancel", function(e) {
-            console.log("touchcancel");
-            e.preventDefault();
 
-            var changedTouches = e.originalEvent.changedTouches;
+        // $('ul.tabs').tabs();
+        // $('ul.tabs').tabs('select_stab', 'tab_id');
 
-            for (var i = 0; i < changedTouches.length; i++) {
-                var touch = changedTouches[i];
-                $("#" + touch.identifier).remove();
-            }
-        });
+        // 상단 탭 swipe 가능하도록 설정
+        // var current_tab;
+        // $('ul.tabs').tabs({
+        //   swipeable: true,
+        //   onShow: function(tab) {
+        //     console.log(tab);
+        //     if(tab[0].id == "test-swipe-1") {
+        //       $('ul.tabs').tabs('select_tab', '#test-swipe-2');
+        //       $('.fixed-action-btn').hide();
+        //       // $('.fixed-action-btn').css('display', 'none');
+        //     } else {
+        //       $('.fixed-action-btn').show();
+        //       // $('.fixed-action-btn').css('display', 'inline-block');
+        //     }
+        // }});
+
+        $('ul.tabs').tabs('select_tab', '#test-swipe-3');
+
+        // $('ul.tabs').tabs({swipeable: true});
+
+
+        // 추가된 element(node)가 있으면 이벤트 발생
+        // $('#main_wrap').on('DOMNodeInserted', '#test-swipe-2', function() {
+        //   console.log("change");
+        //   if($('#test-swipe-2').hasClass('active')) {
+        //     $('.fixed-action-btn').css('display', 'none');
+        //   } else {
+        //     $('.fixed-action-btn').css('display', 'inline-block');
+        //   }
+        // });
+
+
+        // $('ul.tabs').tabs();
+
+        // $('.carousel.carousel-slider').carousel({fullWidth: true});
+
+        // $('ul.tabs').bind("tabsselect", function(e, tab) {
+        //   alert(tab.index + "selected");
+        // });
+
+
+        // side-nav
+        // Initialize collapse button
+        $('.button-collapse').sideNav();
+
+        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+        // $('.collapsible').collapsible();
+        // Show sideNav
+        // $('.button-collapse').sideNav('show');
+        // Hide sideNav
+        // $('.button-collapse').sideNav('hide');
+
+
+
+      });
     </script>
-
-    </body>
+  </body>
 </html>

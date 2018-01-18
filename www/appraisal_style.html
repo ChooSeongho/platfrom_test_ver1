@@ -11,30 +11,15 @@
           <div class="appraisal_question_wrap">
             <span id="appraisal_question">이 스타일링이 마음에 드시나요?</span>
           </div>
-          <span class="star-input">
-            <span class="input">
-                <input type="radio" name="star-input" value="1" id="p1">
-                <label for="p1">1</label>
-                <input type="radio" name="star-input" value="2" id="p2">
-                <label for="p2">2</label>
-                <input type="radio" name="star-input" value="3" id="p3">
-                <label for="p3">3</label>
-                <input type="radio" name="star-input" value="4" id="p4">
-                <label for="p4">4</label>
-                <input type="radio" name="star-input" value="5" id="p5">
-                <label for="p5">5</label>
-                <input type="radio" name="star-input" value="6" id="p6">
-                <label for="p6">6</label>
-                <input type="radio" name="star-input" value="7" id="p7">
-                <label for="p7">7</label>
-                <input type="radio" name="star-input" value="8" id="p8">
-                <label for="p8">8</label>
-                <input type="radio" name="star-input" value="9" id="p9">
-                <label for="p9">9</label>
-                <input type="radio" name="star-input" value="10" id="p10">
-                <label for="p10">10</label>
-              </span>
-          </span>
+
+          <div class="star_container">
+            <i class="material-icons dp48 star_grade_1 star_btn">star_border</i>
+            <i class="material-icons dp48 star_grade_2 star_btn">star_border</i>
+            <i class="material-icons dp48 star_grade_3 star_btn">star_border</i>
+            <i class="material-icons dp48 star_grade_4 star_btn">star_border</i>
+            <i class="material-icons dp48 star_grade_5 star_btn">star_border</i>
+          </div>
+
         </div>
       </div>
     </div>
@@ -44,7 +29,42 @@
     <script>
 
       $(function() {
-  
+        $('.star_btn').on("touchend", function(e) {
+          e.preventDefault();
+          var split_for_grade = this.className.split(" ");
+          var length = split_for_grade[2].charAt(11);
+          for(i=1; i<=length; i++) {
+            $('.star_grade_'+i).text("star");
+          }
+          for(j=5; j>length; j--) {
+            $('.star_grade_'+j).text("star_border");
+          }
+        });
+
+
+
+        for(i=0; i<3; i++) {
+          var appraisalImg = document.createElement("div");
+          appraisalImg.id = "appraisal_img_"+i;
+          appraisalImg.className = "appraisalImg";
+          appraisalImg.background = "url('../img/appraisal_" + (i+1) + ".png') no-repeat";
+          var contents = "<div class='appraisal_grade_container'>" +
+            "<div class='appraisal_question_wrap'>" +
+              "<span id='appraisal_question'>이 스타일링이 마음에 드시나요?</span>" +
+            "</div>" +
+            "<div class='star_container'>" +
+              "<i class='material-icons dp48 star_grade_1 star_btn'>star_border</i>" +
+              "<i class='material-icons dp48 star_grade_2 star_btn'>star_border</i>" +
+              "<i class='material-icons dp48 star_grade_3 star_btn'>star_border</i>" +
+              "<i class='material-icons dp48 star_grade_4 star_btn'>star_border</i>" +
+              "<i class='material-icons dp48 star_grade_5 star_btn'>star_border</i>" +
+            "</div>" +
+          "</div>";
+
+          appraisalImg.append(contents);
+          $('#appraisal_wrap').append(appraisalImg);
+        }
+
       });
     </script>
   </body>

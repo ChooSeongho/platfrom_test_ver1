@@ -52,14 +52,20 @@
 
     <script>
       $(function() {
-        function onLoad() {
-  		    document.addEventListener("deviceready", onDeviceReady, false);
-    		}
 
-        function onDeviceReady() {
-          document.addEventListener("backbutton", onBackKeyDown, false);
-          // createIframe(); //아이프레임으로 띄운 상태
-        }
+        app.initialize();
+
+        // document.addEventListener("deviceready", onDeviceReady, false);
+        //
+        // function onDeviceReady() {
+        //   console.log(StatusBar);
+        //   alert(StatusBar);
+        //   StatusBar.StatusBarOverlaysWebView(false);
+        //   StatusBar.styleDefault();
+        //   StatusBar.backgroundColorByName("white");
+        //   document.addEventListener("backbutton", onBackKeyDown, true);
+        //   // createIframe(); //아이프레임으로 띄운 상태
+        // }
 
         function onBackKeyDown() {
           navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');

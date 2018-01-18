@@ -6,13 +6,15 @@ html, body {
   -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
   -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
   -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-  height: 100%;
 }
 
 #header_wrapper {
+  position: fixed;
   /* height: 13vh; */
+  width: 100%;
   height: 90px;
   z-index: 2012;
+  background: #ffffff;
 }
 
 .logo_container {
@@ -25,11 +27,11 @@ html, body {
   color: #000000 !important;
 }
 .tabs .tab a:hover, .tabs .tab a.active {
-  color: #abcdef !important;
+  color: #8b9bce !important;
 }
 
 .tabs .indicator {
-  background-color: #abcdef !important;
+  background-color: #8b9bce !important;
 }
 
 .menu_icon {
@@ -65,9 +67,35 @@ html, body {
 
 #main_wrap {
   /* padding-top: 1vh; */
-  padding-top: 5px;
-  height: calc(100% - 90px);
+  padding-top: 95px;
+  /* height: calc(100vh - 90px); */
   /* height: 100vh; */
+}
+
+.float_left {
+  float: left;
+}
+
+.modal {
+  text-align: center;
+  padding-top: 30vh !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+.modal-content {
+  width: 30vw;
+  height: 30vw;
+  border-radius: 50%;
+  background-color: #ffffff;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+.modal_btn {
+  cursor: pointer;
+  padding-top: 4vw;
 }
 
 .btn_long {

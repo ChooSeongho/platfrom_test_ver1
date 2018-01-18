@@ -26,6 +26,25 @@
  	height: 60px;
  } */
 
+ .event {
+     border-radius:4px;
+     -webkit-border-radius:4px;
+     color:#FFFFFF;
+     font-size:12px;
+     margin:0px 30px;
+     padding:2px 0px;
+ }
+
+ .event.waiting {
+     background-color:#333333;
+     display:block;
+ }
+
+ .event.received {
+     background-color:#4B946A;
+     display:none;
+ }
+
 body {
   padding-top: 50%;
  }
