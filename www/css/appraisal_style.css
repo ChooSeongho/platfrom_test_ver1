@@ -24,4 +24,6 @@
 
 .star_btn {
   cursor: pointer;
+  padding-left: 2vw;
+  padding-right: 2vw;
 }
