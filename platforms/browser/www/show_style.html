@@ -46,49 +46,54 @@
     <script>
 
       $(function() {
+        for(i=0; i<9; i++) {
+          var container = document.createElement("div");
+          container.className = "style_wrapper some_padding";
+          var styleimg = document.createElement("div");
+          styleimg.className = "style_img";
+          $(styleimg).css('background', "url('img/show_style_" + (i+1) + ".jpg') no-repeat");
+          $(styleimg).css('background-size', "100% 100%");
+          var style_info_container = document.createElement("div");
+          style_info_container.className = "styling_info_container";
 
-        var container = document.createElement("div");
-        container.className = "style_wrapper some_padding";
-        var styleimg = document.createElement("div");
-        styleimg.className = "style_img";
-        var style_info_container = document.createElement("div");
-        style_info_container.className = "styling_info_container";
+          var styling_info = document.createElement("div");
+          styling_info.className = "styling_info_wrap";
+          var provider = document.createElement("div");
+          provider.className = "provider_name_wrap";
+          var providerName = document.createElement("span");
+          providerName.id = "provider_name";
+          providerName.innerHTML = "choo";
+          provider.appendChild(providerName);
+          styling_info.appendChild(provider);
+          var styled_customer_info_wrap = document.createElement("div");
+          styled_customer_info_wrap.className = "stylinged_customer_info_wrap";
+          var customer_bodyInfo = document.createElement("span");
+          customer_bodyInfo.id = "customer_body_info";
+          customer_bodyInfo.innerHTML = "Customer 남 키 : 122 <br>";
+          var customer_styleInfo = document.createElement("span");
+          customer_styleInfo.id = "customer_style_info";
+          customer_styleInfo.innerHTML = "Style 두영아, 메롱";
+          styled_customer_info_wrap.appendChild(customer_bodyInfo);
+          styled_customer_info_wrap.appendChild(customer_styleInfo);
+          styling_info.appendChild(styled_customer_info_wrap);
 
-        var styling_info = document.createElement("div");
-        styling_info.className = "styling_info_wrap";
-        var provider = document.createElement("div");
-        provider.className = "provider_name_wrap";
-        var providerName = document.createElement("span");
-        providerName.id = "provider_name";
-        providerName.innerHTML = "choo";
-        provider.appendChild(providerName);
-        styling_info.appendChild(provider);
-        var styled_customer_info_wrap = document.createElement("div");
-        styled_customer_info_wrap.className = "stylinged_customer_info_wrap";
-        var customer_bodyInfo = document.createElement("span");
-        customer_bodyInfo.id = "customer_body_info";
-        customer_bodyInfo.innerHTML = "Customer 남 키 : 122 <br>";
-        var customer_styleInfo = document.createElement("span");
-        customer_styleInfo.id = "customer_style_info";
-        customer_styleInfo.innerHTML = "Style 두영아, 메롱";
-        styled_customer_info_wrap.appendChild(customer_bodyInfo);
-        styled_customer_info_wrap.appendChild(customer_styleInfo);
-        styling_info.appendChild(styled_customer_info_wrap);
+          var grade_wrap = document.createElement("div");
+          grade_wrap.className = "grade_wrapper";
+          var grade_point = document.createElement("h1");
+          grade_point.className = "grade";
+          grade_point.innerHTML = "1.2";
+          grade_wrap.appendChild(grade_point);
 
-        var grade_wrap = document.createElement("div");
-        grade_wrap.className = "grade_wrapper";
-        var grade_point = document.createElement("h1");
-        grade_point.className = "grade";
-        grade_point.innerHTML = "1.2";
-        grade_wrap.appendChild(grade_point);
+          style_info_container.appendChild(styling_info);
+          style_info_container.appendChild(grade_wrap);
+          styleimg.appendChild(style_info_container);
+          container.appendChild(styleimg);
 
-        style_info_container.appendChild(styling_info);
-        style_info_container.appendChild(grade_wrap);
-        styleimg.appendChild(style_info_container);
-        container.appendChild(styleimg);
+          var contents = document.getElementById("body_wrap");
+          contents.appendChild(container);
+        }
 
-        var contents = document.getElementById("body_wrap");
-        contents.appendChild(container);
+
 
         // $('.style_img').click(function() {
         //   var providerName_parameter = $(this).find('#provider_name').text();

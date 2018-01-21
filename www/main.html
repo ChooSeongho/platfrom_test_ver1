@@ -143,6 +143,29 @@
 
       $(function() {
 
+        var headerHeight = $('#header_wrapper').height();
+        var hideHeader = headerHeight - $('.logo_container').outerHeight();
+        var startPoint;
+        var ishide = false;
+        $(window).on('touchmove', function(event){
+          didScroll = true;
+          // console.log('window = ' + $(window).height() + " /// document = " + $(document).height() + " //// thisTop = " + $(this).scrollTop() + " //// thisheight = " + $(this).height());
+          console.log('start = ' + startPoint + " /// moved = " + ($(this).scrollTop() + 10));
+          if((startPoint > $(this).scrollTop() && ishide) || $(this).scrollTop() == 0) {
+            $('.logo_container').show();
+            $('#header_wrapper').height(headerHeight);
+            console.log('scroll up');
+            ishide = false;
+          } else if(startPoint < $(this).scrollTop() && !ishide) {
+            $('.logo_container').hide();
+            $('#header_wrapper').height(hideHeader);
+            console.log('scroll down');
+            ishide = true;
+          }
+        }).on('touchstart', function(event) {
+          startPoint = $(this).scrollTop();
+        });
+
         // modal init
         $('.modal').modal();
 
