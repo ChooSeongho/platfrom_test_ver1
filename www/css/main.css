@@ -40,6 +40,10 @@ html, body {
   padding-right: 10px;
 }
 
+.logout {
+  cursor: pointer;
+}
+
 .carousel {
   height: 100% !important;
 }

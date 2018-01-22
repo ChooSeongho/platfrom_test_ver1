@@ -45,6 +45,7 @@ var StatusBar = {
     isVisible: true,
 
     overlaysWebView: function (doOverlay) {
+      console.log("please come in");
         exec(null, null, "StatusBar", "overlaysWebView", [doOverlay]);
     },
 

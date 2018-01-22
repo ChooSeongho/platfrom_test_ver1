@@ -6,7 +6,7 @@ body {
 #header_wrapper {
   width: 100%;
   height: 7vh;
-  /* background: rgba(112, 153, 35, 0.5); */
+  background: #8B9BCE;
   font-size: 1.3em;
   position: fixed;
   top: 0;

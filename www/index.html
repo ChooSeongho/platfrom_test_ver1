@@ -48,33 +48,18 @@
     <!-- 아이콘 불러오기 -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <script type="text/javascript" src="js/index.js"></script>
+    <!-- <script type="text/javascript" src="js/index.js"></script> -->
+    <script type="text/javascript" src="cordova.js"></script>
 
     <script>
+
+
       $(function() {
 
-        app.initialize();
+        document.addEventListener("deviceready", onDeviceReady, false);
 
-        // document.addEventListener("deviceready", onDeviceReady, false);
-        //
-        // function onDeviceReady() {
-        //   console.log(StatusBar);
-        //   alert(StatusBar);
-        //   StatusBar.StatusBarOverlaysWebView(false);
-        //   StatusBar.styleDefault();
-        //   StatusBar.backgroundColorByName("white");
-        //   document.addEventListener("backbutton", onBackKeyDown, true);
-        //   // createIframe(); //아이프레임으로 띄운 상태
-        // }
-
-        function onBackKeyDown() {
-          navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
-        }
-
-        function onBackKeyDownMsg(button) {
-          if(button == 2) {
-            navigator.app.exitApp();
-          }
+        function onDeviceReady() {
+          console.log("onready_index : " + StatusBar.isVisible);
         }
       });
     </script>
@@ -133,14 +118,13 @@
     <!-- <div id="btn_wrap">
     </div> -->
   </div>
-    <script type="text/javascript" src="cordova.js"></script>
     <!-- <script type="text/javascript" src="js/index.js"></script> -->
     <script type="text/javascript">
         // app.initialize();
 
         $(document).ready(function() {
 
-          app.initialize();
+          // app.initialize();
 
           // 로그인버튼 클릭했을 때.
           $('#signin').on('click', function() {
