@@ -135,9 +135,15 @@
     <script style="text/javascript">
       $(function() {
 
-        $('#back_btn').click(function() {
+        $('#back_btn').on('touchend', function() {
           // location.href = "main.html?active=show_style";
           history.back();
+          console.log("click back");
+          // self.c lose();
+        });
+
+        $('#pay_button').on('touchend', function(e) {
+          console.log("click pay");
         });
 
       });

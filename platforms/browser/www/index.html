@@ -59,7 +59,11 @@
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
-          console.log("onready_index : " + StatusBar.isVisible);
+          // control the statusbar
+          // console.log("onready_main : " + StatusBar.isVisible);
+          StatusBar.overlaysWebView(false);
+          StatusBar.backgroundColorByName("white");
+          StatusBar.styleDefault();
         }
       });
     </script>

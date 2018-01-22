@@ -15,7 +15,9 @@ body {
 #back_btn_wrapper {
   padding-top: 2vh;
   float: left;
+  cursor: pointer;
 }
+
 
 .page_title_wrapper {
   padding-top: 2vh;
