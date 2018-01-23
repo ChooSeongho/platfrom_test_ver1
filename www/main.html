@@ -127,11 +127,6 @@
       // 스타일링 평가 페이지 불러오기
       $('#test-swipe-3').load("appraisal_style.html");
 
-      // hash값에 따른 tab 메뉴 선택
-      if(window.location.hash) {
-        $('a[href*='+window.location.hash.substr(1)+']').addClass('active');
-        $(window.location.hash).addClass('active');
-      }
 
       // if ('scrollRestoration' in history) {
       //   // Back off, browser, I got this...
@@ -139,6 +134,20 @@
       // }
 
       $(function() {
+        // var scrolly; // 화면 스크롤 값
+        // hash값에 따른 tab 메뉴 선택
+        if(window.location.hash) {
+          $('a[href*='+window.location.hash.substr(1)+']').addClass('active');
+          $(window.location.hash).addClass('active');
+          console.log('isisisis  = ' + localStorage.scrolly);
+          $('body').animate({scrollTop : localStorage.scrolly}, 400);
+        } else {
+          console.log('first page scroll = ' + localStorage.scrolly);
+          window.location.hash = "#test-swipe-1";
+          $('body').scrollTop(0); // 화면 상단으로 이동
+        }
+
+
         // hide logo when scroll display
         var headerHeight = $('#header_wrapper').height();
         var hideHeader = headerHeight - $('.logo_container').outerHeight();
@@ -290,9 +299,11 @@
         $("#test-swipe-1").on("touchend touchcancel", ".style_img", function(e) {
           e.preventDefault();
           if(touchmoved != true) {
+            localStorage.scrolly = window.scrollY;
+            console.log('scrolly = ' + localStorage.scrolly);
+            window.open("show_goods.html?name=" + providerName_parameter, "_self", 'location=yes');
             var providerName_parameter = $(this).find('#provider_name').text();
             // location.href="show_goods.html?name=" + providerName_parameter;
-            window.open("show_goods.html?name=" + providerName_parameter, "_self", 'location=yes');
           }
         }).on("touchmove", ".style_img", function(e) {
           touchmoved = true;
