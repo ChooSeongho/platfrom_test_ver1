@@ -9,32 +9,13 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
       <link rel="stylesheet" type="text/css" href="css/show_goods.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
 
       <!-- 스타일링 받기 서비스 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
       <script>
         $(function() {
-          function onLoad() {
-    		    document.addEventListener("deviceready", onDeviceReady, false);
-      		}
-
-          function onDeviceReady() {
-            document.addEventListener("backbutton", onBackKeyDown, true);
-            // createIframe(); //아이프레임으로 띄운 상태
-          }
-
-          function onBackKeyDown() {
-            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
-          }
-
-          function onBackKeyDownMsg(button) {
-            if(button == 2) {
-              navigator.app.exitApp();
-            }
-          }
-
-
           var val = location.href.substr(location.href.lastIndexOf('=') + 1);
           var result = val.replace("%20", " ");
           $('.page_title').html(result + "님의 상품");
@@ -46,7 +27,7 @@
   </head>
   <body>
     <header>
-      <div id="header_wrapper" class="light-blue darken-4">
+      <div id="header_wrapper">
         <div id="back_btn_wrapper">
           <i id="back_btn" class="material-icons">chevron_left</i>
         </div>
@@ -56,13 +37,68 @@
       </div>
     </header>
 
-    <div id="goods_wrapper">
+    <div id="goods_container">
+        <div class="goods_wrapper">
+          <div class="goods_image">
+            <img class="big_height" src="img/goods_0.png">
+            <img class="question_checkmark" src="img/checkmark.png">
+          </div>
+          <div class="goods_content">
+            <p> 상품명 : 상의 </p>
+            <p> 상품가격 : 20000 </p>
+          </div>
+        </div>
+        <div class="goods_wrapper">
+          <div class="goods_image">
+            <img class="big_height" src="img/goods_1.png">
+            <img class="question_checkmark" src="img/checkmark.png">
+          </div>
+          <div class="goods_content">
+            <p> 상품명 : 하의 </p>
+            <p> 상품가격 : 20000 </p>
+          </div>
+        </div>
+        <div class="goods_wrapper">
+          <div class="goods_image">
+            <img class="big_height" src="img/goods_2.png">
+            <img class="question_checkmark" src="img/checkmark.png">
+          </div>
+          <div class="goods_content">
+            <p> 상품명 : 자켓 </p>
+            <p> 상품가격 : 20000 </p>
+          </div>
+        </div>
+        <div class="goods_wrapper">
+          <div class="goods_image">
+            <img class="big_height" src="img/goods_3.png">
+            <img class="question_checkmark" src="img/checkmark.png">
+          </div>
+          <div class="goods_content">
+            <p> 상품명 : 신발 </p>
+            <p> 상품가격 : 20000 </p>
+          </div>
+        </div>
+        <div class="goods_wrapper">
+          <div class="goods_image">
+            <img class="big_height" src="img/goods_4.png">
+            <img class="question_checkmark" src="img/checkmark.png">
+          </div>
+          <div class="goods_content">
+            <p> 상품명 : 모자 </p>
+            <p> 상품가격 : 20000 </p>
+          </div>
+        </div>
+
+    </div>
+
+    <!-- <div id="goods_wrapper">
       <div class="row some_bottom_padding">
         <div class="col s6">
           <div class="col s12">
             <div class="card">
               <div class="card-image">
                 <img class="big_height" src="img/main_background.png">
+                <img class="question_checkmark" src="img/checkmark.png">
               </div>
               <div class="card-content">
                 <p> 상품명 : 니트 </p>
@@ -76,6 +112,7 @@
             <div class="card">
               <div class="card-image">
                 <img class="big_height" src="img/main_background.png">
+                <img class="question_checkmark" src="img/checkmark.png">
               </div>
               <div class="card-content">
                 <p> 상품명 : 니트 </p>
@@ -89,6 +126,7 @@
             <div class="card">
               <div class="card-image">
                 <img class="big_height" src="img/main_background.png">
+                <img class="question_checkmark" src="img/checkmark.png">
               </div>
               <div class="card-content">
                 <p> 상품명 : 니트 </p>
@@ -102,6 +140,7 @@
             <div class="card">
               <div class="card-image">
                 <img class="big_height" src="img/main_background.png">
+                <img class="question_checkmark" src="img/checkmark.png">
               </div>
               <div class="card-content">
                 <p> 상품명 : 니트 </p>
@@ -115,6 +154,7 @@
             <div class="card">
               <div class="card-image">
                 <img class="big_height" src="img/main_background.png">
+                <img class="question_checkmark" src="img/checkmark.png">
               </div>
               <div class="card-content">
                 <p> 상품명 : 니트 </p>
@@ -124,11 +164,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <footer>
       <div class="footer_wrapper">
-        <a id="pay_button" class="waves-effect waves-light btn-large btn_long">구매하기</a>
+        <a id="pay_button" class="waves-effect waves-light btn-large btn_long default-blue">구매하기</a>
       </div>
     </footer>
 
@@ -144,6 +184,21 @@
 
         $('#pay_button').on('touchend', function(e) {
           console.log("click pay");
+        });
+
+        // .card-image 클래스 클릭 시 배경 확인하여 클릭 시 마다 배경 색 변경
+        $('.goods_wrapper').on('click', function() {
+          // alert($(this).offset().top);
+          var top = $(this).offset().top;
+          // alert($(this).find('.question_checkmark').css('display'));
+          $(this).find('.question_checkmark').css('display', function(index, value) {
+            if(value == "none") {
+              $(this).offset({top: top});
+              return $(this).css('display', 'block');
+            } else {
+              return $(this).css('display', 'none');
+            }
+          });
         });
 
       });

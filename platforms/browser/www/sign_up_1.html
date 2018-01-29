@@ -9,30 +9,13 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
       <link rel="stylesheet" type="text/css" href="css/sign_up_1.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
 
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
       <script>
         $(function() {
-          function onLoad() {
-    		    document.addEventListener("deviceready", onDeviceReady, false);
-      		}
-
-          function onDeviceReady() {
-            document.addEventListener("backbutton", onBackKeyDown, true);
-            // createIframe(); //아이프레임으로 띄운 상태
-          }
-
-          function onBackKeyDown() {
-            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
-          }
-
-          function onBackKeyDownMsg(button) {
-            if(button == 2) {
-              navigator.app.exitApp();
-            }
-          }
         });
       </script>
 
@@ -48,7 +31,7 @@
     <header>
       <div id="header_wrapper">
         <div id="back_btn_wrapper">
-          <i id="back_btn" class="material-icons">chevron_left</i>
+          <i id="back_btn" class="material-icons small">chevron_left</i>
         </div>
         <div class="page_title_wrapper">
           <span class="page_title"> 회원가입 </span>
@@ -56,9 +39,12 @@
       </div>
     </header>
 
-    <form id="question_wrapper">
+    <div id="question_container">
+      <div class="center-align">
+        <span class="default-blue-text">QUIZ 1</span>
+      </div>
       <div class="question">
-        <span id="question_content"> 당신은 옷 쇼핑을 즐기시는 편인가요? </span>
+        <span id="question_content"><b>당신은 옷 쇼핑을 즐기시는 편인가요?</b></span>
       </div>
       <div class="question_detail">
         <div class="question_detail_content">
@@ -68,12 +54,14 @@
           <label for="interesting_middle" class="input-label radio"> 때에 따라 즐기는 편입니다! </label>
           <input type="radio" name="interesting" id="interesting_low" class="check_btn" value="low">
           <label for="interesting_low" class="input-label radio"> 필요한 상황에만 쇼핑하는 편이에요! </label>
-          <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
         </div>
       </div>
-      <p>
+      <p class="margin5vh"></p>
+      <div class="center-align">
+        <span class="default-blue-text">QUIZ 2</span>
+      </div>
       <div class="question">
-        <span id="question_content"> 당신을 스타일을 위해 얼마나 투자를 하시나요? </span>
+        <span id="question_content"><b>스타일을 위해 어느 정도 투자하세요?</b></span>
       </div>
       <div class="question_detail">
         <div class="question_detail_content">
@@ -83,25 +71,27 @@
           <label for="investment_middle" class="input-label radio"> 스타일에 적당히 투자합니다! </label>
           <input type="radio" name="investment" id="investment_low" class="check_btn" value="low">
           <label for="investment_low" class="input-label radio"> 차라리 나의 에너지를 다른 곳에 쓰고 싶습니다. </label>
-          <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
         </div>
       </div>
-      <p>
+      <p class="margin5vh"></p>
+      <div class="center-align">
+        <span class="default-blue-text">QUIZ 3</span>
+      </div>
       <div class="question">
-        <span id="question_content"> 당신은 옷 쇼핑을 즐기시는 편인가요? </span>
+        <span id="question_content"><b>새로운 스타일에 도전해보고 싶나요?</b></span>
       </div>
       <div class="question_detail">
         <div class="question_detail_content">
           <input type="radio" name="challenge" id="challenge_high" class="check_btn" value="high">
-          <label for="challenge_high" class="input-label radio"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! </label>
+          <label for="challenge_high" class="input-label radio">그럼요! 스타일에 도전할 준비는 항상 되어있어요!</label>
           <input type="radio" name="challenge" id="challenge_middle" class="check_btn" value="middle">
-          <label for="challenge_middle" class="input-label radio"> 때에 따라 즐기는 편입니다! </label>
+          <label for="challenge_middle" class="input-label radio">떄때로 새로운 스타일을 시도해보고 싶어요!</label>
           <input type="radio" name="challenge" id="challenge_low" class="check_btn" value="low">
-          <label for="challenge_low" class="input-label radio"> 필요한 상황에만 쇼핑하는 편이에요! </label>
-          <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
+          <label for="challenge_low" class="input-label radio">그렇지 않아요! 저의 스타일을 고집합니다.</label>
         </div>
       </div>
-    </form>
+    </div>
+
     <!-- <div id="question_wrapper">
       <div class="question">
         <span id="question_content"> 당신은 옷 쇼핑을 즐기시는 편인가요? </span>
@@ -110,9 +100,11 @@
       </div>
     </div> -->
 
+    <p class="margin5vh"></p>
+
     <footer>
       <div class="footer_wrapper">
-        <a id="next_btn" class="waves-effect waves-light btn btn_long">다음</a>
+        <a id="next_btn" class="waves-effect waves-light btn btn_long default-blue">다음</a>
       </div>
     </footer>
 
@@ -120,7 +112,7 @@
 
       $(function() {
         // '뒤로가기' 버튼 클릭
-        $('#back_btn').on('click', function() {
+        $('#back_btn_wrapper').on('click', function() {
           location.href="index.html";
         });
 
@@ -129,27 +121,6 @@
           location.href="sign_up_2.html";
         });
 
-        // $('ul.tabs').tabs();
-        // $('ul.tabs').tabs('select_stab', 'tab_id');
-
-        // 상단 탭 swipe 가능하도록 설정
-        // $('ul.tabs').tabs({swipeable: true});
-        $('ul.tabs').tabs();
-
-        // $('ul.tabs').bind("tabsselect", function(e, tab) {
-        //   alert(tab.index + "selected");
-        // });
-
-
-        // side-nav
-        // Initialize collapse button
-        $('.button-collapse').sideNav();
-        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-        // $('.collapsible').collapsible();
-        // Show sideNav
-        // $('.button-collapse').sideNav('show');
-        // Hide sideNav
-        // $('.button-collapse').sideNav('hide');
       });
     </script>
   </body>

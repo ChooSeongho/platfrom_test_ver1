@@ -9,30 +9,13 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
       <link rel="stylesheet" type="text/css" href="css/style_profile_fit.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
 
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
       <script>
         $(function() {
-          function onLoad() {
-    		    document.addEventListener("deviceready", onDeviceReady, false);
-      		}
-
-          function onDeviceReady() {
-            document.addEventListener("backbutton", onBackKeyDown, true);
-            // createIframe(); //아이프레임으로 띄운 상태
-          }
-
-          function onBackKeyDown() {
-            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
-          }
-
-          function onBackKeyDownMsg(button) {
-            if(button == 2) {
-              navigator.app.exitApp();
-            }
-          }
         });
       </script>
 
@@ -71,33 +54,32 @@
 
     <form id="question_wrapper">
       <div class="question">
-        <span id="question_content"> 스커트에서 선호하는 핏을 모두 선택해주세요. </span>
+        <span id="question_content" class="default-blue-text"> 스커트에서 선호하는 핏을 모두 선택해주세요. </span>
       </div>
       <p>
       <div class="question_detail">
         <div class="question_detail_content">
-          <img src="img/main_background.png" width="300px" height="300px">
+          <img src="img/w_skirt_mini.jpg" width="300px" height="300px">
           <input type="checkbox" name="jean_skinny" id="jean_skinny" class="check_btn" value="skinny">
-          <label for="jean_skinny" class="input-label radio"> 스키니핏 </label>
+          <label for="jean_skinny" class="input-label radio">미니</label>
           <p>
-            <img src="img/main_background.png" width="300px" height="300px">
+          <img src="img/w_skirt_midium.jpg" width="300px" height="300px">
           <input type="checkbox" name="jean_slim" id="jean_slim" class="check_btn" value="slim">
-          <label for="jean_slim" class="input-label radio"> 슬림핏 </label>
+          <label for="jean_slim" class="input-label radio">미듐</label>
           <p>
+          <img src="img/w_skirt_midi.jpg" width="300px" height="300px">
           <input type="checkbox" name="jean_straight" id="jean_straight" class="check_btn" value="straight">
-          <label for="jean_straight" class="input-label radio"> 스트레이트핏 </label>
+          <label for="jean_straight" class="input-label radio">미디</label>
           <p>
+          <img src="img/w_skirt_maxy.jpg" width="300px" height="300px">
           <input type="checkbox" name="jean_boots" id="jean_boots" class="check_btn" value="boots">
-          <label for="jean_boots" class="input-label radio"> 부츠컷 </label>
-          <p>
-          <input type="checkbox" name="jean_wide" id="jean_wide" class="check_btn" value="wide">
-          <label for="jean_wide" class="input-label radio"> 와이드핏 </label>
+          <label for="jean_boots" class="input-label radio">맥시</label>
           <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
         </div>
       </div>
       <p>
       <div class="question">
-        <span id="question_content"> 원피스에서 선호하는 핏을 모두 선택해주세요. </span>
+        <span id="question_content" class="default-blue-text"> 원피스에서 선호하는 핏을 모두 선택해주세요. </span>
       </div>
       <p>
       <div class="question_detail">
@@ -127,13 +109,14 @@
 
     <footer>
       <div class="footer_wrapper">
-        <a id="next_btn" class="waves-effect waves-light btn btn_long">다음</a>
+        <a id="next_btn" class="waves-effect waves-light btn btn_long default-blue">다음 : STYLE</a>
       </div>
     </footer>
 
     <script>
 
       $(function() {
+        $('#progress_size').css('width', '40%');
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
           location.href="style_profile_fit_2.html";

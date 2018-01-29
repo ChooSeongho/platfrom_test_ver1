@@ -9,30 +9,13 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
       <link rel="stylesheet" type="text/css" href="css/style_profile_about.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
 
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
       <script>
         $(function() {
-          function onLoad() {
-    		    document.addEventListener("deviceready", onDeviceReady, false);
-      		}
-
-          function onDeviceReady() {
-            document.addEventListener("backbutton", onBackKeyDown, true);
-            // createIframe(); //아이프레임으로 띄운 상태
-          }
-
-          function onBackKeyDown() {
-            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
-          }
-
-          function onBackKeyDownMsg(button) {
-            if(button == 2) {
-              navigator.app.exitApp();
-            }
-          }
         });
       </script>
 
@@ -69,22 +52,57 @@
       </div>
     </header>
 
-    <div class="question">
-      <span id="question_content"> 스타일링으로 보완하고 싶은 신체부위가 있나요? <br> 상체 </span>
+    <div id="question_wrapper">
+      <div class="question center-align">
+        <span id="question_content" class="bold-blue-text">스타일링으로 보완하고 싶은<br>신체부위가 있나요?</span>
+        <div class="can_max_select default-blue-text">*하체</div>
+      </div>
+
+      <div class="margin5vh"></div>
+      <div class="question_detail">
+        <div class="question_detail_content_two">짧은 다리</div>
+        <div class="question_detail_content_two">긴 다리</div>
+        <div class="question_detail_content_two">작은 골반</div>
+        <div class="question_detail_content_two">큰 골반</div>
+        <div class="question_detail_content_two">밋밋한 엉덩이</div>
+        <div class="question_detail_content_two">큰 엉덩이</div>
+        <div class="question_detail_content_two">허벅지</div>
+        <div class="question_detail_content_two">종아리</div>
+        <div class="question_detail_content_two">두꺼울 발목</div>
+        <div class="question_detail_content_two">없음</div>
+        <div class="question_detail_content_two">기타</div>
+      </div>
+    </div>
+
+    <!-- <div class="question">
+      <span id="question_content"> 스타일링으로 보완하고 싶은 신체부위가 있나요? <br> 하체 </span>
     </div>
     <p>
-      <form id="personal_information_wrapper" style="padding-top:5vh;">
-        <div class="input-field col s6">
-          <p class="info_question"> Instagram ID </p>
-          <input placeholder="" id="input_height" type="text" class="input_height">
-          <label for="input_height"></label>
+    <div class="question_detail center-align">
+      <div class="row middle">
+        <div class="col s5 question_detail_content">
+          <label> 짧은 다리 </lable>
         </div>
-        <div class="input-field col s6">
-          <p class="info_question"> Kakao Talk ID </p>
-          <input placeholder="" id="input_weight" type="text" class="input_weight">
-          <label for="input_weight"></label>
+        <div class="col s5 question_detail_content">
+          <label> 긴 다리 </lable>
         </div>
-      </form>
+        <div class="col s5 question_detail_content">
+          <label> 작은 골반 </lable>
+        </div>
+        <div class="col s5 question_detail_content">
+          <label> 큰 골반 </lable>
+        </div>
+        <div class="col s5 question_detail_content">
+          <label> 밋밋한 엉덩이 </lable>
+        </div>
+        <div class="col s5 question_detail_content">
+          <label> 큰 엉덩이 </lable>
+        </div>
+        <div class="col s5 question_detail_content">
+          <label> 허벅지 </lable>
+        </div>
+      </div>
+    </div> -->
 
     <!-- <form id="question_wrapper">
       <div class="question">
@@ -115,13 +133,15 @@
 
     <footer>
       <div class="footer_wrapper">
-        <a id="next_btn" class="waves-effect waves-light btn btn_long">다음</a>
+        <a id="next_btn" class="waves-effect waves-light btn btn_long default-blue">다음</a>
       </div>
     </footer>
 
     <script>
 
       $(function() {
+        $('#progress_size').css('width', '95%');
+
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
           location.href="style_profile_about_2.html";
@@ -129,15 +149,17 @@
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="main.html";
+          location.href="style_profile_about_4.html";
         });
 
-        $('.question_detail_content').on('click', function() {
+        $('.question_detail_content_two').on('click', function() {
           $(this).css('background-color', function(index, value) {
             if(value == "rgb(255, 255, 255)") {
-              return $(this).css('background-color', '#c51162');
+              $(this).css('background-color', '#8B9BCE');
+              $(this).css('color', '#ffffff');
             } else {
-              return $(this).css('background-color', '#ffffff');
+              $(this).css('background-color', '#ffffff');
+              $(this).css('color', '#eeeeee');
             }
           });
         });

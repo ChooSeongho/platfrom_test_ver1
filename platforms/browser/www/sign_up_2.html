@@ -8,31 +8,14 @@
       <!-- Compiled and minified JavaScript -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
-      <link rel="stylesheet" type="text/css" href="css/sign_up_2.css" />
+      <link rel="stylesheet" type="text/css" href="css/sign_up_1.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
 
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
       <script>
         $(function() {
-          function onLoad() {
-    		    document.addEventListener("deviceready", onDeviceReady, false);
-      		}
-
-          function onDeviceReady() {
-            document.addEventListener("backbutton", onBackKeyDown, true);
-            // createIframe(); //아이프레임으로 띄운 상태
-          }
-
-          function onBackKeyDown() {
-            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
-          }
-
-          function onBackKeyDownMsg(button) {
-            if(button == 2) {
-              navigator.app.exitApp();
-            }
-          }
         });
       </script>
 
@@ -48,7 +31,7 @@
     <header>
       <div id="header_wrapper">
         <div id="back_btn_wrapper">
-          <i id="back_btn" class="material-icons">chevron_left</i>
+          <i id="back_btn" class="material-icons small">chevron_left</i>
         </div>
         <div class="page_title_wrapper">
           <span class="page_title"> 회원가입 </span>
@@ -56,25 +39,70 @@
       </div>
     </header>
 
-    <form id="personal_information_wrapper">
-      <div class="input-field col s6">
-        <p class="info_question"> 이름</p>
-        <input placeholder="" id="input_name" type="text" class="input_name">
-        <label for="input_name"></label>
+    <div class="sign_up_container">
+      <form id="personal_information_wrapper">
+        <div class="input-field col s6">
+          <span class="info_question">아이디</span>
+          <a id="confirm_duplication" class="waves-effect waves-light btn confirm_btn">중복확인</a>
+          <input placeholder="3-15자" id="input_id" type="text" class="input_id">
+          <label for="input_id"></label>
+        </div>
+        <div class="divider_gray"></div>
+        <div class="input-field col s6">
+          <span class="info_question">비밀번호</span>
+          <input placeholder="8-16자 영문/숫자 조합으로 입력" id="input_password" type="text" class="input_password">
+          <label for="input_password"></label>
+        </div>
+        <div class="divider_gray"></div>
+        <div class="input-field col s6">
+          <p class="info_question">비밀번호 확인</p>
+          <input placeholder="비밀번호를 한번 더 입력해 주세요" id="input_password_confirm" type="text" class="input_password_confirm">
+          <label for="input_password_confirm"></label>
+        </div>
+      </form>
+
+      <form id="phone_confirm_wrapper">
+        <div class="input-field col s6">
+          <span class="info_question">- 제외 휴대폰 번호</span>
+          <a id="send_confirm_num" class="waves-effect waves-light btn confirm_btn">인증번호발송</a>
+          <input placeholder="-를 제외하고 입력해 주세요" id="input_phone_num" type="text" class="input_phone_num">
+          <label for="input_phone_num"></label>
+        </div>
+        <div class="divider_gray"></div>
+        <div class="input-field col s6">
+          <span class="info_question">인증번호</span>
+          <a id="input_confirm_num" class="waves-effect waves-light btn confirm_btn">확인</a>
+          <input placeholder="인증번호를 입력 해 주세요" id="input_confirm_num" type="text" class="input_confirm_num">
+          <label for="input_confirm_num"></label>
+        </div>
+      </form>
+
+      <div class="agree_receive_sms_wrapper">
+        <input type="checkbox" id="receive_sms">
+        <label for="receive_sms" class="input-label receive_sms">SMS를 통해 코디몬스터의 다양한 정보를 받아보겠습니다.</label>
       </div>
-      <div class="input-field col s6">
-        <p class="info_question"> 연락처</p>
-        <input placeholder="" id="input_tel" type="text" class="input_tel">
-        <label for="input_tel"></label>
+
+      <p class="margin5vh"></p>
+
+      <span class="access_terms">이용약관</span>
+      <div class="access_terms_wrapper">
+        <input type="checkbox" id="access_terms_agree_all">
+        <label for="access_terms_agree_all" class="input-label access_terms_agree">약관 전체동의</label>
+        <div class="divider_gray"></div>
+        <input type="checkbox" id="access_terms_agree">
+        <label for="access_terms_agree" class="input-label access_terms_agree">이용약관에 동의합니다.</label>
+        <i class="access_terms_content material-icons small confirm_content_btn">chevron_right</i>
+        <br>
+        <input type="checkbox" id="access_terms_agree_personal_info">
+        <label for="access_terms_agree_personal_info" class="input-label access_terms_agree">개인정보 수집/이용에 동의합니다.</label>
+        <i class="personal_info_content material-icons small confirm_content_btn">chevron_right</i>
       </div>
-      <div class="input-field col s6">
-        <p class="info_question"> 수령주소</p>
-        <input placeholder="ex) 서울특별시 중구" id="input_address" type="text" class="input_address">
-        <label for="input_address"></label>
-        <input placeholder="ex) 세종대로 110" id="input_address_detail" type="text" class="input_address_detail">
-        <label for="input_address_detail"></label>
-      </div>
-    </form>
+
+    </div>
+
+
+
+
     <!-- <div id="question_wrapper">
       <div class="question">
         <span id="question_content"> 당신은 옷 쇼핑을 즐기시는 편인가요? </span>
@@ -83,16 +111,11 @@
       </div>
     </div> -->
 
+    <p class="margin5vh"></p>
+
     <footer>
       <div class="footer_wrapper">
-        <div id="agree">
-          <span class="agree_title"> 서비스 이용 개인정보 수집 &#183; 활용에 동의 하시나요? </span>
-          <p></p>
-          <span class="agree_contents"> 서비스 이용을 위해 최소한의 정보를 수집하고 있습니다. <br>
-            수집한 개인정보는 본인 확인 및 불편사항 상담 등을 위해서만 이용하고 다른 용도로는 사용하지 않습니다.
-          </span>
-        </div>
-        <a id="next_btn" class="waves-effect waves-light btn btn_long">다음</a>
+        <a id="next_btn" class="waves-effect waves-light btn btn_long default-blue">코디몬스터 회원가입</a>
       </div>
     </footer>
 
@@ -106,30 +129,49 @@
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_1.html";
+          location.href="sign_up_finish.html";
         });
 
-        // $('ul.tabs').tabs();
-        // $('ul.tabs').tabs('select_stab', 'tab_id');
 
-        // 상단 탭 swipe 가능하도록 설정
-        // $('ul.tabs').tabs({swipeable: true});
-        $('ul.tabs').tabs();
+        $('label[for=access_terms_agree_all]').on('click', function() {
+          if($("input[id=access_terms_agree]:checkbox").is(":checked")
+          && $("input[id=access_terms_agree_personal_info]:checkbox").is(":checked")) {
+            $("input[id=access_terms_agree]:checkbox").prop("checked", false);
+            $("input[id=access_terms_agree_personal_info]:checkbox").prop("checked", false);
+          } else {
+            $("input[id=access_terms_agree]:checkbox").prop("checked", true);
+            $("input[id=access_terms_agree_personal_info]:checkbox").prop("checked", true);
+          }
+        });
 
-        // $('ul.tabs').bind("tabsselect", function(e, tab) {
-        //   alert(tab.index + "selected");
-        // });
+        $('label[for=access_terms_agree]').on('click', function() {
+          if($("input[id=access_terms_agree_all]:checkbox").is(":checked")){
+            $("input[id=access_terms_agree_all]:checkbox").prop("checked", false);
+          } else if($("input[id=access_terms_agree_personal_info]:checkbox").is(":checked")) {
+             $("input[id=access_terms_agree_all]:checkbox").prop("checked", true);
+           }
+        });
+
+        $('label[for=access_terms_agree_personal_info]').on('click', function() {
+          if($("input[id=access_terms_agree_all]:checkbox").is(":checked")){
+            $("input[id=access_terms_agree_all]:checkbox").prop("checked", false);
+          } else if($("input[id=access_terms_agree]:checkbox").is(":checked")) {
+            $("input[id=access_terms_agree_all]:checkbox").prop("checked", true);
+          }
+        });
 
 
-        // side-nav
-        // Initialize collapse button
-        $('.button-collapse').sideNav();
-        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-        // $('.collapsible').collapsible();
-        // Show sideNav
-        // $('.button-collapse').sideNav('show');
-        // Hide sideNav
-        // $('.button-collapse').sideNav('hide');
+        $('.confirm_content_btn').on('click', function(e) {
+          var temp_class_name = $(this).attr('class').split(' ')[0];
+          if(temp_class_name == "access_terms_content") {
+            alert('access_terms_content');
+          } else if(temp_class_name == "personal_info_content"){
+            alert('personal_info_content');
+          }
+        });
+
+
+
       });
     </script>
   </body>

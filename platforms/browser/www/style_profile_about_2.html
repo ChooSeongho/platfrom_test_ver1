@@ -9,30 +9,13 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
       <link rel="stylesheet" type="text/css" href="css/style_profile_about.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
 
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
       <script>
         $(function() {
-          function onLoad() {
-    		    document.addEventListener("deviceready", onDeviceReady, false);
-      		}
-
-          function onDeviceReady() {
-            document.addEventListener("backbutton", onBackKeyDown, true);
-            // createIframe(); //아이프레임으로 띄운 상태
-          }
-
-          function onBackKeyDown() {
-            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
-          }
-
-          function onBackKeyDownMsg(button) {
-            if(button == 2) {
-              navigator.app.exitApp();
-            }
-          }
         });
       </script>
 
@@ -69,37 +52,33 @@
       </div>
     </header>
 
-    <div class="question">
-      <span id="question_content"> 스타일링으로 보완하고 싶은 신체부위가 있나요? <br> 상체 </span>
-    </div>
-    <p>
-    <div class="question_detail center-align">
-      <div class="row middle">
-        <div class="col s5 question_detail_content">
-          <label> 작은 키 </lable>
-        </div>
-        <div class="col s5 question_detail_content">
-          <label> 큰 머리 </lable>
-        </div>
-        <div class="col s5 question_detail_content">
-          <label> 짧은 목 </lable>
-        </div>
-        <div class="col s5 question_detail_content">
-          <label> 긴 목 </lable>
-        </div>
-        <div class="col s5 question_detail_content">
-          <label> 좁은 어깨 </lable>
-        </div>
-        <div class="col s5 question_detail_content">
-          <label> 넓은 어깨 </lable>
-        </div>
-        <div class="col s5 question_detail_content">
-          <label> 작은 가슴 </lable>
-        </div>
+    <div id="question_wrapper">
+      <div class="question center-align">
+        <span id="question_content" class="bold-blue-text">스타일링으로 보완하고 싶은<br>신체부위가 있나요?</span>
+        <div class="can_max_select default-blue-text">*상체</div>
+      </div>
+
+      <div class="margin5vh"></div>
+      <div class="question_detail">
+        <div class="question_detail_content_two">작은 키</div>
+        <div class="question_detail_content_two">큰 머리</div>
+        <div class="question_detail_content_two">짧은 목</div>
+        <div class="question_detail_content_two">긴 목</div>
+        <div class="question_detail_content_two">좁은 어깨</div>
+        <div class="question_detail_content_two">넓은 어깨</div>
+        <div class="question_detail_content_two">작은 가슴</div>
+        <div class="question_detail_content_two">큰 가슴</div>
+        <div class="question_detail_content_two">짧은 팔</div>
+        <div class="question_detail_content_two">긴 팔</div>
+        <div class="question_detail_content_two">두꺼운 팔뚝</div>
+        <div class="question_detail_content_two">두꺼운 손목</div>
+        <div class="question_detail_content_two">등허리</div>
+        <div class="question_detail_content_two">없음</div>
+        <div class="question_detail_content_two">기타</div>
       </div>
     </div>
 
-    <div class="question">
+    <!-- <div class="question">
       <span id="question_content"> 스타일링으로 보완하고 싶은 신체부위가 있나요? <br> 하체 </span>
     </div>
     <p>
@@ -127,7 +106,7 @@
           <label> 허벅지 </lable>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- <form id="question_wrapper">
       <div class="question">
@@ -158,13 +137,15 @@
 
     <footer>
       <div class="footer_wrapper">
-        <a id="next_btn" class="waves-effect waves-light btn btn_long">다음</a>
+        <a id="next_btn" class="waves-effect waves-light btn btn_long default-blue">다음</a>
       </div>
     </footer>
 
     <script>
 
       $(function() {
+        $('#progress_size').css('width', '90%');
+        
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
           location.href="style_profile_about_1.html";
@@ -175,12 +156,14 @@
           location.href="style_profile_about_3.html";
         });
 
-        $('.question_detail_content').on('click', function() {
+        $('.question_detail_content_two').on('click', function() {
           $(this).css('background-color', function(index, value) {
             if(value == "rgb(255, 255, 255)") {
-              return $(this).css('background-color', '#c51162');
+              $(this).css('background-color', '#8B9BCE');
+              $(this).css('color', '#ffffff');
             } else {
-              return $(this).css('background-color', '#ffffff');
+              $(this).css('background-color', '#ffffff');
+              $(this).css('color', '#eeeeee');
             }
           });
         });

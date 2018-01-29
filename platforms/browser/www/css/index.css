@@ -26,7 +26,8 @@
  	height: 60px;
  } */
 
- .event {
+
+ /* .event {
      border-radius:4px;
      -webkit-border-radius:4px;
      color:#FFFFFF;
@@ -43,14 +44,39 @@
  .event.received {
      background-color:#4B946A;
      display:none;
- }
+ } */
 
 body {
-  padding-top: 50%;
+  padding-top: 10vh;
+  height: 100%;
+  width: 100%;
  }
 
  #sign_wrap {
+   padding-left: 15vw;
+   padding-right: 15vw;
  }
+
+.index_logo {
+  background: url(../img/index_logo.png) no-repeat;
+  width: 100%;
+  height: 20vh;
+}
+
+.input_sign {
+  border: 0 !important;
+  border-radius: 10px !important;
+  background-color: #eeeeee !important;
+}
+
+.auto_login_wrapper {
+  text-align: right;
+  margin-bottom: 5vh;
+}
+
+[type="checkbox"]+label {
+  padding-left: 25px !important;
+}
 
  .find_id {
    display: block;
@@ -62,18 +88,16 @@ body {
    margin-bottom: 5%;
  }
 
- .row {
- 	margin: 0 auto ;
- }
-
- .row .col .s10 {
- 	margin-left: 18% !important;
- }
-
  .btn_long {
  	display: block !important;
  	margin: 0 auto;
- 	width: 70%;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+ 	width: 100%;
  	margin-top: 10px;
  	margin-bottom: 10px;
  }
@@ -87,7 +111,25 @@ body {
    display: block;
    margin: 3%;
    padding: 0 !important;
-   width: 50px !important;
-   height: 50px !important;
+   width: 45px !important;
+   height: 45px !important;
    border-radius: 50% !important;
+   -webkit-box-shadow: none !important;
+   box-shadow: none !important;
+ }
+
+ .facebook {
+   background: url(../img/icon-facebook.png) !important;
+ }
+
+ .naver {
+   background: url(../img/icon-naver.png) !important;
+ }
+
+ .kakao {
+   background: url(../img/icon-kakao.png) !important;
+ }
+
+ .google {
+   background: url(../img/icon-google.png) !important;
  }

@@ -9,30 +9,13 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
       <link rel="stylesheet" type="text/css" href="css/style_profile_style.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
 
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
       <script>
         $(function() {
-          function onLoad() {
-    		    document.addEventListener("deviceready", onDeviceReady, false);
-      		}
-
-          function onDeviceReady() {
-            document.addEventListener("backbutton", onBackKeyDown, true);
-            // createIframe(); //아이프레임으로 띄운 상태
-          }
-
-          function onBackKeyDown() {
-            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
-          }
-
-          function onBackKeyDownMsg(button) {
-            if(button == 2) {
-              navigator.app.exitApp();
-            }
-          }
         });
       </script>
 
@@ -69,62 +52,63 @@
       </div>
     </header>
 
-    <div class="question">
-      <span id="question_content"> 어떤 스타일이 당신에게 어울리나요? <br> 또 어떤 스타일로 보여지고 싶나요? </span>
-    </div>
-    <p>
-    <div class="question_detail center-align">
-      <div class="row middle">
-        <div class="col s3 question_detail_content">
-          <label> 러블리 </lable>
-        </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_content">
-          <label> 럭셔리 </lable>
-        </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_content">
-          <label> 빈티지 </lable>
-        </div>
-        <div class="col s3 question_detail_content">
-          <label> 섹시 </lable>
-        </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_content">
-          <label> 스포티 </lable>
-        </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_content">
-          <label> 심플베이직 </lable>
-        </div>
-        <div class="col s3 question_detail_content">
-          <label> 시크모던 </lable>
-        </div>
-        <div class="col s1"> </div>
-        </div>
+    <div id="question_wrapper">
+      <div class="question center-align">
+        <span id="question_content" class="default-blue-text">어떤 스타일이<br>당신에게 어울리나요?</span>
+        <br>
+        <span id="question_content_detail">또 어떤 스타일로 보여지고 싶나요?</span>
       </div>
+      <div class="can_max_select default-blue-text">*최대 5개</div>
+      <div class="question_detail">
+        <div class="question_detail_content">Lovely</div>
+        <div class="question_detail_content">Luxury</div>
+        <div class="question_detail_content">Vintage</div>
+        <div class="question_detail_content">Sexy</div>
+        <div class="question_detail_content">Sporty</div>
+        <div class="question_detail_content">SimpleBasic</div>
+        <div class="question_detail_content">ChicMordern</div>
+        <div class="question_detail_content">Unique</div>
+        <div class="question_detail_content">Cute</div>
+        <div class="question_detail_content">Feminine</div>
+        <div class="question_detail_content">Manish</div>
+        <div class="question_detail_content">Boish</div>
+        <div class="question_detail_content">Girlish</div>
+        <div class="question_detail_content">Ethnic</div>
+        <div class="question_detail_content">AmericanCasual</div>
+        <div class="question_detail_content">Normcore</div>
+        <div class="question_detail_content">Military</div>
+        <div class="question_detail_content">Street</div>
+        <div class="question_detail_content">Dandy</div>
+        <div class="question_detail_content">Restoration</div>
+        <div class="question_detail_content">Etc</div>
+      </div>
+
+      <!-- <div class="question">
+        <span id="question_content"> 선호하는 브랜드나 쇼핑몰이 있나요?? </span>
+      </div>
+      <p>
+      <div class="question_detail center-align">
+        <div class="input-field col s6">
+          <input placeholder="" id="input_height" type="text" class="input_height">
+          <label for="input_height"></label>
+        </div>
+      </div> -->
+
     </div>
 
-    <div class="question">
-      <span id="question_content"> 선호하는 브랜드나 쇼핑몰이 있나요?? </span>
-    </div>
-    <p>
-    <div class="question_detail center-align">
-      <div class="input-field col s6">
-        <input placeholder="" id="input_height" type="text" class="input_height">
-        <label for="input_height"></label>
-      </div>
-    </div>
+    <div class="margin5vh"></div>
 
     <footer>
       <div class="footer_wrapper">
-        <a id="next_btn" class="waves-effect waves-light btn btn_long">다음</a>
+        <a id="next_btn" class="waves-effect waves-light btn btn_long default-blue">다음</a>
       </div>
     </footer>
 
     <script>
 
       $(function() {
+        $('#progress_size').css('width', '57%');
+
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
           location.href="style_profile_style_4.html";
@@ -132,15 +116,17 @@
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_price_1.html";
+          location.href="style_profile_style_6.html";
         });
 
         $('.question_detail_content').on('click', function() {
           $(this).css('background-color', function(index, value) {
             if(value == "rgb(255, 255, 255)") {
-              return $(this).css('background-color', '#c51162');
+              $(this).css('background-color', '#8B9BCE');
+              $(this).css('color', '#ffffff');
             } else {
-              return $(this).css('background-color', '#ffffff');
+              $(this).css('background-color', '#ffffff');
+              $(this).css('color', '#eeeeee');
             }
           });
         });

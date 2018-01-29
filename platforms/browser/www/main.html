@@ -301,9 +301,9 @@
           if(touchmoved != true) {
             localStorage.scrolly = window.scrollY;
             console.log('scrolly = ' + localStorage.scrolly);
-            window.open("show_goods.html?name=" + providerName_parameter, "_self", 'location=yes');
+            // window.open("show_goods.html?name=" + providerName_parameter, "_self", 'location=yes');
             var providerName_parameter = $(this).find('#provider_name').text();
-            // location.href="show_goods.html?name=" + providerName_parameter;
+            location.href="show_goods.html?name=" + providerName_parameter;
           }
         }).on("touchmove", ".style_img", function(e) {
           touchmoved = true;

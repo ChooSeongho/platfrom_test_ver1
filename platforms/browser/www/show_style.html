@@ -19,7 +19,7 @@
   </head>
   <body>
     <div id="body_wrap">
-      <div class="style_wrapper some_padding">
+      <!-- <div class="style_wrapper some_padding">
         <div id="style_img" class="style_img">
           <div class="styling_info_container">
             <div class="styling_info_wrap">
@@ -36,22 +36,31 @@
               <h1 class="grade">4.2</h1>
             </div>
           </div>
-          <!-- <img class="responsive-img middle_img" src="img/logo.png"/> -->
         </div>
-      </div>
+      </div> -->
+
+
     </div>
 
 
     <!-- <a id='show_goods' class="waves-effect waves-light btn-large btn_long">스타일링 상품 보러가기</a> -->
     <script>
 
+      var list_provider_name = ['MONO SANA', 'SUIRE', 'JAY QEENS', 'SUE&SUE', 'AUTUM', 'CHUNYSHOP', 'JMODE', 'DUMPLUS', 'LOFLOWER', 'ARYNN']
+      var rand_style_content = ['Girlish', 'Feminine', 'Ethnic', 'Cute', 'Sexy'];
+
       $(function() {
-        for(i=0; i<9; i++) {
+        for(i=0; i<10; i++) {
+          var rand_height = Math.floor(Math.random()*(165-161+1)) + 161;
+          var rand_weight = Math.floor(Math.random()*(58-52+1)) + 52;
+          var rand_len = Math.floor(Math.random()*(3-1+1)) + 1;
+          var temp_len = [];
+          var temp_style = "Style ";
           var container = document.createElement("div");
           container.className = "style_wrapper some_padding";
           var styleimg = document.createElement("div");
           styleimg.className = "style_img";
-          $(styleimg).css('background', "url('img/show_style_" + (i+1) + ".jpg') no-repeat");
+          $(styleimg).css('background', "url('img/show_style_" + i + ".png') no-repeat");
           $(styleimg).css('background-size', "100% 100%");
           var style_info_container = document.createElement("div");
           style_info_container.className = "styling_info_container";
@@ -62,17 +71,36 @@
           provider.className = "provider_name_wrap";
           var providerName = document.createElement("span");
           providerName.id = "provider_name";
-          providerName.innerHTML = "choo";
+          providerName.innerHTML = list_provider_name[i];
           provider.appendChild(providerName);
           styling_info.appendChild(provider);
           var styled_customer_info_wrap = document.createElement("div");
           styled_customer_info_wrap.className = "stylinged_customer_info_wrap";
           var customer_bodyInfo = document.createElement("span");
           customer_bodyInfo.id = "customer_body_info";
-          customer_bodyInfo.innerHTML = "Customer 남 키 : 122 <br>";
+          customer_bodyInfo.innerHTML = "Customer woman height : " + rand_height + " weight : " + rand_weight +"<br>";
           var customer_styleInfo = document.createElement("span");
           customer_styleInfo.id = "customer_style_info";
-          customer_styleInfo.innerHTML = "Style 두영아, 메롱";
+          var isduple = false;
+          for(style_len = 0; style_len < rand_len; style_len ++) {
+            var temp_rand = Math.floor(Math.random()*(4-0+1)) + 0;
+            if(temp_len.length > 0) {
+              for(j=0; j<style_len-1; j++) {
+                if(temp_len[j] == temp_rand) {
+                  disduple = true;
+                }
+              }
+            }
+            if(!isduple) {
+              if(style_len == rand_len-1) {
+                temp_len[style_len] = temp_rand;
+                temp_style += rand_style_content[temp_rand];
+              } else {
+                temp_style += rand_style_content[temp_rand] + ', ';
+              }
+            }
+          }
+          customer_styleInfo.innerHTML = temp_style;
           styled_customer_info_wrap.appendChild(customer_bodyInfo);
           styled_customer_info_wrap.appendChild(customer_styleInfo);
           styling_info.appendChild(styled_customer_info_wrap);
@@ -81,7 +109,8 @@
           grade_wrap.className = "grade_wrapper";
           var grade_point = document.createElement("h1");
           grade_point.className = "grade";
-          grade_point.innerHTML = "1.2";
+          var rand_grade_num = Math.random()*(4-3+1) + 3;
+          grade_point.innerHTML = rand_grade_num.toFixed(1);
           grade_wrap.appendChild(grade_point);
 
           style_info_container.appendChild(styling_info);

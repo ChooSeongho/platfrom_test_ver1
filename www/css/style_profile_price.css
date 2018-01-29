@@ -1,12 +1,13 @@
 body {
-  padding-top: 18vh;
-  padding-bottom: 10vh;
+  /* padding-top: 18vh;
+  padding-bottom: 10vh; */
 }
 
 #header_wrapper {
   width: 100%;
-  height: 7vh;
-  background: #8B9BCE;
+  height: 10vh;
+  color: #8B9BCE;
+  background: #ffffff;
   font-size: 1.3em;
   position: fixed;
   top: 0;
@@ -21,19 +22,20 @@ body {
 #progressbar_wrapper {
   width: 100%;
   position: fixed;
-  top: 7vh;;
+  top: 10vh;
+  background: #ffffff;
   z-index: 2012;
 }
 
 #progressbar {
   width: 100%;
-  background-color: grey;
+  background-color: #EEEEEE;
 }
 
 #progress_size {
   width: 80%;
   height: 1vh;
-  background-color: blue;
+  background-color: #8B9BCE;
 }
 
 .percent_20 {
@@ -49,7 +51,7 @@ body {
 
 #question_wrapper {
   display: block;
-  padding-top: 8vh;
+  padding-top: 20vh;
   padding-left: 5vh;
   padding-right: 5vh;
   /* height: 86vh; */
@@ -57,46 +59,42 @@ body {
 
 .comment {
   text-align: center;
-  font-size: 0.8em;
+  font-size: 1rem;
   padding-bottom: 5vh;
 }
 
 .question {
-  padding: 2vh;
-  background-color: #FFDFFF;
-  text-align: center;
-  font-size: 1em !important;
+  color: #5F68B0;
+  font-size: 1rem;
   border-radius: 2px;
 }
 
-.question_detail {
-  padding-left: 3vh;
-  padding-right: 3vh;
+.text-big {
+  font-size: 1.2rem;
 }
 
-.question_detail_content {
-  cursor: pointer;
-  margin: 1vh;
-  border: 2px solid #adceff;
-  background-color: #ffffff;
-}
-
-.question_image_container {
-  cursor: pointer;
-}
-
-.question_image {
+.divider_gray {
   width: 100%;
+  height: 1px;
+  background-color: #eeeeee;
 }
 
-.question_checkmark {
-  position: absolute;
-  display: none;
+.margin5vh {
+  margin: 5vh;
+}
+
+.noUi-connect {
+  background: #8B9BCE !important;
 }
 
 .price_range_output {
   text-align: center;
   padding-bottom: 2vh;
+  color: #8B9BCE;
+}
+
+.float-right {
+  float: right;
 }
 
 .price_selected {
@@ -114,15 +112,14 @@ body {
 	display: block;
 	margin: 0 auto;
 	width: 100%;
-  height: 7vh;
-  line-height: 7vh;
+  height: 10vh;
+  line-height: 10vh;
   text-align: center;
 }
 
 .footer_wrapper {
-  position: fixed;
+  position: relative;
   width: 100%;
   bottom: 0;
   margin-bottom: 0;
-  z-index: 2012;
 }

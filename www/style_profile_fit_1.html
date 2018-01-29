@@ -9,30 +9,13 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
       <link rel="stylesheet" type="text/css" href="css/style_profile_fit.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
 
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
       <script>
         $(function() {
-          function onLoad() {
-    		    document.addEventListener("deviceready", onDeviceReady, false);
-      		}
-
-          function onDeviceReady() {
-            document.addEventListener("backbutton", onBackKeyDown, true);
-            // createIframe(); //아이프레임으로 띄운 상태
-          }
-
-          function onBackKeyDown() {
-            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
-          }
-
-          function onBackKeyDownMsg(button) {
-            if(button == 2) {
-              navigator.app.exitApp();
-            }
-          }
         });
       </script>
 
@@ -71,9 +54,8 @@
 
     <form id="question_wrapper">
       <div class="question">
-        <span id="question_content"> 상의에서 선호하는 핏을 모두 선택해주세요. </span>
+        <span id="question_content" class="default-blue-text">상의에서 선호하는 핏을 모두 선택해주세요.</span>
       </div>
-      <p>
       <div class="question_detail">
         <div class="question_detail_content">
           <input type="checkbox" name="top_slim" id="top_slim" class="check_btn" value="slim">
@@ -92,7 +74,7 @@
       </div>
       <p>
       <div class="question">
-        <span id="question_content"> 재킷에서 선호하는 핏을 모두 선택해주세요. </span>
+        <span id="question_content" class="default-blue-text"> 재킷에서 선호하는 핏을 모두 선택해주세요. </span>
       </div>
       <p>
       <div class="question_detail">
@@ -110,9 +92,8 @@
       </div>
       <p>
       <div class="question">
-        <span id="question_content"> 코트에서 선호하는 핏을 모두 선택해주세요. </span>
+        <span id="question_content" class="default-blue-text"> 코트에서 선호하는 핏을 모두 선택해주세요. </span>
       </div>
-      <p>
       <div class="question_detail">
         <div class="question_detail_content">
           <input type="checkbox" name="challenge" id="challenge_high" class="check_btn" value="high">
@@ -137,13 +118,15 @@
 
     <footer>
       <div class="footer_wrapper">
-        <a id="next_btn" class="waves-effect waves-light btn btn_long">다음</a>
+        <a id="next_btn" class="waves-effect waves-light btn btn_long default-blue">다음</a>
       </div>
     </footer>
 
     <script>
 
       $(function() {
+        $('#progress_size').css('width', '26%');
+
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
           location.href="style_profile_size_2.html";
@@ -154,27 +137,7 @@
           location.href="style_profile_fit_2.html";
         });
 
-        // $('ul.tabs').tabs();
-        // $('ul.tabs').tabs('select_stab', 'tab_id');
 
-        // 상단 탭 swipe 가능하도록 설정
-        // $('ul.tabs').tabs({swipeable: true});
-        $('ul.tabs').tabs();
-
-        // $('ul.tabs').bind("tabsselect", function(e, tab) {
-        //   alert(tab.index + "selected");
-        // });
-
-
-        // side-nav
-        // Initialize collapse button
-        $('.button-collapse').sideNav();
-        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-        // $('.collapsible').collapsible();
-        // Show sideNav
-        // $('.button-collapse').sideNav('show');
-        // Hide sideNav
-        // $('.button-collapse').sideNav('hide');
       });
     </script>
   </body>

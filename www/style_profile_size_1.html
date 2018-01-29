@@ -8,31 +8,14 @@
       <!-- Compiled and minified JavaScript -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
-      <link rel="stylesheet" type="text/css" href="css/sign_up_2.css" />
+      <link rel="stylesheet" type="text/css" href="css/style_profile_size.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
 
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
       <script>
         $(function() {
-          function onLoad() {
-    		    document.addEventListener("deviceready", onDeviceReady, false);
-      		}
-
-          function onDeviceReady() {
-            document.addEventListener("backbutton", onBackKeyDown, true);
-            // createIframe(); //아이프레임으로 띄운 상태
-          }
-
-          function onBackKeyDown() {
-            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
-          }
-
-          function onBackKeyDownMsg(button) {
-            if(button == 2) {
-              navigator.app.exitApp();
-            }
-          }
         });
       </script>
 
@@ -48,7 +31,7 @@
     <header>
       <div id="header_wrapper">
         <div id="back_btn_wrapper">
-          <i id="back_btn" class="material-icons">chevron_left</i>
+          <i id="back_btn" class="material-icons small">chevron_left</i>
         </div>
         <div class="page_title_wrapper">
           <span class="page_title"> 스타일프로필 </span>
@@ -69,36 +52,204 @@
       </div>
     </header>
 
-    <form id="personal_information_wrapper" style="padding-top:5vh;">
-      <div class="input-field col s6">
-        <p class="info_question"> 키(cm) </p>
+    <form id="personal_information_wrapper">
+      <div class="size_wrapper input-field col s12">
+        <span class="info_question default-blue-text">height(cm)</span>
+        <span class="measure default-blue-text">cm</span>
+        <select>
+          <option value="140">140</option>
+          <option value="141">141</option>
+          <option value="142">142</option>
+          <option value="143">143</option>
+          <option value="144">144</option>
+          <option value="145">145</option>
+          <option value="146">146</option>
+          <option value="147">147</option>
+          <option value="148">148</option>
+          <option value="149">149</option>
+          <option value="150">150</option>
+          <option value="151">151</option>
+          <option value="152">152</option>
+          <option value="153">153</option>
+          <option value="154">154</option>
+          <option value="155">155</option>
+          <option value="156">156</option>
+          <option value="157">157</option>
+          <option value="158">158</option>
+          <option value="159">159</option>
+          <option value="160">160</option>
+          <option value="161">161</option>
+          <option value="162">162</option>
+          <option value="163">163</option>
+          <option value="164">164</option>
+          <option value="165">165</option>
+          <option value="166">166</option>
+          <option value="167">167</option>
+          <option value="168">168</option>
+          <option value="169">169</option>
+          <option value="170">170</option>
+          <option value="171">171</option>
+          <option value="172">172</option>
+          <option value="173">175</option>
+          <option value="174">174</option>
+          <option value="175">175</option>
+          <option value="176">176</option>
+          <option value="177">177</option>
+          <option value="178">178</option>
+          <option value="179">179</option>
+          <option value="180">180</option>
+          <option value="181">181</option>
+          <option value="182">182</option>
+          <option value="183">185</option>
+          <option value="184">184</option>
+          <option value="185">185</option>
+          <option value="186">186</option>
+          <option value="187">187</option>
+          <option value="188">188</option>
+          <option value="189">189</option>
+          <option value="190">190</option>
+        </select>
+        <!-- <p class="info_question"> 키(cm) </p>
         <input placeholder="" id="input_height" type="text" class="input_height">
-        <label for="input_height"></label>
+        <label for="input_height"></label> -->
       </div>
-      <div class="input-field col s6">
-        <p class="info_question"> 몸무게(kg) </p>
+      <div class="size_wrapper input-field col s12">
+        <!-- <p class="info_question"> 몸무게(kg) </p>
         <input placeholder="" id="input_weight" type="text" class="input_weight">
-        <label for="input_weight"></label>
+        <label for="input_weight"></label> -->
+        <span class="info_question default-blue-text">weight(kg)</span>
+        <span class="measure default-blue-text">kg</span>
+        <select>
+          <option value="40">40</option>
+          <option value="41">41</option>
+          <option value="42">42</option>
+          <option value="43">43</option>
+          <option value="44">44</option>
+          <option value="45">45</option>
+          <option value="46">46</option>
+          <option value="47">47</option>
+          <option value="48">48</option>
+          <option value="49">49</option>
+          <option value="50">50</option>
+          <option value="51">51</option>
+          <option value="52">52</option>
+          <option value="53">53</option>
+          <option value="54">54</option>
+          <option value="55">55</option>
+          <option value="56">56</option>
+          <option value="57">57</option>
+          <option value="58">58</option>
+          <option value="59">59</option>
+          <option value="60">60</option>
+          <option value="61">61</option>
+          <option value="62">62</option>
+          <option value="63">63</option>
+          <option value="64">64</option>
+          <option value="65">65</option>
+          <option value="66">66</option>
+          <option value="67">67</option>
+          <option value="68">68</option>
+          <option value="69">69</option>
+          <option value="70">70</option>
+          <option value="71">71</option>
+          <option value="72">72</option>
+          <option value="73">73</option>
+          <option value="74">74</option>
+          <option value="75">75</option>
+          <option value="76">76</option>
+          <option value="77">77</option>
+          <option value="78">78</option>
+          <option value="79">79</option>
+          <option value="80">80</option>
+          <option value="81">81</option>
+          <option value="82">82</option>
+          <option value="83">83</option>
+          <option value="84">84</option>
+          <option value="85">85</option>
+          <option value="86">86</option>
+          <option value="87">87</option>
+          <option value="88">88</option>
+          <option value="89">89</option>
+        </select>
       </div>
-      <div class="input-field col s6">
-        <p class="info_question"> 상의 치수는 무엇인가요?</p>
+      <div class="size_wrapper input-field col s12">
+        <!-- <p class="info_question"> 상의 치수는 무엇인가요?</p>
         <input placeholder="" id="input_top_measurement" type="text" class="input_top_measurement">
-        <label for="input_top_measurement"></label>
+        <label for="input_top_measurement"></label> -->
+        <span class="info_question default-blue-text">top dimenstion</span>
+        <select>
+          <option value="44">44</option>
+          <option value="55">55</option>
+          <option value="66">66</option>
+          <option value="77">77</option>
+          <option value="88">88</option>
+          <option value="etc">etc</option>
+        </select>
       </div>
-      <div class="input-field col s6">
-        <p class="info_question"> 허리를 기준으로 하의 치수는 무엇인가요?</p>
+      <div class="size_wrapper input-field col s12">
+        <!-- <p class="info_question"> 허리를 기준으로 하의 치수는 무엇인가요?</p>
         <input placeholder="" id="input_bottom_measurement_waist" type="text" class="input_bottom_measurement_waist">
-        <label for="input_bottom_measurement_waist"></label>
+        <label for="input_bottom_measurement_waist"></label> -->
+        <span class="info_question default-blue-text">size(below the waist)</span>
+        <select>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+          <option value="32">32</option>
+          <option value="33">33</option>
+          <option value="34">34</option>
+          <option value="35">35</option>
+        </select>
       </div>
-      <div class="input-field col s6">
-        <p class="info_question"> 엉덩이(골반)을 기준으로 하의 치수는 무엇인가요?</p>
+      <div class="size_wrapper input-field col s12">
+        <!-- <p class="info_question"> 엉덩이(골반)을 기준으로 하의 치수는 무엇인가요?</p>
         <input placeholder="" id="input_bottom_measurement_pelvis" type="text" class="input_bottom_measurement_pelvis">
-        <label for="input_bottom_measurement_pelvis"></label>
+        <label for="input_bottom_measurement_pelvis"></label> -->
+        <span class="info_question default-blue-text">size(below the pelvic)</span>
+        <select>
+          <option value="dontknow">i don't know</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+          <option value="32">32</option>
+          <option value="33">33</option>
+          <option value="34">34</option>
+          <option value="35">35</option>
+        </select>
       </div>
-      <div class="input-field col s6">
-        <p class="info_question"> 신발 치수는 무엇인가요?</p>
+      <div class="size_wrapper input-field col s12">
+        <!-- <p class="info_question"> 신발 치수는 무엇인가요?</p>
         <input placeholder="" id="input_shoes_measurement" type="text" class="input_shoes_measurement">
-        <label for="input_shoes_measurement"></label>
+        <label for="input_shoes_measurement"></label> -->
+        <span class="info_question default-blue-text">shoes dimensions</span>
+        <span class="measure default-blue-text">mm</span>
+        <select>
+          <option value="220">220</option>
+          <option value="225">225</option>
+          <option value="230">230</option>
+          <option value="235">235</option>
+          <option value="240">240</option>
+          <option value="245">245</option>
+          <option value="250">250</option>
+          <option value="255">255</option>
+          <option value="260">260</option>
+          <option value="265">265</option>
+          <option value="270">270</option>
+          <option value="275">275</option>
+          <option value="280">280</option>
+        </select>
       </div>
     </form>
     <!-- <div id="question_wrapper">
@@ -111,13 +262,18 @@
 
     <footer>
       <div class="footer_wrapper">
-        <a id="next_btn" class="waves-effect waves-light btn btn_long">다음</a>
+        <a id="next_btn" class="waves-effect waves-light btn btn_long default-blue">다음</a>
       </div>
     </footer>
 
     <script>
 
       $(function() {
+        if($(document).height() > $('#personal_information_wrapper').height()) {
+          $('.footer_wrapper').css('position', 'absolute');
+        }
+
+        $('#progress_size').css('width', '10%');
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
           location.href="style_profile_1.html";
@@ -128,27 +284,9 @@
           location.href="style_profile_size_2.html";
         });
 
-        // $('ul.tabs').tabs();
-        // $('ul.tabs').tabs('select_stab', 'tab_id');
+        // select value
+        $('select').material_select();
 
-        // 상단 탭 swipe 가능하도록 설정
-        // $('ul.tabs').tabs({swipeable: true});
-        $('ul.tabs').tabs();
-
-        // $('ul.tabs').bind("tabsselect", function(e, tab) {
-        //   alert(tab.index + "selected");
-        // });
-
-
-        // side-nav
-        // Initialize collapse button
-        $('.button-collapse').sideNav();
-        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-        // $('.collapsible').collapsible();
-        // Show sideNav
-        // $('.button-collapse').sideNav('show');
-        // Hide sideNav
-        // $('.button-collapse').sideNav('hide');
       });
     </script>
   </body>

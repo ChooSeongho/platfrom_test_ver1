@@ -8,170 +8,46 @@
       <!-- Compiled and minified JavaScript -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-      <link rel="stylesheet" type="text/css" href="css/sign_up_1.css" />
+      <link rel="stylesheet" type="text/css" href="css/style_profile.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
 
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-      <script>
-        $(function() {
-          function onLoad() {
-    		    document.addEventListener("deviceready", onDeviceReady, false);
-      		}
-
-          function onDeviceReady() {
-            document.addEventListener("backbutton", onBackKeyDown, true);
-            // createIframe(); //아이프레임으로 띄운 상태
-          }
-
-          function onBackKeyDown() {
-            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
-          }
-
-          function onBackKeyDownMsg(button) {
-            if(button == 2) {
-              navigator.app.exitApp();
-            }
-          }
-        });
-      </script>
-
       <title>platfrom_test</title>
 
-      <!-- <script>
-      $(function() {
-        $('#main_wrap').load("show_goods.html");
-      });
-      </script> -->
   </head>
   <body>
-    <header>
-      <div id="header_wrapper">
-        <div id="back_btn_wrapper">
-          <i id="back_btn" class="material-icons">chevron_left</i>
-        </div>
-        <div class="page_title_wrapper">
-          <span class="page_title"> 스타일프로필 </span>
-        </div>
+    <div id="start_container">
+      <div class="style_profile_content">편안함과 스타일 중<br>어떤 것을 추구하나요?</div>
+      <div class="select_btn_container">
+        <div id="comfortable_btn" class="select_btn waves-effect waves-light">편안함</div>
+        <span class="versus">vs</span>
+        <div id="style_btn" class="select_btn waves-effect waves-lightn">스타일</div>
       </div>
-    </header>
-
-    <form id="question_wrapper">
-      <div class="question">
-        <span id="question_content"> 편안함과 스타일 중 어떤 것을 추구하나요? </span>
-      </div>
-      <div class="question_detail">
-        <div class="question_detail_content">
-          <input type="radio" name="comportable_or_style" id="comportable_or_style_style" class="check_btn" value="style">
-          <label for="comportable_or_style_style" class="input-label radio"> 스타일을 더 추구하는 편입니다. </label>
-          <input type="radio" name="comportable_or_style" id="comportable_or_style_comportable" class="check_btn" value="comportable">
-          <label for="comportable_or_style_comportable" class="input-label radio"> 편안함을 더 추구하는 편입니다. </label>
-          <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
-        </div>
-      </div>
-      <p>
-      <div class="question">
-        <span id="question_content"> 나이 </span>
-      </div>
-      <div class="question_detail">
-        <div class="question_detail_content">
-          <input type="radio" name="investment" id="investment_high" class="check_btn" value="high">
-          <label for="investment_high" class="input-label radio"> 저의 스타일을 위해 많은 것을 투자합니다! </label>
-          <input type="radio" name="investment" id="investment_middle" class="check_btn" value="middle">
-          <label for="investment_middle" class="input-label radio"> 스타일에 적당히 투자합니다! </label>
-          <input type="radio" name="investment" id="investment_low" class="check_btn" value="low">
-          <label for="investment_low" class="input-label radio"> 차라리 나의 에너지를 다른 곳에 쓰고 싶습니다. </label>
-          <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
-        </div>
-      </div>
-      <p>
-      <div class="question">
-        <span id="question_content"> 직업 </span>
-      </div>
-      <div class="question_detail">
-        <div class="question_detail_content">
-          <input type="radio" name="challenge" id="challenge_high" class="check_btn" value="high">
-          <label for="challenge_high" class="input-label radio"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! </label>
-          <input type="radio" name="challenge" id="challenge_middle" class="check_btn" value="middle">
-          <label for="challenge_middle" class="input-label radio"> 때에 따라 즐기는 편입니다! </label>
-          <input type="radio" name="challenge" id="challenge_low" class="check_btn" value="low">
-          <label for="challenge_low" class="input-label radio"> 필요한 상황에만 쇼핑하는 편이에요! </label>
-          <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
-        </div>
-      </div>
-      <p>
-      <div class="question">
-        <span id="question_content"> 직장에서 정해진 드레스코드는 무엇인가요? </span>
-      </div>
-      <div class="question_detail">
-        <div class="question_detail_content">
-          <input type="radio" name="clothes_code" id="clothes_code_casual" class="check_btn" value="casual">
-          <label for="clothes_code_casual" class="input-label radio"> 드레스코드는 따로 없습니다. / 캐주얼 </label>
-          <br>
-          <input type="radio" name="clothes_code" id="clothes_code_business_casual" class="check_btn" value="business_casual">
-          <label for="clothes_code_business_casual" class="input-label radio"> 비지니스 캐주얼 </label>
-          <br>
-          <input type="radio" name="clothes_code" id="clothes_code_business_formal" class="check_btn" value="business_formal">
-          <label for="clothes_code_business_formal" class="input-label radio"> 비지니스 포멀 </label>
-          <br>
-          <input type="radio" name="clothes_code" id="clothes_code_uniform" class="check_btn" value="uniform">
-          <label for="clothes_code_uniform" class="input-label radio"> 유니폼 / 제복 </label>
-          <br>
-          <input type="radio" name="clothes_code" id="clothes_code_etc" class="check_btn" value="etc">
-          <label for="clothes_code_etc" class="input-label radio"> 기타 </label>
-          <br>
-          <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
-        </div>
-      </div>
-    </form>
-    <!-- <div id="question_wrapper">
-      <div class="question">
-        <span id="question_content"> 당신은 옷 쇼핑을 즐기시는 편인가요? </span>
-      </div>
-      <div class="question_detail">
-      </div>
-    </div> -->
-
-    <footer>
-      <div class="footer_wrapper">
-        <a id="next_btn" class="waves-effect waves-light btn btn_long">다음</a>
-      </div>
-    </footer>
+    </div>
 
     <script>
 
       $(function() {
-        // '뒤로가기' 버튼 클릭
-        $('#back_btn').on('click', function() {
-          history.back();
+        // contents in sex_btn
+        $('.select_btn').on('touchstart', function(e) {
+          e.preventDefault();
+          if($(this).text() == "편안함") {
+            $(this).css('background', '#8b9bce');
+          } else {
+            $(this).css('background', '#8b9bce');
+          }
+        }).on('touchend', function(e) {
+          e.preventDefault();
+          $(this).css('background', '#ffffff');
+          if($(this).text() == "편안함") {
+            // location.href = "style_profile_2.html";
+          } else {
+            // location.href = "style_profile_2.html";
+          }
+          location.href="style_profile_size_1.html"
         });
-
-        // '다음' 버튼 클릭
-        $('#next_btn').on('click', function() {
-          location.href="style_profile_size_1.html";
-        });
-
-        // $('ul.tabs').tabs();
-        // $('ul.tabs').tabs('select_stab', 'tab_id');
-
-        // 상단 탭 swipe 가능하도록 설정
-        // $('ul.tabs').tabs({swipeable: true});
-        $('ul.tabs').tabs();
-
-        // $('ul.tabs').bind("tabsselect", function(e, tab) {
-        //   alert(tab.index + "selected");
-        // });
-
-
-        // side-nav
-        // Initialize collapse button
-        $('.button-collapse').sideNav();
-        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-        // $('.collapsible').collapsible();
-        // Show sideNav
-        // $('.button-collapse').sideNav('show');
-        // Hide sideNav
-        // $('.button-collapse').sideNav('hide');
       });
     </script>
   </body>

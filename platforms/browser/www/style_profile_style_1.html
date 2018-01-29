@@ -9,30 +9,13 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
       <link rel="stylesheet" type="text/css" href="css/style_profile_style.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
 
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
       <script>
         $(function() {
-          function onLoad() {
-    		    document.addEventListener("deviceready", onDeviceReady, false);
-      		}
-
-          function onDeviceReady() {
-            document.addEventListener("backbutton", onBackKeyDown, true);
-            // createIframe(); //아이프레임으로 띄운 상태
-          }
-
-          function onBackKeyDown() {
-            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
-          }
-
-          function onBackKeyDownMsg(button) {
-            if(button == 2) {
-              navigator.app.exitApp();
-            }
-          }
         });
       </script>
 
@@ -48,7 +31,7 @@
     <header>
       <div id="header_wrapper">
         <div id="back_btn_wrapper">
-          <i id="back_btn" class="material-icons">chevron_left</i>
+          <i id="back_btn" class="material-icons small">chevron_left</i>
         </div>
         <div class="page_title_wrapper">
           <span class="page_title"> 스타일프로필 </span>
@@ -69,43 +52,27 @@
       </div>
     </header>
 
-    <div class="question">
-      <span id="question_content"> 어떨 때 당신은 옷을 신경쓰고 싶나요? <br> 또 평소에 어떤 룩들을 좋아하시나요? </span>
-    </div>
-    <p>
-    <div class="question_detail center-align">
-      <div class="row middle">
-        <div class="col s3 question_detail_content">
-          <label> 데이트룩 </lable>
-        </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_content">
-          <label> 데일리룩 </lable>
-        </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_content">
-          <label> 캠퍼스룩 </lable>
-        </div>
-        <div class="col s3 question_detail_content">
-          <label> 오피스룩 </lable>
-        </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_content">
-          <label> 모임룩 </lable>
-        </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_content">
-          <label> 나들이룩 </lable>
-        </div>
-        <div class="col s3 question_detail_content">
-          <label> 여행룩 </lable>
-        </div>
-        <div class="col s1"> </div>
-        </div>
+    <div id="question_wrapper">
+      <div class="question">
+        <span id="question_content"><b>어떨 때 당신은<br>옷을 신경쓰고 싶나요?<br><br>또 평소에 어떤 룩들을 좋아하시나요?</b></span>
+      </div>
+      <div class="can_max_select default-blue-text">*최대 5개</div>
+      <div class="question_detail">
+        <div class="question_detail_content">데이트룩</div>
+        <div class="question_detail_content">데일리룩</div>
+        <div class="question_detail_content">캠퍼스룩</div>
+        <div class="question_detail_content">오피스룩</div>
+        <div class="question_detail_content">모임룩</div>
+        <div class="question_detail_content">나들이룩</div>
+        <div class="question_detail_content">여행룩</div>
+        <div class="question_detail_content">홈웨어룩</div>
+        <div class="question_detail_content">트레이닝룩</div>
+        <div class="question_detail_content">파티룩</div>
+        <div class="question_detail_content">기타</div>
       </div>
     </div>
 
-    <div class="question">
+    <!-- <div class="question">
       <span id="question_content"> 악세사리도 추천해 드릴까요? </span>
     </div>
     <p>
@@ -119,7 +86,7 @@
           <label> 아니오 </lable>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- <form id="question_wrapper">
       <div class="question">
@@ -150,13 +117,19 @@
 
     <footer>
       <div class="footer_wrapper">
-        <a id="next_btn" class="waves-effect waves-light btn btn_long">다음</a>
+        <a id="next_btn" class="waves-effect waves-light btn btn_long default-blue">다음</a>
       </div>
     </footer>
 
     <script>
 
       $(function() {
+        $('#progress_size').css('width', '43%');
+
+        if($(document).height() > $('#question_wrapper').height()) {
+          $('.footer_wrapper').css('position', 'absolute');
+        }
+
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
           location.href="style_profile_fit_3.html";
@@ -170,9 +143,11 @@
         $('.question_detail_content').on('click', function() {
           $(this).css('background-color', function(index, value) {
             if(value == "rgb(255, 255, 255)") {
-              return $(this).css('background-color', '#c51162');
+              $(this).css('background-color', '#8B9BCE');
+              $(this).css('color', '#ffffff');
             } else {
-              return $(this).css('background-color', '#ffffff');
+              $(this).css('background-color', '#ffffff');
+              $(this).css('color', '#eeeeee');
             }
           });
         });

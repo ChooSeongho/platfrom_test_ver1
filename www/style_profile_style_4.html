@@ -9,30 +9,13 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
       <link rel="stylesheet" type="text/css" href="css/style_profile_style.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
 
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
       <script>
         $(function() {
-          function onLoad() {
-    		    document.addEventListener("deviceready", onDeviceReady, false);
-      		}
-
-          function onDeviceReady() {
-            document.addEventListener("backbutton", onBackKeyDown, true);
-            // createIframe(); //아이프레임으로 띄운 상태
-          }
-
-          function onBackKeyDown() {
-            navigator.notification.confirm('앱을 종료하시겠습니까?', onBackKeyDownMsg, '메세지', '취소, 종료');
-          }
-
-          function onBackKeyDownMsg(button) {
-            if(button == 2) {
-              navigator.app.exitApp();
-            }
-          }
         });
       </script>
 
@@ -69,89 +52,82 @@
       </div>
     </header>
 
-    <div class="question">
-      <span id="question_content"> 이 재질만은 싫다! <br> 피하고 싶은 재질을 모두 골라주세요! </span>
-    </div>
-    <p>
-    <div class="question_detail center-align">
-      <div class="row">
-        <div class="col s3 question_detail_image_content">
+    <div id="question_wrapper">
+      <div class="question center-align">
+        <span id="question_content" class="default-blue-text">이 재질만은 싫다! NO!</span>
+        <br>
+        <span id="question_content_detail">피하고 싶은 재질을 모두 골라주세요!</span>
+      </div>
+      <p>
+      <div class="question_detail">
+        <div class="question_detail_image_content">
           <div class="question_image_option_title">
-            벨벳
+            leather
           </div>
           <div class="question_image_container">
-            <img class="question_image" src="img/logo.png">
-            <img class="question_checkmark" src="img/check.png">
+            <img class="question_image" src="img/febric_leather.png">
+            <img class="question_checkmark" src="img/checkmark.png">
           </div>
         </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_image_content">
+        <div class="question_detail_image_content">
           <div class="question_image_option_title">
-            벨벳
+            knit
           </div>
           <div class="question_image_container">
-            <img class="question_image" src="img/logo.png">
-            <img class="question_checkmark" src="img/check.png">
+            <img class="question_image" src="img/febric_knit.png">
+            <img class="question_checkmark" src="img/checkmark.png">
           </div>
         </div>
-        <div class="col s1"> </div>
-        <div class="col s3 question_detail_image_content">
+        <div class="question_detail_image_content">
           <div class="question_image_option_title">
-            벨벳
+            denim
           </div>
           <div class="question_image_container">
-            <img class="question_image" src="img/logo.png">
-            <img class="question_checkmark" src="img/check.png">
+            <img class="question_image" src="img/febric_denim.png">
+            <img class="question_checkmark" src="img/checkmark.png">
           </div>
         </div>
-        </div>
-        <div class="row">
-          <div class="col s3 question_detail_image_content">
-            <div class="question_image_option_title">
-              벨벳
-            </div>
-            <div class="question_image_container">
-              <img class="question_image" src="img/logo.png">
-              <img class="question_checkmark" src="img/check.png">
-            </div>
+        <div class="question_detail_image_content">
+          <div class="question_image_option_title">
+            linen
           </div>
-          <div class="col s1"> </div>
-          <div class="col s3 question_detail_image_content">
-            <div class="question_image_option_title">
-              벨벳
-            </div>
-            <div class="question_image_container">
-              <img class="question_image" src="img/logo.png">
-              <img class="question_checkmark" src="img/check.png">
-            </div>
-          </div>
-          <div class="col s1"> </div>
-          <div class="col s3 question_detail_image_content">
-            <div class="question_image_option_title">
-              벨벳
-            </div>
-            <div class="question_image_container">
-              <img class="question_image" src="img/logo.png">
-              <img class="question_checkmark" src="img/check.png">
-            </div>
+          <div class="question_image_container">
+            <img class="question_image" src="img/febric_linen.png">
+            <img class="question_checkmark" src="img/checkmark.png">
           </div>
         </div>
-        <div class="row">
-          <div class="col s3 question_detail_image_content">
-            <div class="question_image_option_title">
-              벨벳
-            </div>
-            <div class="question_image_container">
-              <img class="question_image" src="img/logo.png">
-              <img class="question_checkmark" src="img/check.png">
-            </div>
+        <div class="question_detail_image_content">
+          <div class="question_image_option_title">
+            velvet
           </div>
-          <div class="col s1"> </div>
+          <div class="question_image_container">
+            <img class="question_image" src="img/febric_velvet.png">
+            <img class="question_checkmark" src="img/checkmark.png">
+          </div>
+        </div>
+        <div class="question_detail_image_content">
+          <div class="question_image_option_title">
+            silk
+          </div>
+          <div class="question_image_container">
+            <img class="question_image" src="img/febric_silk.png">
+            <img class="question_checkmark" src="img/checkmark.png">
+          </div>
+        </div>
+        <div class="question_detail_image_content">
+          <div class="question_image_option_title">
+            tweed
+          </div>
+          <div class="question_image_container">
+            <img class="question_image" src="img/febric_tweed.png">
+            <img class="question_checkmark" src="img/checkmark.png">
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="question">
+
+    <!-- <div class="question">
       <span id="question_content"> 악세사리도 추천해 드릴까요? </span>
     </div>
     <p>
@@ -165,17 +141,23 @@
           <label> 아니오 </lable>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <footer>
       <div class="footer_wrapper">
-        <a id="next_btn" class="waves-effect waves-light btn btn_long">다음</a>
+        <a id="next_btn" class="waves-effect waves-light btn btn_long default-blue">다음</a>
       </div>
     </footer>
 
     <script>
 
       $(function() {
+        $('#progress_size').css('width', '54%');
+
+        // if($(document).height() > $('#question_wrapper').height()) {
+        //   $('.footer_wrapper').css('position', 'absolute');
+        // }
+
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
           location.href="style_profile_style_3.html";
@@ -193,7 +175,7 @@
           // alert($(this).find('.question_checkmark').css('display'));
           $(this).find('.question_checkmark').css('display', function(index, value) {
             if(value == "none") {
-              $(this).offset({top: top + 50});
+              $(this).offset({top: top});
               return $(this).css('display', 'block');
             } else {
               return $(this).css('display', 'none');

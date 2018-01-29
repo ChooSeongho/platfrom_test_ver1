@@ -39,6 +39,7 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/color.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Compiled and minified CSS -->
@@ -93,30 +94,25 @@
   </header> -->
   <!-- <script type="text/javascript" src="cordova.js"></script> -->
   <div id="sign_wrap">
-    <div class="row">
-      <form class="col s10">
-        <div class="row">
-          <div class="input-field col s10">
-            <input id="email" type="email" class="validate">
-            <label for="email" data-success="right">id</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s10">
-            <input id="password" type="password" class="validate">
-            <label for="password">Password</label>
-          </div>
-        </div>
-      </form>
+    <div class="index_logo"></div>
+    <form class="col s12">
+      <input id="email" placeholder="   아이디" type="email" class="input_sign">
+      <input id="password" placeholder="   비밀번호" type="password" class="input_sign">
+    </form>
+    <div class="auto_login_wrapper">
+      <input type="checkbox" id="auto_login">
+      <label for="auto_login" class="input-label"> 자동 로그인 </label>
     </div>
-    <a id="signin" class="waves-effect waves-light btn btn_long">로그인</a>
-    <span id="find_id" class="find_id"> ID를 모르시겠다면? </span>
-    <a id="signup" class="waves-effect waves-light btn btn_long">회원가입</a>
+    <a id="signin" class="waves-effect waves-light btn btn_long default-blue">로그인</a>
+    <span id="find_id" class="find_id" style="margin-bottom: 3vh"> ID를 잊어버리셨나요? </span>
+    <a id="signup" class="waves-effect waves-light btn btn_long bold-blue">회원가입</a>
+    <div style="height: 5vh;"></div>
+    <span>간편로그인</span>
     <div class="row middle_icons">
-      <a id="facebook_sign" class="waves-effect waves-light btn indigo darken-4 circle_btn"><i class="material-icons">add</i></a>
-      <a id="naver_sign" class="waves-effect waves-light btn light-green accent-3 circle_btn"><i class="material-icons">add</i></a>
-      <a id="kakaotalk_sign" class="waves-effect waves-light btn lime accent-2 black-text circle_btn"><i class="material-icons">add</i></a>
-      <a id="google_sign" class="waves-effect waves-light btn red accent-4 circle_btn"><i class="material-icons">add</i></a>
+      <a id="facebook_sign" class="waves-effect waves-light btn facebook circle_btn"></a>
+      <a id="naver_sign" class="waves-effect waves-light btn naver circle_btn"></a>
+      <a id="kakaotalk_sign" class="waves-effect waves-light kakao btn black-text circle_btn"></a>
+      <a id="google_sign" class="waves-effect waves-light google btn circle_btn"></a>
     </div>
 
     <!-- <div id="btn_wrap">
