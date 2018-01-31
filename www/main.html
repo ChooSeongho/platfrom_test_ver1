@@ -18,6 +18,10 @@
       <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
       <link rel="stylesheet" type="text/css" href="css/main.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
+      <link rel="stylesheet" type="text/css" href="css/show_style.css" />
+      <link rel="stylesheet" type="text/css" href="css/my_codymonster.css" />
+      <link rel="stylesheet" type="text/css" href="css/appraisal_style.css" />
 
 
       <!-- <script type="text/javascript" src="js/index.js"></script> -->
@@ -118,7 +122,31 @@
     <script>
 
       // 스타일링 보기 페이지 불러오기
-      $('#test-swipe-1').load("show_style.html");
+      // $('#test-swipe-1').load("show_style.html");
+
+
+      $.get(
+        'http://192.168.0.8:2012/show_style',
+        function(res) {
+          $('#test-swipe-1').html(res);
+        }
+      );
+
+      // $.ajax({
+      //   url: 'http://192.168.0.8:2012/show_style',
+      //   headers: { 'Access-Control-Allow-Origin' : 'http://192.168.0.8:2012'},
+      //   type: 'GET',
+      //   success: function(data) {
+      //     console.log('data = ' + data);
+      //     // $('#test-swipe-1').innerHTML(data.result);
+      //   },
+      //   error: function(e) {
+      //     console.log('error:' + e);
+      //   },
+      //   beforeSend: function(isdata) {
+      //     console.log('isdata_befor = ' + isdata);
+      //   }
+      // });
 
       // MY 코디몬스터 페이지 불러오기
       $('#test-swipe-2').load("my_codymonster.html");
@@ -291,7 +319,6 @@
         //     location.href="show_goods.html?name=" + providerName_parameter;
         //   }
         // });
-
 
 
 
