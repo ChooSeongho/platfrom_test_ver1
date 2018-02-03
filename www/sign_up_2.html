@@ -39,7 +39,7 @@
       </div>
     </header>
 
-    <div class="sign_up_container">
+    <div id="sign_up_container" class="sign_up_container">
       <form id="personal_information_wrapper">
         <div class="input-field col s6">
           <span class="info_question">아이디</span>
@@ -50,13 +50,13 @@
         <div class="divider_gray"></div>
         <div class="input-field col s6">
           <span class="info_question">비밀번호</span>
-          <input placeholder="8-16자 영문/숫자 조합으로 입력" id="input_password" type="text" class="input_password">
+          <input placeholder="8-16자 영문/숫자 조합으로 입력" id="input_password" type="password" class="input_password">
           <label for="input_password"></label>
         </div>
         <div class="divider_gray"></div>
         <div class="input-field col s6">
           <p class="info_question">비밀번호 확인</p>
-          <input placeholder="비밀번호를 한번 더 입력해 주세요" id="input_password_confirm" type="text" class="input_password_confirm">
+          <input placeholder="비밀번호를 한번 더 입력해 주세요" id="input_password_confirm" type="password" class="input_password_confirm">
           <label for="input_password_confirm"></label>
         </div>
       </form>
@@ -65,14 +65,14 @@
         <div class="input-field col s6">
           <span class="info_question">- 제외 휴대폰 번호</span>
           <a id="send_confirm_num" class="waves-effect waves-light btn confirm_btn">인증번호발송</a>
-          <input placeholder="-를 제외하고 입력해 주세요" id="input_phone_num" type="text" class="input_phone_num">
+          <input placeholder="-를 제외하고 입력해 주세요" id="input_phone_num" type="number" class="input_phone_num">
           <label for="input_phone_num"></label>
         </div>
         <div class="divider_gray"></div>
         <div class="input-field col s6">
           <span class="info_question">인증번호</span>
           <a id="input_confirm_num" class="waves-effect waves-light btn confirm_btn">확인</a>
-          <input placeholder="인증번호를 입력 해 주세요" id="input_confirm_num" type="text" class="input_confirm_num">
+          <input placeholder="인증번호를 입력 해 주세요" id="input_confirm_num" type="number" class="input_confirm_num">
           <label for="input_confirm_num"></label>
         </div>
       </form>
@@ -97,9 +97,31 @@
         <label for="access_terms_agree_personal_info" class="input-label access_terms_agree">개인정보 수집/이용에 동의합니다.</label>
         <i class="personal_info_content material-icons small confirm_content_btn">chevron_right</i>
       </div>
-
+      
     </div>
 
+    
+
+      <!-- <div class="agree_receive_sms_wrapper">
+        <input type="checkbox" id="receive_sms">
+        <label for="receive_sms" class="input-label receive_sms">SMS를 통해 코디몬스터의 다양한 정보를 받아보겠습니다.</label>
+      </div>
+
+      <p class="margin5vh"></p>
+
+      <span class="access_terms">이용약관</span>
+      <div class="access_terms_wrapper">
+        <input type="checkbox" id="access_terms_agree_all">
+        <label for="access_terms_agree_all" class="input-label access_terms_agree">약관 전체동의</label>
+        <div class="divider_gray"></div>
+        <input type="checkbox" id="access_terms_agree">
+        <label for="access_terms_agree" class="input-label access_terms_agree">이용약관에 동의합니다.</label>
+        <i class="access_terms_content material-icons small confirm_content_btn">chevron_right</i>
+        <br>
+        <input type="checkbox" id="access_terms_agree_personal_info">
+        <label for="access_terms_agree_personal_info" class="input-label access_terms_agree">개인정보 수집/이용에 동의합니다.</label>
+        <i class="personal_info_content material-icons small confirm_content_btn">chevron_right</i>
+      </div> -->
 
 
 
@@ -128,8 +150,61 @@
         });
 
         // '다음' 버튼 클릭
+        // $('#next_btn').on('click', function() {
+        //   location.href="sign_up_finish.html";
+        // });
+
         $('#next_btn').on('click', function() {
-          location.href="sign_up_finish.html";
+          var idInput = $('#sign_up_container input[id=input_id]');
+          var pwInput = $('#sign_up_container input[id=input_password]');
+          var puConfirmInput = $('#sign_up_container input[id=input_password_confirm]');
+          var telInput = $('#sign_up_container input[id=input_phone_num]');
+          var telConfirmInput = $('#sign_up_container input[id=input_confirm_num]');
+          var agreeCheck = $('#sign_up_container input[id=access_terms_agree_all]');
+
+          if(!idInput.val() || $.trim(idInput.val()) == "") {
+            alert('아이디를 입력해주세요');
+            idInput.focus();
+            return false;
+          }
+
+          if($.trim(idInput.val()).length < 3 || $.trim(idInput.val()).length > 15) {
+            alert('아이디를 3~15로 입력해주세요');
+            idInput.focus();
+            return false;
+          }
+
+          if(!pwInput.val() || $.trim(pwInput.val()) == "") {
+            alert('비밀번호를 입력해주세요');
+            pwInput.focus();
+            return false;
+          }
+
+          if(!puConfirmInput.val() || $.trim(puConfirmInput.val()) == "") {
+            alert('비밀번호를 확인해주세요');
+            puConfirmInput.focus();
+            return false;
+          }
+
+          if(!telInput.val() || $.trim(telInput.val()) == "") {
+            alert('연락처를 입력해주세요');
+            telInput.focus();
+            return false;
+          }
+
+          if(!telConfirmInput.val() || $.trim(telConfirmInput.val()) == "") {
+            alert('인증번호를 입력해주세요');
+            telConfirmInput.focus();
+            return false;
+          }
+
+          if(!agreeCheck.val() || $.trim(agreeCheck.val()) == "") {
+            alert('이용약관 및 개인정보 수집/이용에 동의해주세요');
+            agreeCheck.focus();
+            return false;
+          }
+
+          return location.href="sign_up_finish.html";
         });
 
 
