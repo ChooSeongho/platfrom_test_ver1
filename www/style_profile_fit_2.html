@@ -60,23 +60,23 @@
       <div class="question_detail">
         <div class="question_detail_content">
           <img src="img/w_jean_skinny.jpg" width="300px" height="300px">
-          <input type="checkbox" name="jean_skinny" id="jean_skinny" class="check_btn" value="skinny">
+          <input type="checkbox" name="jean" id="jean_skinny" class="check_btn" value="skinny">
           <label for="jean_skinny" class="input-label radio"> 스키니핏 </label>
           <p>
             <img src="img/w_jean_slim.jpg" width="300px" height="300px">
-          <input type="checkbox" name="jean_slim" id="jean_slim" class="check_btn" value="slim">
+          <input type="checkbox" name="jean" id="jean_slim" class="check_btn" value="slim">
           <label for="jean_slim" class="input-label radio"> 슬림핏 </label>
           <p>
             <img src="img/w_jean_straight.jpg" width="300px" height="300px">
-          <input type="checkbox" name="jean_straight" id="jean_straight" class="check_btn" value="straight">
+          <input type="checkbox" name="jean" id="jean_straight" class="check_btn" value="straight">
           <label for="jean_straight" class="input-label radio"> 스트레이트핏 </label>
           <p>
             <img src="img/w_jean_boots.jpg" width="300px" height="300px">
-          <input type="checkbox" name="jean_boots" id="jean_boots" class="check_btn" value="boots">
+          <input type="checkbox" name="jean" id="jean_boots" class="check_btn" value="boots">
           <label for="jean_boots" class="input-label radio"> 부츠컷 </label>
           <p>
             <img src="img/w_jean_wide.jpg" width="300px" height="300px">
-          <input type="checkbox" name="jean_wide" id="jean_wide" class="check_btn" value="wide">
+          <input type="checkbox" name="jean" id="jean_wide" class="check_btn" value="wide">
           <label for="jean_wide" class="input-label radio"> 와이드핏 </label>
           <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
         </div>
@@ -88,16 +88,16 @@
       <p>
       <div class="question_detail">
         <div class="question_detail_content">
-          <input type="checkbox" name="pants_slim" id="pants_slim" class="check_btn" value="slim">
+          <input type="checkbox" name="pants" id="pants_slim" class="check_btn" value="slim">
           <label for="pants_slim" class="input-label radio"> 슬림핏 </label>
           <p>
-          <input type="checkbox" name="pants_straight" id="pants_straight" class="check_btn" value="straight">
+          <input type="checkbox" name="pants" id="pants_straight" class="check_btn" value="straight">
           <label for="pants_straight" class="input-label radio"> 스트레이트핏 </label>
           <p>
-          <input type="checkbox" name="pants_boots" id="pants_boots" class="check_btn" value="boots">
+          <input type="checkbox" name="pants" id="pants_boots" class="check_btn" value="boots">
           <label for="pants_boots" class="input-label radio"> 부츠컷 </label>
           <p>
-          <input type="checkbox" name="pants_wide" id="pants_wide" class="check_btn" value="wide">
+          <input type="checkbox" name="pants" id="pants_wide" class="check_btn" value="wide">
           <label for="pants_wide" class="input-label radio"> 와이드핏 </label>
           <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
         </div>
@@ -129,7 +129,31 @@
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_fit_3.html";
+          var jean = [];
+          var pants = [];
+          $('input[name=jean]').each(function(index, ele) {
+            if($(ele).prop('checked')) {
+              jean.push($(ele).val());
+            }
+          });
+          $('input[name=pants]').each(function(index, ele) {
+            if($(ele).prop('checked')) {
+              pants.push($(ele).val());
+            }
+          });
+          $.ajaxSettings.traditional = true;
+          $.post("http://192.168.0.8:2012/user/fit_2", {
+            fit_jean : jean, 
+            fit_pants : pants
+          })
+          .done(function(res){
+            if(res == "200") {
+              location.href="style_profile_fit_3.html";
+            } else {
+              alert('서버저장 실패. 다시 시도해 주세요');
+            }
+          });
+          // location.href="style_profile_fit_3.html";
         });
 
       });

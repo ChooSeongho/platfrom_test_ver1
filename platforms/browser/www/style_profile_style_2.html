@@ -63,7 +63,7 @@
           <div class="question_image_option_title">
             beige
           </div>
-          <div class="question_image_container">
+          <div id='beige' class="question_image_container">
             <img class="question_image" src="img/beige.jpg">
             <img class="question_checkmark" src="img/checkmark.png">
           </div>
@@ -72,7 +72,7 @@
           <div class="question_image_option_title">
             black
           </div>
-          <div class="question_image_container">
+          <div id='black' class="question_image_container">
             <img class="question_image" src="img/black.jpg">
             <img class="question_checkmark" src="img/checkmark.png">
           </div>
@@ -81,7 +81,7 @@
           <div class="question_image_option_title">
             blue
           </div>
-          <div class="question_image_container">
+          <div id='blue' class="question_image_container">
             <img class="question_image" src="img/blue.jpg">
             <img class="question_checkmark" src="img/checkmark.png">
           </div>
@@ -90,7 +90,7 @@
           <div class="question_image_option_title">
             brown
           </div>
-          <div class="question_image_container">
+          <div id='brown' class="question_image_container">
             <img class="question_image" src="img/brown.jpg">
             <img class="question_checkmark" src="img/checkmark.png">
           </div>
@@ -99,7 +99,7 @@
           <div class="question_image_option_title">
             burgundy
           </div>
-          <div class="question_image_container">
+          <div id='burgundy' class="question_image_container">
             <img class="question_image" src="img/burgundy.jpg">
             <img class="question_checkmark" src="img/checkmark.png">
           </div>
@@ -108,7 +108,7 @@
           <div class="question_image_option_title">
             green
           </div>
-          <div class="question_image_container">
+          <div id='green' class="question_image_container">
             <img class="question_image" src="img/green.jpg">
             <img class="question_checkmark" src="img/checkmark.png">
           </div>
@@ -117,7 +117,7 @@
           <div class="question_image_option_title">
             red
           </div>
-          <div class="question_image_container">
+          <div id='red' class="question_image_container">
             <img class="question_image" src="img/red.jpg">
             <img class="question_checkmark" src="img/checkmark.png">
           </div>
@@ -151,7 +151,8 @@
 
       $(function() {
         $('#progress_size').css('width', '46%');
-
+        var color = [];
+        
 
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
@@ -160,7 +161,18 @@
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_style_3.html";
+          $.ajaxSettings.traditional = true;
+          $.post("http://192.168.0.8:2012/user/color", {
+            dont_color : color
+          })
+          .done(function(res){
+            if(res == "200") {
+              location.href="style_profile_style_3.html";
+            } else {
+              alert('서버저장 실패. 다시 시도해 주세요');
+            }
+          });
+          // location.href="style_profile_style_3.html";
         });
 
         // .question_detail_content 클래스 클릭 시 배경 확인하여 클릭 시 마다 배경 색 변경
@@ -169,13 +181,16 @@
           var top = $(this).offset().top;
           var top_width = $(this).width();
           var top_height = $(this).height();
+          var current_this = this;
           // alert($(this).find('.question_checkmark').css('display'));
           $(this).find('.question_checkmark').css('display', function(index, value) {
             if(value == "none") {
               $(this).offset({top: top});
               $(this).css('display', 'block');
+              color.push($(current_this).attr('id'));
             } else {
               $(this).css('display', 'none');
+              color.pop($(current_this).attr('id'));
             }
           });
         });

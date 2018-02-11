@@ -42,11 +42,31 @@
           e.preventDefault();
           $(this).css('background', '#ffffff');
           if($(this).text() == "편안함") {
+            $.post("http://192.168.0.8:2012/user/comfortable_style", {
+            comfortable_style : 'comfortable'
+            })
+            .done(function(res){
+              if(res == "200") {
+                location.href="style_profile_size_1.html";
+              } else {
+                alert('서버 저장 실패 다시 시도해 주세요');
+              }
+            });
             // location.href = "style_profile_2.html";
           } else {
+            $.post("http://192.168.0.8:2012/user/comfortable_style", {
+            comfortable_style : 'style'
+            })
+            .done(function(res){
+              if(res == "200") {
+                location.href="style_profile_size_1.html";
+              } else {
+                alert('서버 저장 실패 다시 시도해 주세요');
+              }
+            });
             // location.href = "style_profile_2.html";
           }
-          location.href="style_profile_size_1.html"
+          // location.href="style_profile_size_1.html"
         });
       });
     </script>

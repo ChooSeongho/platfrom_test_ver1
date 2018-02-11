@@ -56,7 +56,7 @@
       <div class="size_wrapper input-field col s12">
         <span class="info_question default-blue-text">height(cm)</span>
         <span class="measure default-blue-text">cm</span>
-        <select>
+        <select id="select_height">
           <option value="140">140</option>
           <option value="141">141</option>
           <option value="142">142</option>
@@ -119,7 +119,7 @@
         <label for="input_weight"></label> -->
         <span class="info_question default-blue-text">weight(kg)</span>
         <span class="measure default-blue-text">kg</span>
-        <select>
+        <select id="select_weight">
           <option value="40">40</option>
           <option value="41">41</option>
           <option value="42">42</option>
@@ -177,7 +177,7 @@
         <input placeholder="" id="input_top_measurement" type="text" class="input_top_measurement">
         <label for="input_top_measurement"></label> -->
         <span class="info_question default-blue-text">top dimenstion</span>
-        <select>
+        <select id="select_top">
           <option value="44">44</option>
           <option value="55">55</option>
           <option value="66">66</option>
@@ -191,7 +191,7 @@
         <input placeholder="" id="input_bottom_measurement_waist" type="text" class="input_bottom_measurement_waist">
         <label for="input_bottom_measurement_waist"></label> -->
         <span class="info_question default-blue-text">size(below the waist)</span>
-        <select>
+        <select id="select_bottom_waist">
           <option value="23">23</option>
           <option value="24">24</option>
           <option value="25">25</option>
@@ -212,7 +212,7 @@
         <input placeholder="" id="input_bottom_measurement_pelvis" type="text" class="input_bottom_measurement_pelvis">
         <label for="input_bottom_measurement_pelvis"></label> -->
         <span class="info_question default-blue-text">size(below the pelvic)</span>
-        <select>
+        <select id="select_bottom_pelvis">
           <option value="dontknow">i don't know</option>
           <option value="23">23</option>
           <option value="24">24</option>
@@ -235,7 +235,7 @@
         <label for="input_shoes_measurement"></label> -->
         <span class="info_question default-blue-text">shoes dimensions</span>
         <span class="measure default-blue-text">mm</span>
-        <select>
+        <select id='select_shoes'>
           <option value="220">220</option>
           <option value="225">225</option>
           <option value="230">230</option>
@@ -281,7 +281,35 @@
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_size_2.html";
+          var height = $('#select_height option:selected').val();
+          var weight = $('#select_weight option:selected').val();
+          var top = $('#select_top option:selected').val();
+          var bottom_waist = $('#select_bottom_waist option:selected').val();
+          var bottom_pelvis = $('#select_bottom_pelvis option:selected').val();
+          var shoes = $('#select_shoes option:selected').val();
+          // console.log('height = ' + height);
+          // console.log('weight = ' + weight);
+          // console.log('top dimenstion = ' + top);
+          // console.log('bottom_waist = ' + bottom_waist);
+          // console.log('bottom_pelvis = ' + bottom_pelvis);
+          // console.log('shoes = ' + shoes);
+          $.post('http://192.168.0.8:2012/user/size', {
+            size_height : height,
+            size_weight : weight,
+            size_top : top,
+            size_bottom_waist : bottom_waist,
+            size_bottom_pelvis : bottom_pelvis,
+            size_shoes : shoes
+          })
+          .done(function(res) {
+            if(res == '200') {
+              location.href = "style_profile_size_2.html";
+            } else {
+              alert('서버 저장실패. 다시시도해 주세요')
+            }
+          });
+          console.log('height = ' + height);
+          // location.href="style_profile_size_2.html";
         });
 
         // select value

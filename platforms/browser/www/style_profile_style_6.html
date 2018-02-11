@@ -55,7 +55,7 @@
     <div id="question_wrapper">
       <div class="margin5vh"></div>
       <div class="question center-align">
-        <span id="question_content" class="default-blue-text"> 선호하는 브랜드나 쇼핑몰이 있나요?? </span>
+        <span id="question_content" class="default-blue-text">선호하는 브랜드나 쇼핑몰이 있나요?</span>
       </div>
 
       <div class="question_detail">
@@ -88,18 +88,34 @@
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_price_1.html";
-        });
-
-        $('.question_detail_content').on('click', function() {
-          $(this).css('background-color', function(index, value) {
-            if(value == "rgb(255, 255, 255)") {
-              return $(this).css('background-color', '#c51162');
+          var brand = [];
+          $('.chip').each(function(index, ele) {
+            var temp_text = $(this).text();
+            brand.push(temp_text.substring(0, temp_text.length-5));
+          });
+          $.ajaxSettings.traditional = true;
+          $.post('http://192.168.0.8:2012/user/brand', {
+            like_brand : brand
+          })
+          .done(function(res) {
+            if(res == '200') {
+              location.href = "style_profile_price_1.html";
             } else {
-              return $(this).css('background-color', '#ffffff');
+              alert('서버저장 실패. 다시 시도해 주세요')
             }
           });
+          // location.href="style_profile_price_1.html";
         });
+
+        // $('.question_detail_content').on('click', function() {
+        //   $(this).css('background-color', function(index, value) {
+        //     if(value == "rgb(255, 255, 255)") {
+        //       return $(this).css('background-color', '#c51162');
+        //     } else {
+        //       return $(this).css('background-color', '#ffffff');
+        //     }
+        //   });
+        // });
 
         // tag init
         $('.chips').material_chip();

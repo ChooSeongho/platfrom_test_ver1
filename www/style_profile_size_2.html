@@ -54,57 +54,75 @@
 
     <form id="personal_information_wrapper">
       <div class="size_wrapper input-field col s12">
-        <span class="info_question default-blue-text"> 어깨 </span>
-        <select>
+        <span class="info_question default-blue-text">어깨</span>
+        <select id="select_shoulder">
           <!-- <option value="" disabled selected>Choose your option</option> -->
-          <option value="1"> 넓음 </option>
-          <option value="2"> 보통 </option>
-          <option value="3"> 좁음 </option>
+          <option value="넓음">넓음</option>
+          <option value="보통">보통</option>
+          <option value="좁음">좁음</option>
         </select>
       </div>
       <div class="size_wrapper input-field col s12">
-        <span class="info_question default-blue-text"> 팔 </span>
-        <select>
+        <span class="info_question default-blue-text">팔</span>
+        <select id='select_arm'>
           <!-- <option value="" disabled selected>Choose your option</option> -->
-          <option value="1"> 긴편 </option>
-          <option value="2"> 보통 </option>
-          <option value="3"> 짧은편 </option>
+          <option value="긴편">긴편</option>
+          <option value="보통">보통</option>
+          <option value="짧은편">짧은편</option>
         </select>
       </div>
       <div class="size_wrapper input-field col s12">
-        <span class="info_question default-blue-text"> 밑위 </span>
-        <select>
+        <span class="info_question default-blue-text">밑위</span>
+        <select id="select_pelvis">
           <!-- <option value="" disabled selected>Choose your option</option> -->
-          <option value="1"> 긴편 </option>
-          <option value="2"> 보통 </option>
-          <option value="3"> 짧은편 </option>
+          <option value="긴편">긴편</option>
+          <option value="보통">보통</option>
+          <option value="짧은편">짧은편</option>
         </select>
       </div>
       <div class="size_wrapper input-field col s12">
-        <span class="info_question default-blue-text"> 엉덩이 </span>
-        <select>
+        <span class="info_question default-blue-text">엉덩이</span>
+        <select id="select_bottom">
           <!-- <option value="" disabled selected>Choose your option</option> -->
-          <option value="1"> 넓음 </option>
-          <option value="2"> 보통 </option>
-          <option value="3"> 좁음 </option>
+          <option value="넓음">넓음</option>
+          <option value="보통">보통</option>
+          <option value="좁음">좁음</option>
         </select>
       </div>
       <div class="size_wrapper input-field col s12">
-        <span class="info_question default-blue-text"> 다리 </span>
-        <select>
+        <span class="info_question default-blue-text">다리</span>
+        <select id="select_leg">
           <!-- <option value="" disabled selected>Choose your option</option> -->
-          <option value="1"> 긴편 </option>
-          <option value="2"> 보통 </option>
-          <option value="3"> 짧은편 </option>
+          <option value="긴편">긴편</option>
+          <option value="보통">보통</option>
+          <option value="짧은편">짧은편</option>
         </select>
       </div>
       <div class="size_wrapper input-field col s12">
-        <span class="info_question default-blue-text"> 발볼 </span>
-        <select>
+        <span class="info_question default-blue-text">발볼</span>
+        <select id="select_ball">
           <!-- <option value="" disabled selected>Choose your option</option> -->
-          <option value="1"> 넓음 </option>
-          <option value="2"> 보통 </option>
-          <option value="3"> 좁음 </option>
+          <option value="넓음">넓음</option>
+          <option value="보통">보통</option>
+          <option value="좁음">좁음</option>
+        </select>
+      </div>
+      <div class="size_wrapper input-field col s12">
+        <span class="info_question default-blue-text">허벅지</span>
+        <select id="select_thigh">
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="넓음">넓음</option>
+          <option value="보통">보통</option>
+          <option value="좁음">좁음</option>
+        </select>
+      </div>
+      <div class="size_wrapper input-field col s12">
+        <span class="info_question default-blue-text">체형</span>
+        <select id="select_body">
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="넓음">넓음</option>
+          <option value="보통">보통</option>
+          <option value="좁음">좁음</option>
         </select>
       </div>
     </form>
@@ -138,30 +156,40 @@
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_fit_1.html";
+          var shoulder = $('#select_shoulder option:selected').val();
+          var arm = $('#select_arm option:selected').val();
+          var pelvis = $('#select_pelvis option:selected').val();
+          var bottom = $('#select_bottom option:selected').val();
+          var leg = $('#select_leg option:selected').val();
+          var ball = $('#select_ball option:selected').val();
+          var thigh = $('#select_thigh option:selected').val();
+          var body = $('#select_body option:selected').val();
+          console.log('shoulder = ' + shoulder);
+          console.log('arm = ' + arm);
+          console.log('pelvis = ' + pelvis);
+          console.log('bottom = ' + bottom);
+          console.log('leg = ' + leg);
+          console.log('ball = ' + ball);
+          // location.href="style_profile_fit_1.html";
+
+          $.post('http://192.168.0.8:2012/user/bodytype', {
+            bodytype_shoulder : shoulder,
+            bodytype_arm : arm,
+            bodytype_pelvis : pelvis,
+            bodytype_bottom : bottom,
+            bodytype_leg : leg,
+            bodytype_ball : ball,
+            bodytype_thigh : thigh,
+            bodytype_body : body
+          })
+          .done(function(res) {
+            if(res == '200') {
+              location.href = "style_profile_fit_1.html";
+            } else {
+              alert('서버 저장 실패. 다시시도해 주세요');
+            }
+          });
         });
-
-        // $('ul.tabs').tabs();
-        // $('ul.tabs').tabs('select_stab', 'tab_id');
-
-        // 상단 탭 swipe 가능하도록 설정
-        // $('ul.tabs').tabs({swipeable: true});
-        $('ul.tabs').tabs();
-
-        // $('ul.tabs').bind("tabsselect", function(e, tab) {
-        //   alert(tab.index + "selected");
-        // });
-
-
-        // side-nav
-        // Initialize collapse button
-        $('.button-collapse').sideNav();
-        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-        // $('.collapsible').collapsible();
-        // Show sideNav
-        // $('.button-collapse').sideNav('show');
-        // Hide sideNav
-        // $('.button-collapse').sideNav('hide');
 
         // select option
         $('select').material_select();

@@ -64,7 +64,7 @@
           <div class="question_image_option_title">
             check
           </div>
-          <div class="question_image_container">
+          <div id='check' class="question_image_container">
             <img class="question_image" src="img/pattern_check.png">
             <img class="question_checkmark" src="img/checkmark.png">
           </div>
@@ -73,7 +73,7 @@
           <div class="question_image_option_title">
             dot
           </div>
-          <div class="question_image_container">
+          <div id='dot' class="question_image_container">
             <img class="question_image" src="img/pattern_dot.png">
             <img class="question_checkmark" src="img/checkmark.png">
           </div>
@@ -82,7 +82,7 @@
           <div class="question_image_option_title">
             ethnic
           </div>
-          <div class="question_image_container">
+          <div id='ethnic' class="question_image_container">
             <img class="question_image" src="img/pattern_ethnic.png">
             <img class="question_checkmark" src="img/checkmark.png">
           </div>
@@ -91,7 +91,7 @@
           <div class="question_image_option_title">
             geometry
           </div>
-          <div class="question_image_container">
+          <div id='geometry' class="question_image_container">
             <img class="question_image" src="img/pattern_geometry.png">
             <img class="question_checkmark" src="img/checkmark.png">
           </div>
@@ -100,7 +100,7 @@
           <div class="question_image_option_title">
             flower
           </div>
-          <div class="question_image_container">
+          <div id='flower' class="question_image_container">
             <img class="question_image" src="img/pattern_flower.png">
             <img class="question_checkmark" src="img/checkmark.png">
           </div>
@@ -109,7 +109,7 @@
           <div class="question_image_option_title">
             leopard
           </div>
-          <div class="question_image_container">
+          <div id='leopard' class="question_image_container">
             <img class="question_image" src="img/pattern_leopard.png">
             <img class="question_checkmark" src="img/checkmark.png">
           </div>
@@ -118,7 +118,7 @@
           <div class="question_image_option_title">
             stripe
           </div>
-          <div class="question_image_container">
+          <div id='stripe' class="question_image_container">
             <img class="question_image" src="img/pattern_stripe.png">
             <img class="question_checkmark" src="img/checkmark.png">
           </div>
@@ -152,7 +152,7 @@
 
       $(function() {
         $('#progress_size').css('width', '50%');
-
+        var pattern = [];
         // if($(document).height() > $('#question_wrapper').height()) {
         //   $('.footer_wrapper').css('position', 'absolute');
         // }
@@ -164,20 +164,35 @@
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_style_4.html";
+          $.ajaxSettings.traditional = true;
+          $.post("http://192.168.0.8:2012/user/pattern", {
+            dont_pattern : pattern
+          })
+          .done(function(res){
+            if(res == "200") {
+              location.href="style_profile_style_4.html";
+            } else {
+              alert('서버저장 실패. 다시 시도해 주세요');
+            }
+          });
+          // location.href="style_profile_style_4.html";
         });
 
         // .question_detail_content 클래스 클릭 시 배경 확인하여 클릭 시 마다 배경 색 변경
         $('.question_image_container').on('click', function() {
-          // alert($(this).offset().top);
           var top = $(this).offset().top;
+          var top_width = $(this).width();
+          var top_height = $(this).height();
+          var current_this = this;
           // alert($(this).find('.question_checkmark').css('display'));
           $(this).find('.question_checkmark').css('display', function(index, value) {
             if(value == "none") {
               $(this).offset({top: top});
-              return $(this).css('display', 'block');
+              $(this).css('display', 'block');
+              pattern.push($(current_this).attr('id'));
             } else {
-              return $(this).css('display', 'none');
+              $(this).css('display', 'none');
+              pattern.pop($(current_this).attr('id'));
             }
           });
         });

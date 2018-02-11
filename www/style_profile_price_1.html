@@ -193,7 +193,25 @@
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_about_1.html";
+          $.post('http://192.168.0.8:2012/user/price', {
+            price_investment : $(range[0]).text() + '~' + $(range[1]).text(),
+            price_top : $(range[2]).text() + '~' + $(range[3]).text(),
+            price_bottom : $(range[4]).text() + '~' + $(range[5]).text(),
+            price_coat : $(range[6]).text() + '~' + $(range[7]).text(),
+            price_jacket : $(range[8]).text() + '~' + $(range[9]).text(),
+            price_set : $(range[10]).text() + '~' + $(range[11]).text(),
+            price_shoes : $(range[12]).text() + '~' + $(range[13]).text(),
+            price_bag : $(range[14]).text() + '~' + $(range[15]).text(),
+            price_acc : $(range[16]).text() + '~' + $(range[17]).text()
+          })
+          .done(function(res) {
+            if(res == '200') {
+              location.href = "style_profile_about_1.html";
+            } else {
+              alert('서버저장 실패. 다시 시도해 주세요')
+            }
+          });
+          // location.href="style_profile_about_1.html";
         });
 
         // use noslider
@@ -279,22 +297,58 @@
         $(range).each(function(index, value) {
           range[index].noUiSlider.on('update', function( values, handle ) {
           	if($(value).attr('name') == "investment") {
+              if(values[handle] == "1,000,000 원") {
+                values_range[handle].innerHTML = values[handle] + " 이상";
+                return;
+              }
               values_range[handle].innerHTML = values[handle];
             } else if ($(value).attr('name') == "top") {
+              if(values[handle] == "1,000,000 원") {
+                values_range[handle+2].innerHTML = values[handle] + " 이상";
+                return;
+              }
               values_range[handle+2].innerHTML = values[handle];
             } else if ($(value).attr('name') == "bottom") {
+              if(values[handle] == "1,000,000 원") {
+                values_range[handle+4].innerHTML = values[handle] + " 이상";
+                return;
+              }
               values_range[handle+4].innerHTML = values[handle];
             } else if ($(value).attr('name') == "coat") {
+              if(values[handle] == "1,000,000 원") {
+                values_range[handle+6].innerHTML = values[handle] + " 이상";
+                return;
+              }
               values_range[handle+6].innerHTML = values[handle];
             } else if ($(value).attr('name') == "jacket") {
+              if(values[handle] == "1,000,000 원") {
+                values_range[handle+8].innerHTML = values[handle] + " 이상";
+                return;
+              }
               values_range[handle+8].innerHTML = values[handle];
             } else if ($(value).attr('name') == "set") {
+              if(values[handle] == "1,000,000 원") {
+                values_range[handle+10].innerHTML = values[handle] + " 이상";
+                return;
+              }
               values_range[handle+10].innerHTML = values[handle];
             } else if ($(value).attr('name') == "shoes") {
+              if(values[handle] == "1,000,000 원") {
+                values_range[handle+12].innerHTML = values[handle] + " 이상";
+                return;
+              }
               values_range[handle+12].innerHTML = values[handle];
             } else if ($(value).attr('name') == "bag") {
+              if(values[handle] == "1,000,000 원") {
+                values_range[handle+14].innerHTML = values[handle] + " 이상";
+                return;
+              }
               values_range[handle+14].innerHTML = values[handle];
             } else if ($(value).attr('name') == "acc") {
+              if(values[handle] == "1,000,000 원") {
+                values_range[handle+16].innerHTML = values[handle] + " 이상";
+                return;
+              }
               values_range[handle+16].innerHTML = values[handle];
             }
           });

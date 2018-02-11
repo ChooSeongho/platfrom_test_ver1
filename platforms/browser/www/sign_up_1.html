@@ -116,9 +116,43 @@
           location.href="index.html";
         });
 
+        // $("#question_detail_content input[type='radio']").on('click', function{
+        //   var 
+        // });
+
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="sign_up_2.html";
+          var interest = $('input:radio[name="interesting"]:checked').val();
+          var investment = $('input:radio[name="investment"]:checked').val();
+          var challenge = $('input:radio[name="challenge"]:checked').val();
+          if(!interest) {
+            alert('당신의 스타일 관심도를 알려주세요');
+            return false;
+          }
+          if(!investment) {
+            alert('당신의 스타일 투자정도를 알려주세요')
+            return false;
+          }
+          if(!challenge) {
+            alert('당신의 스타일 도전도에 대해 알려주세요')
+            return false;
+          }
+          // console.log('interest = ' + interest);
+          // console.log('investment = ' + investment);
+          // console.log('challenge = ' + challenge);
+          // location.href="sign_up_2.html";
+          $.post("http://192.168.0.8:2012/user/interest", {
+            interest : interest, 
+            investment : investment, 
+            challenge : challenge
+          })
+          .done(function(res){
+            if(res == "200") {
+              location.href="sign_up_2.html";
+            } else {
+              alert('error');
+            }
+          });
         });
 
       });

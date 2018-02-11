@@ -60,13 +60,13 @@
         <form id="personal_information_wrapper" style="padding-top:5vh;">
           <div class="input-field col s6">
             <p class="info_question"> Instagram ID </p>
-            <input placeholder="" id="input_height" type="text" class="input_height">
-            <label for="input_height"></label>
+            <input placeholder="" id="input_kakao" name='kakao' type="text" class="input_kakao">
+            <label for="input_kakao"></label>
           </div>
           <div class="input-field col s6">
             <p class="info_question"> Kakao Talk ID </p>
-            <input placeholder="" id="input_weight" type="text" class="input_weight">
-            <label for="input_weight"></label>
+            <input placeholder="" id="input_insta" name='insta' type="text" class="input_insta">
+            <label for="input_insta"></label>
           </div>
         </form>
     </div>
@@ -121,18 +121,29 @@
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="main.html";
-        });
-
-        $('.question_detail_content').on('click', function() {
-          $(this).css('background-color', function(index, value) {
-            if(value == "rgb(255, 255, 255)") {
-              return $(this).css('background-color', '#c51162');
+          $.post('http://192.168.0.8:2012/user/sns', {
+            kakao : $('input[name=kakao]').val(),
+            insta : $('input[name=insta]').val()
+          })
+          .done(function(res) {
+            if(res == '200') {
+              location.href = "main.html";
             } else {
-              return $(this).css('background-color', '#ffffff');
+              alert('서버저장 실패. 다시 시도해 주세요')
             }
           });
+          // location.href="main.html";
         });
+
+        // $('.question_detail_content').on('click', function() {
+        //   $(this).css('background-color', function(index, value) {
+        //     if(value == "rgb(255, 255, 255)") {
+        //       return $(this).css('background-color', '#c51162');
+        //     } else {
+        //       return $(this).css('background-color', '#ffffff');
+        //     }
+        //   });
+        // });
       });
     </script>
   </body>

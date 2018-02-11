@@ -56,9 +56,29 @@
           e.preventDefault();
           $(this).css('background', '#ffffff');
           if($(this).text() == "남자") {
-            location.href="preference_style_step_1.html";;
+            $.post("http://192.168.0.8:2012/user/sex", {
+            sex : $(this).text()
+          })
+          .done(function(res){
+            if(res == "200") {
+              location.href="preference_style_step_1.html";
+            } else {
+              alert('error');
+            }
+          });
+            // location.href="preference_style_step_1.html";;
           } else {
-            location.href="preference_style_step_1.html";;
+            $.post("http://192.168.0.8:2012/user/sex", {
+            sex : $(this).text()
+          })
+          .done(function(res){
+            if(res == "200") {
+              location.href="preference_style_step_1.html";
+            } else {
+              alert('error');
+            }
+          });
+            // location.href="preference_style_step_1.html";;
           }
         });
       });

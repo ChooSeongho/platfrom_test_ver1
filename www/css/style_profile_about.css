@@ -91,6 +91,11 @@ body {
   background-color: #ffffff;
 }
 
+.selected {
+  background-color: #8B9BCE !important;
+  color: #FFFFFF !important;
+}
+
 .question_detail_content_two {
   display: inline-block;
   cursor: pointer;

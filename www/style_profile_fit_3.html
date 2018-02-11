@@ -54,47 +54,47 @@
 
     <form id="question_wrapper">
       <div class="question">
-        <span id="question_content" class="default-blue-text"> 스커트에서 선호하는 핏을 모두 선택해주세요. </span>
+        <span id="question_content" class="default-blue-text">스커트에서 선호하는 핏을 모두 선택해주세요.</span>
       </div>
       <p>
       <div class="question_detail">
         <div class="question_detail_content">
           <img src="img/w_skirt_mini.jpg" width="300px" height="300px">
-          <input type="checkbox" name="jean_skinny" id="jean_skinny" class="check_btn" value="skinny">
-          <label for="jean_skinny" class="input-label radio">미니</label>
+          <input type="checkbox" name="skirt" id="skirt_mini" class="check_btn" value="mini">
+          <label for="skirt_mini" class="input-label radio">미니</label>
           <p>
           <img src="img/w_skirt_midium.jpg" width="300px" height="300px">
-          <input type="checkbox" name="jean_slim" id="jean_slim" class="check_btn" value="slim">
-          <label for="jean_slim" class="input-label radio">미듐</label>
+          <input type="checkbox" name="skirt" id="skirt_midium" class="check_btn" value="midium">
+          <label for="skirt_midium" class="input-label radio">미듐</label>
           <p>
           <img src="img/w_skirt_midi.jpg" width="300px" height="300px">
-          <input type="checkbox" name="jean_straight" id="jean_straight" class="check_btn" value="straight">
-          <label for="jean_straight" class="input-label radio">미디</label>
+          <input type="checkbox" name="skirt" id="skirt_midi" class="check_btn" value="midi">
+          <label for="skirt_midi" class="input-label radio">미디</label>
           <p>
           <img src="img/w_skirt_maxy.jpg" width="300px" height="300px">
-          <input type="checkbox" name="jean_boots" id="jean_boots" class="check_btn" value="boots">
-          <label for="jean_boots" class="input-label radio">맥시</label>
+          <input type="checkbox" name="skirt" id="skirt_maxi" class="check_btn" value="maxi">
+          <label for="skirt_maxi" class="input-label radio">맥시</label>
           <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
         </div>
       </div>
       <p>
       <div class="question">
-        <span id="question_content" class="default-blue-text"> 원피스에서 선호하는 핏을 모두 선택해주세요. </span>
+        <span id="question_content" class="default-blue-text">원피스에서 선호하는 핏을 모두 선택해주세요.</span>
       </div>
       <p>
       <div class="question_detail">
         <div class="question_detail_content">
-          <input type="checkbox" name="pants_slim" id="pants_slim" class="check_btn" value="slim">
-          <label for="pants_slim" class="input-label radio"> 슬림핏 </label>
+          <input type="checkbox" name="onepiece" id="onepiece_mini" class="check_btn" value="mini">
+          <label for="onepiece_mini" class="input-label radio">미니원피스</label>
           <p>
-          <input type="checkbox" name="pants_straight" id="pants_straight" class="check_btn" value="straight">
-          <label for="pants_straight" class="input-label radio"> 스트레이트핏 </label>
+          <input type="checkbox" name="onepiece" id="onepiece_Hline" class="check_btn" value="Hline">
+          <label for="onepiece_Hline" class="input-label radio">H라인 원피스</label>
           <p>
-          <input type="checkbox" name="pants_boots" id="pants_boots" class="check_btn" value="boots">
-          <label for="pants_boots" class="input-label radio"> 부츠컷 </label>
+          <input type="checkbox" name="onepiece" id="onepiece_Aline" class="check_btn" value="Aline">
+          <label for="onepiece_Aline" class="input-label radio">A라인 원피스</label>
           <p>
-          <input type="checkbox" name="pants_wide" id="pants_wide" class="check_btn" value="wide">
-          <label for="pants_wide" class="input-label radio"> 와이드핏 </label>
+          <input type="checkbox" name="onepiece" id="onepiece_free" class="check_btn" value="free">
+          <label for="onepiece_free" class="input-label radio">프리 원피스</label>
           <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
         </div>
       </div>
@@ -124,30 +124,33 @@
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_style_1.html";
+          var skirt = [];
+          var onepiece = [];
+          $('input[name=skirt]').each(function(index, ele) {
+            if($(ele).prop('checked')) {
+              skirt.push($(ele).val());
+            }
+          });
+          $('input[name=onepiece]').each(function(index, ele) {
+            if($(ele).prop('checked')) {
+              onepiece.push($(ele).val());
+            }
+          });
+          $.ajaxSettings.traditional = true;
+          $.post("http://192.168.0.8:2012/user/fit_3", {
+            fit_skirt : skirt, 
+            fit_onepiece : onepiece
+          })
+          .done(function(res){
+            if(res == "200") {
+              location.href="style_profile_style_1.html";
+            } else {
+              alert('서버저장 실패. 다시 시도해 주세요');
+            }
+          });
+          // location.href="style_profile_style_1.html";
         });
 
-        // $('ul.tabs').tabs();
-        // $('ul.tabs').tabs('select_stab', 'tab_id');
-
-        // 상단 탭 swipe 가능하도록 설정
-        // $('ul.tabs').tabs({swipeable: true});
-        $('ul.tabs').tabs();
-
-        // $('ul.tabs').bind("tabsselect", function(e, tab) {
-        //   alert(tab.index + "selected");
-        // });
-
-
-        // side-nav
-        // Initialize collapse button
-        $('.button-collapse').sideNav();
-        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-        // $('.collapsible').collapsible();
-        // Show sideNav
-        // $('.button-collapse').sideNav('show');
-        // Hide sideNav
-        // $('.button-collapse').sideNav('hide');
       });
     </script>
   </body>

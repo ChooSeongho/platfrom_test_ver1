@@ -160,7 +160,7 @@
           var puConfirmInput = $('#sign_up_container input[id=input_password_confirm]');
           var telInput = $('#sign_up_container input[id=input_phone_num]');
           var telConfirmInput = $('#sign_up_container input[id=input_confirm_num]');
-          var agreeCheck = $('#sign_up_container input[id=access_terms_agree_all]');
+          var agreeCheck = $('#sign_up_container input[id=access_terms_agree_all]:checkbox');
 
           if(!idInput.val() || $.trim(idInput.val()) == "") {
             alert('아이디를 입력해주세요');
@@ -198,13 +198,25 @@
             return false;
           }
 
-          if(!agreeCheck.val() || $.trim(agreeCheck.val()) == "") {
+          if(!agreeCheck.is(':checked')) {
             alert('이용약관 및 개인정보 수집/이용에 동의해주세요');
             agreeCheck.focus();
             return false;
           }
 
-          return location.href="sign_up_finish.html";
+          $.post("http://192.168.0.8:2012/user/sign_up", {
+            id : $.trim(idInput.val()), 
+            pw : $.trim(pwInput.val()), 
+            tel : $.trim(telInput.val())
+          })
+          .done(function(res){
+            if(res == "200") {
+              location.href="sign_up_finish.html";
+            } else {
+              alert('회원가입이 완료되지 않았습니다');
+            }
+          });
+          // return location.href="sign_up_finish.html";
         });
 
 

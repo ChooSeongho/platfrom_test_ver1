@@ -137,19 +137,37 @@
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          location.href="style_profile_style_2.html";
+          var look = [];
+          $('.question_detail_content').each(function(index, ele) {
+            if($(this).hasClass('selected')) {
+              look.push($(this).text());
+            }
+          });
+          $.ajaxSettings.traditional = true;
+          $.post('http://192.168.0.8:2012/user/look', {
+            look : look
+          })
+          .done(function(res) {
+            if(res == '200') {
+              location.href = "style_profile_style_2.html";
+            } else {
+              alert('서버저장 실패. 다시 시도해 주세요')
+            }
+          });
+          // location.href="style_profile_style_2.html";
         });
 
         $('.question_detail_content').on('click', function() {
-          $(this).css('background-color', function(index, value) {
-            if(value == "rgb(255, 255, 255)") {
-              $(this).css('background-color', '#8B9BCE');
-              $(this).css('color', '#ffffff');
-            } else {
-              $(this).css('background-color', '#ffffff');
-              $(this).css('color', '#eeeeee');
-            }
-          });
+          // $(this).css('background-color', function(index, value) {
+          //   if(value == "rgb(255, 255, 255)") {
+          //     $(this).css('background-color', '#8B9BCE');
+          //     $(this).css('color', '#ffffff');
+          //   } else {
+          //     $(this).css('background-color', '#ffffff');
+          //     $(this).css('color', '#eeeeee');
+          //   }
+          // });
+          $(this).toggleClass('selected');
         });
       });
     </script>

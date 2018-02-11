@@ -95,6 +95,11 @@ html, body {
   background-color: #ffffff;
 }
 
+.selected {
+  background-color: #8B9BCE;
+  color: #FFFFFF;
+}
+
 .chips.focus {
   border-bottom: 1px solid #8B9BCE;
   box-shadow: 0 1px 0 0 #8B9BCE;
