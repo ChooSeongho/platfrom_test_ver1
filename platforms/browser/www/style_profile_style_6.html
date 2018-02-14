@@ -94,7 +94,7 @@
             brand.push(temp_text.substring(0, temp_text.length-5));
           });
           $.ajaxSettings.traditional = true;
-          $.post('http://192.168.0.8:2012/user/brand', {
+          $.post('http://192.168.0.8:2012/user/brand/' + sessionStorage.getItem('id'), {
             like_brand : brand
           })
           .done(function(res) {

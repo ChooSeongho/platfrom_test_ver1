@@ -165,7 +165,7 @@
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
           $.ajaxSettings.traditional = true;
-          $.post("http://192.168.0.8:2012/user/pattern", {
+          $.post("http://192.168.0.8:2012/user/pattern/" + sessionStorage.getItem('id'), {
             dont_pattern : pattern
           })
           .done(function(res){

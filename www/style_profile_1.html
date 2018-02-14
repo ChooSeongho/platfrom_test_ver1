@@ -42,7 +42,7 @@
           e.preventDefault();
           $(this).css('background', '#ffffff');
           if($(this).text() == "편안함") {
-            $.post("http://192.168.0.8:2012/user/comfortable_style", {
+            $.post("http://192.168.0.8:2012/user/comfortable_style/" + sessionStorage.getItem('id'), {
             comfortable_style : 'comfortable'
             })
             .done(function(res){
@@ -54,7 +54,7 @@
             });
             // location.href = "style_profile_2.html";
           } else {
-            $.post("http://192.168.0.8:2012/user/comfortable_style", {
+            $.post("http://192.168.0.8:2012/user/comfortable_style/" + sessionStorage.getItem('id'), {
             comfortable_style : 'style'
             })
             .done(function(res){

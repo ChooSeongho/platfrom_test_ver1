@@ -154,13 +154,13 @@
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
           var top = [];
-          $('.question_detail_content').each(function(index, ele) {
+          $('.question_detail_content_two').each(function(index, ele) {
             if($(this).hasClass('selected')) {
               top.push($(this).text());
             }
           });
           $.ajaxSettings.traditional = true;
-          $.post('http://192.168.0.8:2012/user/complement_top', {
+          $.post('http://192.168.0.8:2012/user/complement_top/' + sessionStorage.getItem('id'), {
             complement_top : top
           })
           .done(function(res) {

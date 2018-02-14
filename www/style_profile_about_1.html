@@ -147,7 +147,7 @@
             }
           });
           $.ajaxSettings.traditional = true;
-          $.post('http://192.168.0.8:2012/user/dont_goods', {
+          $.post('http://192.168.0.8:2012/user/dont_goods/' + sessionStorage.getItem('id'), {
             dont_goods : goods
           })
           .done(function(res) {

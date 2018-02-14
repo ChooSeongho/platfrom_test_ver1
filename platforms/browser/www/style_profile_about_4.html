@@ -60,13 +60,13 @@
         <form id="personal_information_wrapper" style="padding-top:5vh;">
           <div class="input-field col s6">
             <p class="info_question"> Instagram ID </p>
-            <input placeholder="" id="input_kakao" name='kakao' type="text" class="input_kakao">
-            <label for="input_kakao"></label>
+            <input placeholder="" id="input_insta" name='kakao' type="text" class="input_kakao">
+            <label for="input_insta"></label>
           </div>
           <div class="input-field col s6">
             <p class="info_question"> Kakao Talk ID </p>
-            <input placeholder="" id="input_insta" name='insta' type="text" class="input_insta">
-            <label for="input_insta"></label>
+            <input placeholder="" id="input_kakao" name='insta' type="text" class="input_insta">
+            <label for="input_kakao"></label>
           </div>
         </form>
     </div>
@@ -121,7 +121,7 @@
 
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
-          $.post('http://192.168.0.8:2012/user/sns', {
+          $.post('http://192.168.0.8:2012/user/sns/' + sessionStorage.getItem('id'), {
             kakao : $('input[name=kakao]').val(),
             insta : $('input[name=insta]').val()
           })

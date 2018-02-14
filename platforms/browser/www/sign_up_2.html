@@ -210,7 +210,9 @@
             tel : $.trim(telInput.val())
           })
           .done(function(res){
-            if(res == "200") {
+            var response = res.split(' ');
+            if(response[0] == "200") {
+              sessionStorage.setItem('id', response[1]);
               location.href="sign_up_finish.html";
             } else {
               alert('회원가입이 완료되지 않았습니다');

@@ -142,7 +142,7 @@
             }
           });
           $.ajaxSettings.traditional = true;
-          $.post("http://192.168.0.8:2012/user/fit_2", {
+          $.post("http://192.168.0.8:2012/user/fit_2/" + sessionStorage.getItem('id'), {
             fit_jean : jean, 
             fit_pants : pants
           })

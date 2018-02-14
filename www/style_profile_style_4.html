@@ -166,7 +166,7 @@
         // '다음' 버튼 클릭
         $('#next_btn').on('click', function() {
           $.ajaxSettings.traditional = true;
-          $.post("http://192.168.0.8:2012/user/febric", {
+          $.post("http://192.168.0.8:2012/user/febric/" + sessionStorage.getItem('id'), {
             dont_febric : febric
           })
           .done(function(res){

@@ -144,7 +144,7 @@
             }
           });
           $.ajaxSettings.traditional = true;
-          $.post('http://192.168.0.8:2012/user/look', {
+          $.post('http://192.168.0.8:2012/user/look/' + sessionStorage.getItem('id'), {
             look : look
           })
           .done(function(res) {

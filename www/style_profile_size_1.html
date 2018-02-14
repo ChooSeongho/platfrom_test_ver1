@@ -293,7 +293,7 @@
           // console.log('bottom_waist = ' + bottom_waist);
           // console.log('bottom_pelvis = ' + bottom_pelvis);
           // console.log('shoes = ' + shoes);
-          $.post('http://192.168.0.8:2012/user/size', {
+          $.post('http://192.168.0.8:2012/user/size/' + sessionStorage.getItem('id'), {
             size_height : height,
             size_weight : weight,
             size_top : top,

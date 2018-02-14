@@ -172,7 +172,7 @@
           console.log('ball = ' + ball);
           // location.href="style_profile_fit_1.html";
 
-          $.post('http://192.168.0.8:2012/user/bodytype', {
+          $.post('http://192.168.0.8:2012/user/bodytype/' + sessionStorage.getItem('id'), {
             bodytype_shoulder : shoulder,
             bodytype_arm : arm,
             bodytype_pelvis : pelvis,

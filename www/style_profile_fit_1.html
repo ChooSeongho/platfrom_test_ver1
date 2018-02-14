@@ -142,9 +142,9 @@
               top.push($(ele).val());
             }
           });
-          $('input[name=jacket]').each(function(index, ele) {
+          $('input[name=jackect]').each(function(index, ele) {
             if($(ele).prop('checked')) {
-              jacekt.push($(ele).val());
+              jacket.push($(ele).val());
             }
           });
           $('input[name=coat]').each(function(index, ele) {
@@ -153,7 +153,7 @@
             }
           });
           $.ajaxSettings.traditional = true;
-          $.post("http://192.168.0.8:2012/user/fit_1", {
+          $.post("http://192.168.0.8:2012/user/fit_1/" + sessionStorage.getItem('id'), {
             fit_top : top, 
             fit_coat : coat, 
             fit_jacket : jacket
