@@ -154,7 +154,7 @@
   "cordova-plugin-imagepicker": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-imagepicker"
+      "id": "cordova-plugin-imagepicker@~1.1.0"
     },
     "is_top_level": true,
     "variables": {}

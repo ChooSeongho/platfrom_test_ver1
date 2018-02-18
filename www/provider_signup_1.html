@@ -359,26 +359,26 @@
                 $("input[id=access_terms_agree]:checkbox").prop("checked", true);
                 $("input[id=access_terms_agree_personal_info]:checkbox").prop("checked", true);
             }
-            });
+        });
 
-            $('label[for=access_terms_agree]').on('click', function() {
+        $('label[for=access_terms_agree]').on('click', function() {
             if($("input[id=access_terms_agree_all]:checkbox").is(":checked")){
                 $("input[id=access_terms_agree_all]:checkbox").prop("checked", false);
             } else if($("input[id=access_terms_agree_personal_info]:checkbox").is(":checked")) {
                 $("input[id=access_terms_agree_all]:checkbox").prop("checked", true);
                 }
-            });
+        });
 
-            $('label[for=access_terms_agree_personal_info]').on('click', function() {
+        $('label[for=access_terms_agree_personal_info]').on('click', function() {
             if($("input[id=access_terms_agree_all]:checkbox").is(":checked")){
                 $("input[id=access_terms_agree_all]:checkbox").prop("checked", false);
             } else if($("input[id=access_terms_agree]:checkbox").is(":checked")) {
                 $("input[id=access_terms_agree_all]:checkbox").prop("checked", true);
             }
-            });
+        });
 
 
-            $('.confirm_content_btn').on('click', function(e) {
+        $('.confirm_content_btn').on('click', function(e) {
             var temp_class_name = $(this).attr('class').split(' ')[0];
             if(temp_class_name == "access_terms_content") {
                 alert('access_terms_content');
@@ -393,4 +393,3 @@
     </script>
 </body>
 </html>
-          
