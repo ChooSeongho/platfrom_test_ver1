@@ -106,6 +106,7 @@
     <a id="signin" class="waves-effect waves-light btn btn_long default-blue">로그인</a>
     <span id="find_id" class="find_id" style="margin-bottom: 3vh"> ID를 잊어버리셨나요? </span>
     <a id="signup" class="waves-effect waves-light btn btn_long bold-blue">회원가입</a>
+    <a id="signup_provider" class="waves-effect waves-light btn btn_long bold-blue">판매자</a>
     <div style="height: 5vh;"></div>
     <span>간편로그인</span>
     <div class="row middle_icons">
@@ -135,6 +136,16 @@
           // 회원가입 버튼 클릭했을 때.
           $('#signup').on('click', function() {
             location.href="sign_up_1.html";
+          });
+
+          $('#signup_provider').on('click', function() {
+            // $.get(
+            //   'http://192.168.0.8:2012/provier/main', 
+            //   function(res) {
+            //   //provier signup
+            //   console.log('provier_res : ' + res);
+            // });
+            location.href='provider_signup_1.html';
           });
         });
     </script>

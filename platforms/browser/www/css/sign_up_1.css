@@ -135,6 +135,10 @@ input[type="radio"]:checked+label {
   border: 1px solid #eeeeee;
 }
 
+#detail_info_wrapper {
+  border: 1px solid #eeeeee;
+}
+
 .sign_up_container {
   margin-left: 5vh;
   margin-right: 5vh;
