@@ -236,23 +236,14 @@ html {
     font-size: 3rem;
     text-align: center;
   }
-
-  #remove_image {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 10px;
-      height: 10px;
-  }
-  
   
   /* .check_btn {
     border: 2px solid #26a69a;
   } */
   
   .btn_long {
-      display: block;
-      width: 100%;
+    display: block;
+    width: 100%;
     height: 10vh;
     line-height: 10vh;
     text-align: center;
