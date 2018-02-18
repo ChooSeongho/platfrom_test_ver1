@@ -14,7 +14,7 @@
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-      <link rel="stylesheet" type="text/css" href="css/sign_up_1.css" />
+      <link rel="stylesheet" type="text/css" href="css/provider_sign_up.css" />
       <link rel="stylesheet" type="text/css" href="css/color.css" />
 
       <script type="text/javascript" src="cordova.js"></script>
@@ -185,7 +185,7 @@
                 <span class="info_question">대표 스타일링 사진들</span>
                 <div class="margin3vh" style="width:100%;height:6vh;"></div>
                 <a id="input_image" class="waves-effect waves-light btn default-blue">사진 올리기</a>
-                <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+                <div id="images" style="width:60px;height:60px;"></div>
             </div>
             <p class="margin5vh"></p>
             <div class="divider_gray"></div>
@@ -269,7 +269,8 @@
                 function(results) {
                     alert('in imagePicker');
                     for(var i=0; i<results.length; i++) {
-                        alert.log('images : ' + results[i]);
+                        $('#images').append('<img style="width:60px;height:60px;" id="smallImage" src="' + results[i] + '" /><a id="remove_image" class="waves-effect waves-light btn btn_long default-blue">X</a> ')
+                        // alert.log('images : ' + results[i]);
                     }
                 }, function(error) {
                     alert.log('Error : ' + error);
