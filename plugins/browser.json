@@ -39,6 +39,9 @@
     },
     "cordova-plugin-imagepicker": {
       "PACKAGE_NAME": "com.platfrom.test_ver_1"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.platfrom.test_ver_1"
     }
   },
   "dependent_plugins": {}
