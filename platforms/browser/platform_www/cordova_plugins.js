@@ -570,14 +570,6 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-        "id": "cordova-plugin-statusbar.statusbar",
-        "pluginId": "cordova-plugin-statusbar",
-        "clobbers": [
-            "window.StatusBar"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-statusbar/src/browser/statusbar.js",
         "id": "cordova-plugin-statusbar.statusbar.Browser",
         "pluginId": "cordova-plugin-statusbar",
@@ -670,10 +662,10 @@ module.exports.metadata =
     "cordova-plugin-media": "2.2.0",
     "cordova-plugin-network-information": "1.2.1",
     "cordova-plugin-splashscreen": "3.2.2",
-    "cordova-plugin-statusbar": "2.4.2-dev",
     "cordova-plugin-vibration": "2.1.6",
     "cordova-plugin-whitelist": "1.2.2",
-    "cordova-plugin-imagepicker": "1.1.0"
+    "cordova-plugin-imagepicker": "1.1.0",
+    "cordova-plugin-statusbar": "2.4.1"
 }
 // BOTTOM OF METADATA
 });
