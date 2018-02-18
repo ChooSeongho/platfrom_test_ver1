@@ -181,7 +181,7 @@
                 <label for="input_location"></label>
             </div>
             <div class="divider_gray"></div>
-            <div class="input-field col s6">
+            <div class="input-field col s6" style="overflow:auto;">
                 <span class="info_question">대표 스타일링 사진들</span>
                 <div class="margin3vh" style="width:100%;height:6vh;"></div>
                 <a id="input_image" class="waves-effect waves-light btn default-blue">사진 올리기</a>
@@ -270,13 +270,17 @@
                 function(results) {
                     alert('in imagePicker');
                     for(var i=0; i<results.length; i++) {
-                        $('#images').append('<div class="image_wrapper" style="width:23vw;height:23vw;background:url(' + results[i] + ');float:left;"><img class="remove_icon" src="img/remove_icon.png" style="cursor:pointer;position:relative;top:1vw;left:16vw;width:5vw;height:5vw;"></div>')
+                        $('#images').append('<div class="image_wrapper" background=' + results[i] + ' style="width:23vw;height:23vw;float:left;"><img class="remove_icon" src="img/remove_icon.png" style="cursor:pointer;position:relative;top:1vw;left:16vw;width:5vw;height:5vw;"></div>')
                         // alert.log('images : ' + results[i]);
                     }
                 }, function(error) {
                     alert.log('Error : ' + error);
                 }
             );
+        });
+
+        $('.remove_icon').on('click', function() {
+          $(this).parent().remove();
         });
 
         // '다음' 버튼 클릭
