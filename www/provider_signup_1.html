@@ -270,7 +270,7 @@
                 function(results) {
                     // alert('in imagePicker');
                     for(var i=0; i<results.length; i++) {
-                        $('#images').append('<div class="image_wrapper" style="background:url("../' + results[i] + '") no-repeat;background-size:100% 100%;width:23vw;height:23vw;float:left;"><img class="remove_icon" src="img/remove_icon.png" style="cursor:pointer;position:relative;top:1vw;left:16vw;width:5vw;height:5vw;"></div>')
+                        $('#images').append('<div class="image_wrapper" style="width:23vw;height:23vw;float:left;"><img class="image" style="width:23vw;height:23vw;" src=' + results[i] + '><img class="remove_icon" src="img/remove_icon.png" style="cursor:pointer;position:relative;top:-23vw;left:16vw;width:5vw;height:5vw;"></div>')
                         // alert.log('images : ' + results[i]);
                     }
                 }, function(error) {
