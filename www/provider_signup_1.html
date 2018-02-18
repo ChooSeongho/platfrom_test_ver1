@@ -282,7 +282,6 @@
         var touchmoved;
         $('#images').on('touchend touchcancel', '.remove_icon', function(e) {
           e.preventDefault();
-          alert('in remove');
           if(touchmoved != true) {
             $(this).parent().remove();
           }
