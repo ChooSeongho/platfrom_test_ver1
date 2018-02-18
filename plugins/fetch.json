@@ -151,18 +151,18 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-imagepicker": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-imagepicker@~1.1.0"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-statusbar": {
     "source": {
       "type": "registry",
       "id": "cordova-plugin-statusbar@2.4.1"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-image-picker": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-image-picker"
     },
     "is_top_level": true,
     "variables": {}

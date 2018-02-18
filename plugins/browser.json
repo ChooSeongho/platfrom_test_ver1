@@ -37,10 +37,10 @@
     "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "com.platfrom.test_ver_1"
     },
-    "cordova-plugin-imagepicker": {
+    "cordova-plugin-statusbar": {
       "PACKAGE_NAME": "com.platfrom.test_ver_1"
     },
-    "cordova-plugin-statusbar": {
+    "cordova-plugin-image-picker": {
       "PACKAGE_NAME": "com.platfrom.test_ver_1"
     }
   },
