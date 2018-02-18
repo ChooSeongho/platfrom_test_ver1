@@ -279,8 +279,16 @@
             );
         });
 
-        $('.remove_icon').on('click', function() {
-          $(this).parent().remove();
+        var touchmoved;
+        $('.remove_icon').on('touchend touchcancel', function(e) {
+          e.preventDefault();
+          if(touchmoved != true) {
+            $(this).parent().remove();
+          }
+        }).on("touchmove", ".monster_wrapper", function(e) {
+          touchmoved = true;
+        }).on("touchstart", ".monster_wrapper", function(e) {
+          touchmoved = false;
         });
 
         // '다음' 버튼 클릭
