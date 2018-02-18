@@ -308,8 +308,20 @@
             );
         });
 
-        $('.remove_icon').on('click', function() {
-          $(this).parent().remove();
+        // $('.remove_icon').on('click', function() {
+        //   $(this).parent().remove();
+        // });
+        var touchmoved;
+        $('#images').on('touchend touchcancel', '.remove_icon', function(e) {
+          e.preventDefault();
+          alert('in remove');
+          if(touchmoved != true) {
+            $(this).parent().remove();
+          }
+        }).on("touchmove", ".monster_wrapper", function(e) {
+          touchmoved = true;
+        }).on("touchstart", ".monster_wrapper", function(e) {
+          touchmoved = false;
         });
 
         // '다음' 버튼 클릭

@@ -280,7 +280,7 @@
         });
 
         var touchmoved;
-        $('.remove_icon').on('touchend touchcancel', function(e) {
+        $('#images').on('touchend touchcancel', '.remove_icon', function(e) {
           e.preventDefault();
           alert('in remove');
           if(touchmoved != true) {
