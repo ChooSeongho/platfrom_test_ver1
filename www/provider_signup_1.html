@@ -215,39 +215,6 @@
     
     </div>
 
-    
-
-    <!-- <div class="agree_receive_sms_wrapper">
-        <input type="checkbox" id="receive_sms">
-        <label for="receive_sms" class="input-label receive_sms">SMS를 통해 코디몬스터의 다양한 정보를 받아보겠습니다.</label>
-    </div>
-
-    <p class="margin5vh"></p>
-
-    <span class="access_terms">이용약관</span>
-    <div class="access_terms_wrapper">
-        <input type="checkbox" id="access_terms_agree_all">
-        <label for="access_terms_agree_all" class="input-label access_terms_agree">약관 전체동의</label>
-        <div class="divider_gray"></div>
-        <input type="checkbox" id="access_terms_agree">
-        <label for="access_terms_agree" class="input-label access_terms_agree">이용약관에 동의합니다.</label>
-        <i class="access_terms_content material-icons small confirm_content_btn">chevron_right</i>
-        <br>
-        <input type="checkbox" id="access_terms_agree_personal_info">
-        <label for="access_terms_agree_personal_info" class="input-label access_terms_agree">개인정보 수집/이용에 동의합니다.</label>
-        <i class="personal_info_content material-icons small confirm_content_btn">chevron_right</i>
-    </div> -->
-
-
-
-    <!-- <div id="question_wrapper">
-    <div class="question">
-        <span id="question_content"> 당신은 옷 쇼핑을 즐기시는 편인가요? </span>
-    </div>
-    <div class="question_detail">
-    </div>
-    </div> -->
-
     <p class="margin5vh"></p>
 
     <footer>
@@ -259,24 +226,31 @@
     <script>
 
     $(function() {
+        var imagePath = [];
+
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
-        location.href="sign_up_1.html";
+        location.href="index.html";
         });
 
         $('#input_image').on('click', function() {
             // getPhoto(pictureSource.PHOTOLIBRARY);
-            window.imagePicker.getPictures(
-                function(results) {
-                    // alert('in imagePicker');
-                    for(var i=0; i<results.length; i++) {
-                        $('#images').append('<div class="image_wrapper" style="width:23vw;height:23vw;float:left;"><img class="image" style="width:23vw;height:23vw;" src=' + results[i] + '><img class="remove_icon" src="img/remove_icon.png" style="cursor:pointer;position:relative;top:-23vw;left:16vw;width:5vw;height:5vw;"></div>')
-                        // alert.log('images : ' + results[i]);
+            var image_count = $('.image').length;
+            if(image_count > 15) {
+                alert('이미지는 15개까지만 올릴 수 있습니다.')
+            } else {
+                window.imagePicker.getPictures(
+                    function(results) {
+                        // alert('in imagePicker');
+                        for(var i=0; i<results.length; i++) {
+                            $('#images').append('<div class="image_wrapper" style="width:23vw;height:23vw;float:left;"><img class="image" style="width:23vw;height:23vw;" src=' + results[i] + '><img class="remove_icon" src="img/remove_icon.png" style="cursor:pointer;position:relative;top:-23vw;left:16vw;width:5vw;height:5vw;"></div>')
+                            // alert.log('images : ' + results[i]);
+                        }
+                    }, function(error) {
+                        alert.log('Error : ' + error);
                     }
-                }, function(error) {
-                    alert.log('Error : ' + error);
-                }
-            );
+                );
+            }
         });
 
         var touchmoved;
@@ -297,6 +271,10 @@
         // });
 
         $('#next_btn').on('click', function() {
+            $('.image').each(function(index,ele) {
+                imagePath.push($(this).src());
+            });
+            alert(imagePath[0]);
             var idInput = $('#sign_up_container input[id=input_id]');
             var pwInput = $('#sign_up_container input[id=input_password]');
             var puConfirmInput = $('#sign_up_container input[id=input_password_confirm]');
@@ -346,21 +324,86 @@
                 return false;
             }
 
-            $.post("http://192.168.0.8:2012/user/sign_up", {
-                id : $.trim(idInput.val()), 
-                pw : $.trim(pwInput.val()), 
-                tel : $.trim(telInput.val())
-            })
-            .done(function(res){
-                var response = res.split(' ');
-                if(response[0] == "200") {
-                sessionStorage.setItem('id', response[1]);
-                location.href="sign_up_finish.html";
-                } else {
-                alert('회원가입이 완료되지 않았습니다');
-                }
-            });
-        // return location.href="sign_up_finish.html";
+            // $.post("http://192.168.0.8:2012/user/sign_up", {
+            //     id : $.trim(idInput.val()), 
+            //     pw : $.trim(pwInput.val()), 
+            //     tel : $.trim(telInput.val())
+            // })
+            // .done(function(res){
+            //     var response = res.split(' ');
+            //     if(response[0] == "200") {
+            //     sessionStorage.setItem('id', response[1]);
+            //     location.href="sign_up_finish.html";
+            //     } else {
+            //     alert('회원가입이 완료되지 않았습니다');
+            //     }
+            // });
+
+            if (imagePath == null) {
+                alert("선택된 사진이 없습니다.");
+                return false;
+            }
+
+            /** 파일경로로부터 이름만 추출한다. */
+            var name = imagePath.substring(imagePath.lastIndexOf('/') + 1);
+            // 안드로이드는 파일이름 뒤에 ?123234234 형식의 내용이 붙어 오는 경우가 있으므로,
+            // 이 경우 ? 이하 내용을 잘라버린다.
+            var p = name.toLowerCase().lastIndexOf('?');
+            if (p > -1) {
+                name = name.substring(0, p);
+            }
+
+            // 안드로이드는 확장자가 없는 경우가 있으므로, 이 경우 확장자를 강제로 추가한다.
+            if (name.toLowerCase().lastIndexOf('.') < 0) {
+                name += '.jpg';
+            }
+
+            /** 업로드 옵션 */
+            var options = new FileUploadOptions();
+            // <input type='file' name='photo' > 과 같은 원리
+            options.fileKey = "photo";
+            // 서버에 인식시킬 파일의 이름
+            options.fileName = name;
+            // 서버에 인식시킬 파일의 종류
+            options.mimeType = 'image/jpeg';
+            // 파일의 원본 데이터를 비교하지 않는다.
+            options.chunkedMode = false;
+            // 전송후 통신 종료 예약
+            options.headers = { Connection: "close" };
+            // 파일과 함께 전송할 TEXT 데이터
+            options.params = { 'memo': 'hello world' };
+
+            /** 파일 전송 객체 생성 */
+            var ft = new FileTransfer();
+
+            /** 업로드를 수행한다.(전송할 파일 경로, 서버 주소, 성공콜백, 실패콜백, 옵션) */
+            // ft.upload(imagePath, "http://itpaper.co.kr/demo/app/upload.php", 
+            //     function(response) {
+            //         // HTTP 결과코드 받기
+            //         if (response.responseCode !== 200) {
+            //             alert('업로드에 실패했습니다.' + response.response);
+            //             return false;
+            //         }
+
+            //         // 서버에서 출력하는 내용을 JSON으로 변환한다.
+            //         var json = JSON.parse(response.response);
+            //         alert(json.item[0].save_path + '으(로) 업로드 되었습니다.');
+            //     },
+            //     function(error) {
+            //         if (error.code == FileTransferError.FILE_NOT_FOUND_ERR) {
+            //             alert("file " + error.source + " not found");
+            //         } else if (error.code == FileTransferError.INVALID_URL_ERR) {
+            //             alert("url " + error.target + " invalid");
+            //         } else if (error.code == FileTransferError.CONNECTION_ERR) {
+            //             alert("connection error");
+            //         } else {
+            //             alert("unknown error");
+            //         }
+            //     },
+            //     options);
+            // });
+                
+        location.href="provider_main.html";
         });
 
 

@@ -2,10 +2,10 @@
 <widget id="com.platfrom.test_ver_1" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>test_ver_1</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        CODYMONSTER's test_ver_1
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="csh9895@gmail.com" href="https://github.com/choosungho">
+        Sharelong Team
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
@@ -108,10 +108,12 @@
     <allow-navigation href="*" />
     <platform name="android">
         <allow-intent href="market:*" />
+        <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser"/>
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <plugin name="InAppBrowser" value="CDVInAppBrowser" />
     </platform>
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
