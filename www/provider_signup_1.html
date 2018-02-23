@@ -274,8 +274,8 @@
 
         $('#next_btn').on('click', function() {
             $('.image').each(function(index,ele) {
-                imagePath.push($(this).src());
-                $('.test').append($(this).src());
+                imagePath.push($(this).attr('src'));
+                console.log('src === ' + $(this).attr('src'));
             });
             var idInput = $('#sign_up_container input[id=input_id]');
             var pwInput = $('#sign_up_container input[id=input_password]');
