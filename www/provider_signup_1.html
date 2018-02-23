@@ -217,6 +217,8 @@
 
     <p class="margin5vh"></p>
 
+    <div class="test"></div>
+
     <footer>
     <div class="footer_wrapper">
         <a id="next_btn" class="waves-effect waves-light btn btn_long default-blue">코디몬스터 회원가입</a>
@@ -273,8 +275,8 @@
         $('#next_btn').on('click', function() {
             $('.image').each(function(index,ele) {
                 imagePath.push($(this).src());
+                $('.test').append($(this).src());
             });
-            alert(imagePath[0]);
             var idInput = $('#sign_up_container input[id=input_id]');
             var pwInput = $('#sign_up_container input[id=input_password]');
             var puConfirmInput = $('#sign_up_container input[id=input_password_confirm]');
