@@ -228,8 +228,6 @@
     <script>
 
     $(function() {
-        var imagePath = [];
-
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
         location.href="index.html";
@@ -272,10 +270,11 @@
         //   location.href="sign_up_finish.html";
         // });
 
+        var imagePath = [];
+
         $('#next_btn').on('click', function() {
             $('.image').each(function(index,ele) {
                 imagePath.push($(this).attr('src'));
-                console.log('src === ' + $(this).attr('src'));
             });
             var idInput = $('#sign_up_container input[id=input_id]');
             var pwInput = $('#sign_up_container input[id=input_password]');
@@ -346,68 +345,70 @@
                 return false;
             }
 
-            /** 파일경로로부터 이름만 추출한다. */
-            var name = imagePath.substring(imagePath.lastIndexOf('/') + 1);
-            // 안드로이드는 파일이름 뒤에 ?123234234 형식의 내용이 붙어 오는 경우가 있으므로,
-            // 이 경우 ? 이하 내용을 잘라버린다.
-            var p = name.toLowerCase().lastIndexOf('?');
-            if (p > -1) {
-                name = name.substring(0, p);
-            }
+            imagePath.forEach(function(path, index) {
+                /** 파일경로로부터 이름만 추출한다. */
+                var name = path.substring(path.lastIndexOf('/') + 1);
+                // 안드로이드는 파일이름 뒤에 ?123234234 형식의 내용이 붙어 오는 경우가 있으므로,
+                // 이 경우 ? 이하 내용을 잘라버린다.
+                var p = name.toLowerCase().lastIndexOf('?');
+                if (p > -1) {
+                    name = name.substring(0, p);
+                }
 
-            // 안드로이드는 확장자가 없는 경우가 있으므로, 이 경우 확장자를 강제로 추가한다.
-            if (name.toLowerCase().lastIndexOf('.') < 0) {
-                name += '.jpg';
-            }
+                // 안드로이드는 확장자가 없는 경우가 있으므로, 이 경우 확장자를 강제로 추가한다.
+                if (name.toLowerCase().lastIndexOf('.') < 0) {
+                    name += '.jpg';
+                }
 
-            /** 업로드 옵션 */
-            var options = new FileUploadOptions();
-            // <input type='file' name='photo' > 과 같은 원리
-            options.fileKey = "photo";
-            // 서버에 인식시킬 파일의 이름
-            options.fileName = name;
-            // 서버에 인식시킬 파일의 종류
-            options.mimeType = 'image/jpeg';
-            // 파일의 원본 데이터를 비교하지 않는다.
-            options.chunkedMode = false;
-            // 전송후 통신 종료 예약
-            options.headers = { Connection: "close" };
-            // 파일과 함께 전송할 TEXT 데이터
-            options.params = { 'memo': 'hello world' };
+                /** 업로드 옵션 */
+                var options = new FileUploadOptions();
+                // <input type='file' name='photo' > 과 같은 원리
+                options.fileKey = "photo";
+                // 서버에 인식시킬 파일의 이름
+                options.fileName = name;
+                // 서버에 인식시킬 파일의 종류
+                options.mimeType = 'image/jpeg';
+                // 파일의 원본 데이터를 비교하지 않는다.
+                options.chunkedMode = false;
+                // 전송후 통신 종료 예약
+                options.headers = { Connection: "close" };
+                // 파일과 함께 전송할 TEXT 데이터
+                options.params = { 'memo': 'hello world' };
 
-            /** 파일 전송 객체 생성 */
-            var ft = new FileTransfer();
+                /** 파일 전송 객체 생성 */
+                var ft = new FileTransfer();
 
-            /** 업로드를 수행한다.(전송할 파일 경로, 서버 주소, 성공콜백, 실패콜백, 옵션) */
-            // ft.upload(imagePath, "http://itpaper.co.kr/demo/app/upload.php", 
-            //     function(response) {
-            //         // HTTP 결과코드 받기
-            //         if (response.responseCode !== 200) {
-            //             alert('업로드에 실패했습니다.' + response.response);
-            //             return false;
-            //         }
+                /** 업로드를 수행한다.(전송할 파일 경로, 서버 주소, 성공콜백, 실패콜백, 옵션) */
+                ft.upload(path, "http://192.168.0.8:2012/provider/sign-up-upload-image", 
+                    function(response) {
+                        // HTTP 결과코드 받기
+                        if (response.responseCode !== '200') {
+                            alert('업로드에 실패했습니다.' + response.response);
+                            return false;
+                        }
 
-            //         // 서버에서 출력하는 내용을 JSON으로 변환한다.
-            //         var json = JSON.parse(response.response);
-            //         alert(json.item[0].save_path + '으(로) 업로드 되었습니다.');
-            //     },
-            //     function(error) {
-            //         if (error.code == FileTransferError.FILE_NOT_FOUND_ERR) {
-            //             alert("file " + error.source + " not found");
-            //         } else if (error.code == FileTransferError.INVALID_URL_ERR) {
-            //             alert("url " + error.target + " invalid");
-            //         } else if (error.code == FileTransferError.CONNECTION_ERR) {
-            //             alert("connection error");
-            //         } else {
-            //             alert("unknown error");
-            //         }
-            //     },
-            //     options);
-            // });
+                        // 서버에서 출력하는 내용을 JSON으로 변환한다.
+                        // var json = JSON.parse(response.response);
+                        // alert(json.item[0].save_path + '으(로) 업로드 되었습니다.');
+
+                        // alert('사진업로드 완료');
+                    },
+                    function(error) {
+                        if (error.code == FileTransferError.FILE_NOT_FOUND_ERR) {
+                            alert("file " + error.source + " not found");
+                        } else if (error.code == FileTransferError.INVALID_URL_ERR) {
+                            alert("url " + error.target + " invalid");
+                        } else if (error.code == FileTransferError.CONNECTION_ERR) {
+                            alert("connection error");
+                        } else {
+                            alert("unknown error");
+                        }
+                    },
+                    options);
+                });
                 
-        location.href="provider_main.html";
+            location.href="provider_main.html";
         });
-
 
         $('label[for=access_terms_agree_all]').on('click', function() {
             if($("input[id=access_terms_agree]:checkbox").is(":checked")
@@ -445,8 +446,6 @@
                 alert('personal_info_content');
             }
         });
-
-
 
     });
     </script>
