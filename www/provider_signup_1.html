@@ -373,7 +373,7 @@
                 // 전송후 통신 종료 예약
                 options.headers = { Connection: "close" };
                 // 파일과 함께 전송할 TEXT 데이터
-                options.params = { 'id': idInput.val(), 'pw' : pwInput.val() };
+                options.params = { id : idInput.val(), pw : pwInput.val() };
 
                 /** 파일 전송 객체 생성 */
                 var ft = new FileTransfer();
