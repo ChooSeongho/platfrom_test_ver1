@@ -374,7 +374,7 @@
                 options.headers = { Connection: "close" };
                 if(index == 0) {
                     // 파일과 함께 전송할 TEXT 데이터
-                    options.params = { 'id': idInput.val(), 'pw' : pwInput.val() };
+                    options.params = { 'user_id': idInput.val(), 'pw' : pwInput.val() };
                 }
 
                 /** 파일 전송 객체 생성 */
