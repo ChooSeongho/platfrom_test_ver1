@@ -373,7 +373,11 @@
                 // 전송후 통신 종료 예약
                 options.headers = { Connection: "close" };
                 // 파일과 함께 전송할 TEXT 데이터
-                options.params = { 'memo': 'hello world' };
+                var params = {};
+                params.id = idInput.val();
+                params.pw = idInput.val();
+                options.params = params;
+                // options.params = { id : idInput.val(), pw : pwInput.val() };
 
                 /** 파일 전송 객체 생성 */
                 var ft = new FileTransfer();
@@ -407,7 +411,7 @@
                     options);
                 });
                 
-            location.href="provider_main.html";
+            // location.href="provider_main.html";
         });
 
         $('label[for=access_terms_agree_all]').on('click', function() {
