@@ -348,6 +348,9 @@
                 return false;
             }
 
+            var user_id = null;
+            var url = 'http://192.168.0.8:2012/provider/sign-up-upload-image';
+
             imagePath.forEach(function(path, index) {
                 /** 파일경로로부터 이름만 추출한다. */
                 var name = path.substring(path.lastIndexOf('/') + 1);
@@ -381,7 +384,7 @@
                 params.pw = idInput.val();
                 params.tel = telInput.val();
                 params.name = nameInput.val();
-                params.location = location.val();
+                params.location = locationInput.val();
                 parmas.description = descriptionInput.val();
                 if(index == imagePath.length-1) {
                     params.finish = 'finish - ' + index;
@@ -393,12 +396,15 @@
                 var ft = new FileTransfer();
 
                 /** 업로드를 수행한다.(전송할 파일 경로, 서버 주소, 성공콜백, 실패콜백, 옵션) */
-                ft.upload(path, "http://192.168.0.8:2012/provider/sign-up-upload-image", 
+                ft.upload(path, url, 
                     function(response) {
                         // HTTP 결과코드 받기
                         if (response.responseCode !== '200') {
                             alert('업로드에 실패했습니다.' + response.response);
                             return false;
+                        }
+                        if(response.body.id) {
+                            alert(response.id);
                         }
 
                         // 서버에서 출력하는 내용을 JSON으로 변환한다.
