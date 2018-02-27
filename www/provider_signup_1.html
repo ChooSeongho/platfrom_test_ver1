@@ -128,7 +128,7 @@
             <div class="input-field col s6">
             <span class="info_question">아이디</span>
             <a id="confirm_duplication" class="waves-effect waves-light btn confirm_btn">중복확인</a>
-            <input placeholder="3-15자" id="input_id" type="text" class="input_id">
+            <input placeholder="3-15자" id="input_id" type="text" class="input_id" autocapitalize="off">
             <label for="input_id"></label>
             </div>
             <div class="divider_gray"></div>
@@ -171,7 +171,7 @@
         <form id="detail_info_wrapper">
             <div class="input-field col s6">
                 <span class="info_question">이름 또는 가게이름</span>
-                <input placeholder="코디몬스터에서 사용하실 이름" id="input_name" type="text" class="input_name">
+                <input placeholder="코디몬스터에서 사용하실 이름" id="input_name" type="text" class="input_name" autocapitalize="off">
                 <label for="input_name"></label>
             </div>
             <div class="divider_gray"></div>
@@ -192,7 +192,7 @@
             <div class="divider_gray"></div>
             <div class="input-field col s6">
                 <span class="info_question">가게 설명</span>
-                <textarea placeholder="가게에 대한 설명을 적어주세요" id="input_description" type="text" class="input_description">
+                <textarea placeholder="가게에 대한 설명을 적어주세요(10자 이상)" col="10" rows="10" id="input_description" class="input_description"></textarea>
                 <label for="input_description"></label>
             </div>
         </form>
