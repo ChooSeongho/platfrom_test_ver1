@@ -400,12 +400,16 @@
                 ft.upload(path, url, 
                     function(response) {
                         // HTTP 결과코드 받기
-                        if (response.response.responseCode !== '200') {
+                        var response_split = response.response.split('/');
+                        if (response_split[0] == '200') {
+                            if(response_split[1]) {
+                                url = url+'/'+response_split[1];
+                            }
+                        } else if(response.response == 'finish') {
+                            alert('upload finish');
+                        } else {
                             alert('업로드에 실패했습니다.' + response.response);
                             return false;
-                        }
-                        if(response.resopnse.id) {
-                            alert(response.id);
                         }
 
                         // 서버에서 출력하는 내용을 JSON으로 변환한다.
