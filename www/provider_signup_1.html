@@ -270,9 +270,10 @@
         //   location.href="sign_up_finish.html";
         // });
 
-        var imagePath = [];
+        
 
         $('#next_btn').on('click', function() {
+            var imagePath = [];
             $('.image').each(function(index,ele) {
                 imagePath.push($(this).attr('src'));
             });
@@ -399,11 +400,11 @@
                 ft.upload(path, url, 
                     function(response) {
                         // HTTP 결과코드 받기
-                        if (response.responseCode !== '200') {
+                        if (response.response.responseCode !== '200') {
                             alert('업로드에 실패했습니다.' + response.response);
                             return false;
                         }
-                        if(response.body.id) {
+                        if(response.resopnse.id) {
                             alert(response.id);
                         }
 
