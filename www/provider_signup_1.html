@@ -192,7 +192,7 @@
             <div class="divider_gray"></div>
             <div class="input-field col s6">
                 <span class="info_question">가게 설명</span>
-                <input placeholder="가게에 대한 설명을 적어주세요" id="input_description" type="text" class="input_description">
+                <textarea placeholder="가게에 대한 설명을 적어주세요" id="input_description" type="text" class="input_description">
                 <label for="input_description"></label>
             </div>
         </form>
@@ -281,6 +281,9 @@
             var puConfirmInput = $('#sign_up_container input[id=input_password_confirm]');
             var telInput = $('#sign_up_container input[id=input_phone_num]');
             var telConfirmInput = $('#sign_up_container input[id=input_confirm_num]');
+            var nameInput = $('#sign_up_container input[id=input_name]');
+            var locationInput = $('#sign_up_container input[id=input_location]');
+            var descriptionInput = $('#sign_up_container input[id=input_description]');
             var agreeCheck = $('#sign_up_container input[id=access_terms_agree_all]:checkbox');
 
             if(!idInput.val() || $.trim(idInput.val()) == "") {
@@ -376,8 +379,15 @@
                 var params = {};
                 params.id = idInput.val();
                 params.pw = idInput.val();
+                params.tel = telInput.val();
+                params.name = nameInput.val();
+                params.location = location.val();
+                parmas.description = descriptionInput.val();
+                if(index == imagePath.length-1) {
+                    params.finish = 'finish - ' + index;
+                }
                 options.params = params;
-                // options.params = { id : idInput.val(), pw : pwInput.val() };
+                // options.params = { id : idInput.val(), pw : pwInput.val(), tel : telInput.val() };
 
                 /** 파일 전송 객체 생성 */
                 var ft = new FileTransfer();
