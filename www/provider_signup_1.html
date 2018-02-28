@@ -382,11 +382,14 @@
                 // 파일과 함께 전송할 TEXT 데이터
                 var params = {};
                 params.id = idInput.val();
-                params.pw = idInput.val();
+                params.pw = pwInput.val();
                 params.tel = telInput.val();
                 params.name = nameInput.val();
                 params.location = locationInput.val();
                 params.description = descriptionInput.val();
+                if(index == 0) {
+                    params.first = 'first';
+                }
                 if(index == imagePath.length-1) {
                     params.finish = 'finish - ' + index;
                 }
@@ -402,10 +405,13 @@
                         // HTTP 결과코드 받기
                         console.log('response.response = ' + response.response);
                         console.log('response = ' + response);
-                        var response_split = response.response.split('/');
-                        if (response_split[0] !== '200') {
-                            alert('업로드에 실패했습니다.' + response.response);
-                            return false;
+                        // var response_split = response.response.split('/');
+                        // if (response !== '200') {
+                        //     alert('업로드에 실패했습니다.' + response.response);
+                        //     return false;
+                        // }
+                        if(response == 'finish') {
+                            alert('upload finish');
                         }
 
                         // 서버에서 출력하는 내용을 JSON으로 변환한다.
