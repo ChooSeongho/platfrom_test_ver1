@@ -351,8 +351,10 @@
 
             var user_id = null;
             var url = 'http://192.168.0.8:2012/provider/sign-up-upload-image';
+            var defs = [];
 
             imagePath.forEach(function(path, index) {
+                var def = $.Deferred();
                 /** 파일경로로부터 이름만 추출한다. */
                 var name = path.substring(path.lastIndexOf('/') + 1);
                 // 안드로이드는 파일이름 뒤에 ?123234234 형식의 내용이 붙어 오는 경우가 있으므로,
@@ -398,7 +400,7 @@
 
                 /** 파일 전송 객체 생성 */
                 var ft = new FileTransfer();
-
+                
                 /** 업로드를 수행한다.(전송할 파일 경로, 서버 주소, 성공콜백, 실패콜백, 옵션) */
                 ft.upload(path, url, 
                     function(response) {
@@ -410,9 +412,15 @@
                         //     alert('업로드에 실패했습니다.' + response.response);
                         //     return false;
                         // }
-                        if(response == 'finish') {
-                            alert('upload finish');
+                        if(response.response == '200' || response.response == 'finish') {
+                            def.resolve(1);
+                            if(response.response == 'finish') {
+                                alert('upload finish');
+                            }
+                        } else {
+                            def.resolve(0);
                         }
+                        
 
                         // 서버에서 출력하는 내용을 JSON으로 변환한다.
                         // var json = JSON.parse(response.response);
@@ -430,10 +438,15 @@
                         } else {
                             alert("unknown error");
                         }
+                        def.resolve(0);
                     },
                     options);
+                    defs.push(def.promise());
                 });
-                
+                $.when.apply($, defs).then(function() {
+                    console.log('all things done');
+                    console/dir(arguments);
+                })
             // location.href="provider_main.html";
         });
 
