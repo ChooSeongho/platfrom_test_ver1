@@ -351,10 +351,8 @@
 
             var user_id = null;
             var url = 'http://192.168.0.8:2012/provider/sign-up-upload-image';
-            var defs = [];
 
             imagePath.forEach(function(path, index) {
-                var def = $.Deferred();
                 /** 파일경로로부터 이름만 추출한다. */
                 var name = path.substring(path.lastIndexOf('/') + 1);
                 // 안드로이드는 파일이름 뒤에 ?123234234 형식의 내용이 붙어 오는 경우가 있으므로,
@@ -389,12 +387,7 @@
                 params.name = nameInput.val();
                 params.location = locationInput.val();
                 params.description = descriptionInput.val();
-                if(index == 0) {
-                    params.first = 'first';
-                }
-                if(index == imagePath.length-1) {
-                    params.finish = 'finish - ' + index;
-                }
+                params.length = imagePath.length;
                 options.params = params;
                 // options.params = { id : idInput.val(), pw : pwInput.val(), tel : telInput.val() };
 
@@ -413,12 +406,12 @@
                         //     return false;
                         // }
                         if(response.response == '200' || response.response == 'finish') {
-                            def.resolve(1);
                             if(response.response == 'finish') {
-                                alert('upload finish');
+                                alert('upload finish')
                             }
+                            console.log('uploaded image ' + name);
                         } else {
-                            def.resolve(0);
+                            console.log('err : ' + response.response);
                         }
                         
 
@@ -438,15 +431,9 @@
                         } else {
                             alert("unknown error");
                         }
-                        def.resolve(0);
                     },
                     options);
-                    defs.push(def.promise());
                 });
-                $.when.apply($, defs).then(function() {
-                    console.log('all things done');
-                    console/dir(arguments);
-                })
             // location.href="provider_main.html";
         });
 
