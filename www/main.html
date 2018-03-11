@@ -233,7 +233,7 @@
           // location.href = "request_styling.html";
           var ref = window.open("request_styling.html", "_blank", "location=no");
           ref.addEventListener('loadstop', function(event) {
-            if(event.url.match('close')) {
+            if(event.url.match('close.html')) {
               ref.close();
             }
           });
