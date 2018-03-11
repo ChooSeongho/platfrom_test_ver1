@@ -47,8 +47,9 @@
             // control the statusbar
             // console.log("onready_main : " + StatusBar.isVisible);
             StatusBar.overlaysWebView(false);
-            StatusBar.backgroundColorByName("white");
+            StatusBar.backgroundColorByName("black");
             StatusBar.styleDefault();
+            window.open = cordova.InAppBrowser.open;
           }
 
           // var val = location.href.substr(location.href.lastIndexOf('=') + 1);
@@ -104,7 +105,8 @@
 
       <!-- Modal Trigger -->
       <div class="fixed-action-btn">
-        <a class="waves-effect waves-light btn-floating btn-large modal-trigger" href="#modal1">Modal</a>
+        <!-- <a class="waves-effect waves-light btn-floating btn-large modal-trigger" href="#modal1">Modal</a> -->
+        <a class="waves-effect waves-light btn-floating btn-large request">Modal</a>
       </div>
 
       <!-- Modal Structure -->
@@ -208,23 +210,33 @@
         });
 
         // modal init
-        $('.modal').modal();
+        // $('.modal').modal();
         // contents in modal
-        $('.modal_btn').on('touchstart', function(e) {
-          e.preventDefault();
-          if($(this).text() == "남자") {
-            $(this).parent().css('background', '#8b9bce');
-          } else {
-            $(this).parent().css('background', '#8b9bce');
-          }
-        }).on('touchend', function(e) {
-          e.preventDefault();
-          $(this).parent().css('background', '#ffffff');
-          if($(this).text() == "남자") {
-            location.href = "style_profile_1.html";
-          } else {
-            location.href = "style_profile_1.html";
-          }
+        // $('.modal_btn').on('touchstart', function(e) {
+        //   e.preventDefault();
+        //   if($(this).text() == "남자") {
+        //     $(this).parent().css('background', '#8b9bce');
+        //   } else {
+        //     $(this).parent().css('background', '#8b9bce');
+        //   }
+        // }).on('touchend', function(e) {
+        //   e.preventDefault();
+        //   $(this).parent().css('background', '#ffffff');
+        //   if($(this).text() == "남자") {
+        //     location.href = "style_profile_1.html";
+        //   } else {
+        //     location.href = "style_profile_1.html";
+        //   }
+        // });
+
+         $('.request').on('click', function(e) {
+          // location.href = "request_styling.html";
+          var ref = window.open("request_styling.html", "_blank", "location=no");
+          ref.addEventListener('loadstop', function(event) {
+            if(event.url.match('close')) {
+              ref.close();
+            }
+          });
         });
 
         // var touchmoved;
