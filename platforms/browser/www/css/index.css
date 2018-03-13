@@ -63,6 +63,11 @@ body {
   height: 20vh;
 }
 
+input[type=text], input[type=password] {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
 .input_sign {
   border: 0 !important;
   border-radius: 10px !important;
@@ -76,6 +81,12 @@ body {
 
 [type="checkbox"]+label {
   padding-left: 25px !important;
+}
+
+[type="checkbox"]:checked+label:before {
+  border-right: 2px solid #8B9BCE !important;
+  border-bottom: 2px solid #8B9BCE !important;
+  border-radius: 0;
 }
 
  .find_id {

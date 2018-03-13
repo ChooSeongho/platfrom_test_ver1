@@ -94,28 +94,28 @@
   </header> -->
   <!-- <script type="text/javascript" src="cordova.js"></script> -->
   <div id="sign_wrap">
-    <div class="index_logo"></div>
     <form class="col s12">
-      <input id="email" placeholder="   아이디" type="email" class="input_sign">
-      <input id="password" placeholder="   비밀번호" type="password" class="input_sign">
+      <div class="index_logo"></div>
+      <input id="id" placeholder="아이디" type="text" class="input_sign" autocapitalize="off">
+      <input id="password" placeholder="비밀번호" type="password" class="input_sign">
+      <div class="auto_login_wrapper">
+        <input type="checkbox" id="auto_login">
+        <label for="auto_login" class="input-label"> 자동 로그인 </label>
+      </div>
+      <a id="signin" class="waves-effect waves-light btn btn_long default-blue">로그인</a>
+      <span id="find_id" class="find_id" style="margin-bottom: 3vh"> ID를 잊어버리셨나요? </span>
+      <a id="signup" class="waves-effect waves-light btn btn_long bold-blue">회원가입</a>
+      <a id="signup_provider" class="waves-effect waves-light btn btn_long bold-blue">판매자</a>
+      <div style="height: 5vh;"></div>
+      <span>간편로그인</span>
+      <div class="row middle_icons">
+        <a id="facebook_sign" class="waves-effect waves-light btn facebook circle_btn"></a>
+        <a id="naver_sign" class="waves-effect waves-light btn naver circle_btn"></a>
+        <a id="kakaotalk_sign" class="waves-effect waves-light kakao btn black-text circle_btn"></a>
+        <a id="google_sign" class="waves-effect waves-light google btn circle_btn"></a>
+      </div>
     </form>
-    <div class="auto_login_wrapper">
-      <input type="checkbox" id="auto_login">
-      <label for="auto_login" class="input-label"> 자동 로그인 </label>
-    </div>
-    <a id="signin" class="waves-effect waves-light btn btn_long default-blue">로그인</a>
-    <span id="find_id" class="find_id" style="margin-bottom: 3vh"> ID를 잊어버리셨나요? </span>
-    <a id="signup" class="waves-effect waves-light btn btn_long bold-blue">회원가입</a>
-    <a id="signup_provider" class="waves-effect waves-light btn btn_long bold-blue">판매자</a>
-    <div style="height: 5vh;"></div>
-    <span>간편로그인</span>
-    <div class="row middle_icons">
-      <a id="facebook_sign" class="waves-effect waves-light btn facebook circle_btn"></a>
-      <a id="naver_sign" class="waves-effect waves-light btn naver circle_btn"></a>
-      <a id="kakaotalk_sign" class="waves-effect waves-light kakao btn black-text circle_btn"></a>
-      <a id="google_sign" class="waves-effect waves-light google btn circle_btn"></a>
-    </div>
-
+    
     <!-- <div id="btn_wrap">
     </div> -->
   </div>
@@ -129,8 +129,32 @@
 
           // 로그인버튼 클릭했을 때.
           $('#signin').on('click', function() {
+            var id = $('#id');
+            var pw = $('#password');
+            if(!id || $.trim(id.val()) == "") {
+              alert('아이디를 입력해주세요.');
+              id.focus();
+              return false;
+            }
+            if(!pw || $.trim(pw.val()) == "") {
+              alert('비밀번호를 입력해수세요.');
+              pw.focus();
+              return false;
+            }
             // alert('signin');
-            location.href="main.html";
+            $.post('http://192.168.0.8:2012/login/login', {
+              id : $.trim(id.val()),
+              pw : $.trim(pw.val())
+            })
+            .done(function(res) {
+              if(res == '200') {
+                sessionStorage.setItem('id', $.trim(id.val()));
+                location.href = "main.html";
+              } else {
+                alert('아이디 또는 비밀번호가 틀렸습니다.')
+              }
+            });
+            // location.href="main.html";
           });
 
           // 회원가입 버튼 클릭했을 때.
@@ -145,7 +169,7 @@
             //   //provier signup
             //   console.log('provier_res : ' + res);
             // });
-            location.href='provider_signup_1.html';
+            location.href='provider_signup_2.html';
           });
         });
     </script>
