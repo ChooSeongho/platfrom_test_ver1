@@ -252,14 +252,7 @@
       $(function() {
 
         $('#input_image').on('click', function() {
-            window.imagePicker.getPicture(
-              function(result) {
-                // $('#images').append('<div class="image_wrapper" style="width:23vw;height:23vw;float:left;"><img id="smallImage" class="image" style="width:23vw;height:23vw;" src=' + results[i] + '></div>')
-                console.log('success');
-              }, function(err) {
-                alert.log('Error : ' + err);
-              }
-            );
+            getPhoto(pictureSource.PHOTOLIBRARY);
         });
 
         // '뒤로가기' 버튼 클릭
