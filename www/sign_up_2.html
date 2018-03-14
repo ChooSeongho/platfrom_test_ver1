@@ -29,8 +29,8 @@
 
             pictureSource=navigator.camera.PictureSourceType;
             destinationType=navigator.camera.DestinationType;
-
         }
+        console.log(pictureSource);
 
         // Called when a photo is successfully retrieved
         //
@@ -252,7 +252,7 @@
       $(function() {
 
         $('#input_image').on('click', function() {
-            getPhoto(navigator.camera.PictureSourceType.PHOTOLIBRARY);
+            getPhoto();
         });
 
         // '뒤로가기' 버튼 클릭
