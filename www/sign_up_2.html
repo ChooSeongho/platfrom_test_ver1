@@ -14,6 +14,8 @@
       <!-- 아이콘 불러오기 -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+      <script type="text/javascript" src="cordova.js"></script>
+
       <script>
         var pictureSource;   // picture source
         var destinationType; // sets the format of returned value 
@@ -252,42 +254,45 @@
       $(document).ready(function(){
 
         // Select from gallery 
-        $("#input_image").click(function(){
-            navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-                sourceType: Camera.PictureSourceType.PHOTOLIBRARY, 
-                allowEdit: true,
-                destinationType: Camera.DestinationType.FILE_URI
-            });
-        });
+      //   $("#input_image").click(function(){
+      //       navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+      //           sourceType: Camera.PictureSourceType.PHOTOLIBRARY, 
+      //           allowEdit: true,
+      //           destinationType: Camera.DestinationType.FILE_URI
+      //       });
+      //   });
 
-        // Change image source
-        function onSuccess(imageData) {
-            var image = document.getElementById('img');
-            image.src = imageData + '?' + Math.random();;
-        }
+      //   // Change image source
+      //   function onSuccess(imageData) {
+      //       var image = document.getElementById('img');
+      //       image.src = imageData + '?' + Math.random();;
+      //   }
 
-        function onFail(message) {
-            alert('Failed because: ' + message);
-        }
+      //   function onFail(message) {
+      //       alert('Failed because: ' + message);
+      //   }
 
-      });
+      // });
 
       $(function() {
 
-        // $('#input_image').on('click', function() {
-        //   // getPhoto(pictureSource.PHOTOLIBRARY);
-        //   window.imagePicker.getPictures(
-        //       function(results) {
-        //           // alert('in imagePicker');
-        //           for(var i=0; i<results.length; i++) {
-        //               $('#images').append('<div class="image_wrapper" style="width:23vw;height:23vw;float:left;"><img class="image" style="width:23vw;height:23vw;" src=' + results[i] + '><img class="remove_icon" src="img/remove_icon.png" style="cursor:pointer;position:relative;top:-23vw;left:16vw;width:5vw;height:5vw;"></div>')
-        //               // alert.log('images : ' + results[i]);
-        //           }
-        //       }, function(error) {
-        //           alert.log('Error : ' + error);
-        //       }
-        //   );
-        // });
+        $('#input_image').on('click', function() {
+          // getPhoto(pictureSource.PHOTOLIBRARY);
+          window.imagePicker.getPictures(
+              function(results) {
+                  // alert('in imagePicker');
+                  for(var i=0; i<results.length; i++) {
+                      $('#images').append('<div class="image_wrapper" style="width:23vw;height:23vw;float:left;"><img class="image" style="width:23vw;height:23vw;" src=' + results[i] + '><img class="remove_icon" src="img/remove_icon.png" style="cursor:pointer;position:relative;top:-23vw;left:16vw;width:5vw;height:5vw;"></div>')
+                      // alert.log('images : ' + results[i]);
+                  }
+              }, function(error) {
+                  alert.log('Error : ' + error);
+              },
+              {
+                maximumImagesCount : 1
+              }
+          );
+        });
 
         // '뒤로가기' 버튼 클릭
         $('#back_btn').on('click', function() {
