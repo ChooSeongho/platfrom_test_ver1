@@ -252,7 +252,7 @@
       $(function() {
 
         $('#input_image').on('click', function() {
-            getPhoto(Camera.PictureSourceType.PHOTOLIBRARY);
+            getPhoto(navigator.camera.PictureSourceType.PHOTOLIBRARY);
         });
 
         // '뒤로가기' 버튼 클릭
