@@ -127,7 +127,8 @@
           })
           .done(function(res) {
             if(res == '200') {
-              location.href = "main.html";
+              location.href = "index.html";
+              sessionStorage.removeItem('id');
             } else {
               alert('서버저장 실패. 다시 시도해 주세요')
             }
