@@ -116,6 +116,7 @@
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <plugin name="cordova-plugin-file" spec="~6.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="~2.4.1" />
