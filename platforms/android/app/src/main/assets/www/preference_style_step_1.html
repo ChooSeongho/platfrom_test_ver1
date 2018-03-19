@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
+      <link rel="stylesheet" type="text/css" href="css/preference_style.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
+
+      <!-- 아이콘 불러오기 -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <script>
+        $(function() {
+        });
+      </script>
+
+      <title>platfrom_test</title>
+
+      <!-- <script>
+      $(function() {
+        $('#main_wrap').load("show_goods.html");
+      });
+      </script> -->
+  </head>
+  <body>
+    <!-- <div class="close_btn">
+      <i class="material-icons">close</i>
+    </div> -->
+    <div class="contents_container">
+      <div class="appraisal_container">
+        <span style="font-size: 1.2rem;">평가개수</span>
+        <br>
+        <span class="appraisal_count bold-blue-text">0</span>
+        <br>
+        <span class="appraisal_explain">당신이 무엇을 좋아하는지 알고싶어요!</span>
+      </div>
+      <div id="progressbar">
+        <div id="progress_size"></div>
+      </div>
+      <img id="preference_img" src="img/preference_img_0.png">
+
+      <span>이 스타일링이 마음에 드시나요?</span>
+      <div class="star_container" style="margin-top: 3vh;">
+        <i class="material-icons dp48 medium star_grade_1 star_btn">star_border</i>
+        <i class="material-icons dp48 medium star_grade_2 star_btn">star_border</i>
+        <i class="material-icons dp48 medium star_grade_3 star_btn">star_border</i>
+        <i class="material-icons dp48 medium star_grade_4 star_btn">star_border</i>
+        <i class="material-icons dp48 medium star_grade_5 star_btn">star_border</i>
+      </div>
+    </div>
+
+    <script>
+
+      $(function() {
+        // '뒤로가기' 버튼 클릭
+        // $('#back_btn').on('click', function() {
+        //   location.href="sign_up_1.html";
+        // });
+
+        // '다음' 버튼 클릭
+        $('#next_btn').on('click', function() {
+          location.href="sign_up_finish.html";
+        });
+
+
+        var count = 1;
+        // star_rating
+        $('.star_btn').on("touchend", function(e) {
+          e.preventDefault();
+          var split_for_grade = this.className.split(" ");
+          var length = split_for_grade[3].charAt(11);
+          // for(i=1; i<=length; i++) {
+          //   // $('.star_grade_'+i).text("star");
+          //   this.parent.children('.star_grade_'+i).text("star");
+          // }
+          var temp_prev;
+          for(i=length; i>0; i--) {
+            if(i == length) {
+              $(this).text("star");
+              temp_prev = $(this).prev()
+            } else {
+              temp_prev.text("star");
+              temp_prev = temp_prev.prev();
+            }
+          }
+          // var temp_next = $(this).next();
+          // for(j=length; j<=5; j++) {
+          //   temp_next.text("star_border");
+          //   temp_next = temp_next.next();
+          // }
+          var progress = 10; // 100 / 사진 개수
+          setTimeout(function() {
+            if(count < 11) {
+              $('#preference_img').attr('src','img/preference_img_' + count +'.png');
+              $('.appraisal_count').html(count);
+              if(count==3) {
+                $('.appraisal_explain').text('이제 조금 당신을 알 것 같아요!');
+              }
+              var progress_str = (progress * count) +'%';
+              $('#progress_size').css('width', progress_str);
+              count++;
+            } else if(count > 10) {
+              location.href="preference_style_step_1_finish.html"
+            }
+            $('.star_btn').text('star_border');
+          }, 500);
+
+        });
+
+          $('.close_btn').on('click', function() {
+            location.href="index.html";
+          });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+      <link rel="stylesheet" href="./css/jquery-ui.min.css">
+      <link rel="stylesheet" href="./css/calender.css">
+      <link rel="stylesheet" href="./css/color.css">
+      <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"> -->
+
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+      <script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
+      <!-- 아이콘 불러오기 -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <script>
+        $(function() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+            function onDeviceReady() {
+            StatusBar.overlaysWebView(false);
+            StatusBar.backgroundColorByName("white");
+            StatusBar.styleDefault();
+            }
+        });
+      </script>
+
+      <title>platfrom_test</title>
+  </head>
+  <body>
+        <header>
+            <div id="header_wrapper">
+                <div id="back_btn_wrapper">
+                    <i id="back_btn" class="material-icons small">chevron_left</i>
+                </div>
+                <div class="page_title_wrapper">
+                <span class="page_title">스타일링 신청</span>
+                </div>
+            </div>
+        </header>
+        <div class="contents-wrapper">
+            <!-- <div class="margin10vh" style="margin-top:10vh;"></div> -->
+            <div class="calender_text" style="margin-left:3vw;">날짜를 선택하세요.</div>
+            <div class="margin3vh" style="margin-top:3vh;"></div>
+            <div id="datepicker"></div>
+            <div class="style-wrapper">
+                <span class="style-name">스타일 이름</span>
+                <input type="text" name="style-name-input" placeholder="스타일 이름 입력">
+            </div>
+            <div class="style-wrapper">
+                <span class="style-location">배송 주소</span>
+                <input type="text" name="style-location-input" placeholder="주소 입력">
+            </div>
+            <div class="style-wrapper">
+                <span class="style-require">요구 사항</span>
+                <input type="text" name="style-require-input" placeholder="요구 사항 입력">
+            </div>
+            <div class="style-wrapper" style="border-bottom:0!important;">
+                <span class="style-default">기존 스타일 프로필 사용</span>
+            </div>
+            <footer>
+                <div class="footer_wrapper">
+                    <a id="next_btn" class="waves-effect waves-light btn btn_long default-blue">스타일전문가 매칭</a>
+                </div>
+            </footer>
+        </div>
+        
+  </body>
+  <script>
+      $('#back_btn_wrapper').on('click', function() {
+        window.open('close.html');
+      });
+
+    $("#datepicker").datepicker({
+    //   showButtonPanel : true,
+        currentText : '오늘',
+        dateFormat : "yy-mm-dd",
+        selectOtherMonths : true,
+        navigationAsDateFormat : true,
+        dayNamesMin : ['월','화','수','목','금','토','일'],
+        monthNames : ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        stepMonths : 1,
+        yearSuffix : '년',
+        onSelect : function(dateText, inst) {
+            alert(dateText);
+        //   console.log(inst);
+        }
+    });
+  </script>
+</html>

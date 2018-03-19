@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+      <script type="text/javascript" src="cordova.js"></script>
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="msapplication-tap-highlight" content="no" />
+      <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' gap://ready file://* *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"> -->
+
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
+
+      <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+      <link rel="stylesheet" type="text/css" href="css/main.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
+      <link rel="stylesheet" type="text/css" href="css/show_style.css" />
+      <link rel="stylesheet" type="text/css" href="css/my_codymonster.css" />
+      <link rel="stylesheet" type="text/css" href="css/appraisal_style.css" />
+
+
+      <!-- <script type="text/javascript" src="js/index.js"></script> -->
+      <!-- <script type="text/javascript" src="cordova.js"></script> -->
+
+
+
+      <!-- 아이콘 불러오기 -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <script>
+        $(function() {
+
+
+          // app.initialize();
+
+          // console.log('start js in main');
+          // console.log("platfrom = " + device.platform);
+
+          document.addEventListener("deviceready", onDeviceReady, false);
+
+          function onDeviceReady() {
+            // control the statusbar
+            // console.log("onready_main : " + StatusBar.isVisible);
+            StatusBar.overlaysWebView(false);
+            StatusBar.backgroundColorByName("black");
+            // StatusBar.styleDefault();
+            StatusBar.styleLightContent();
+            window.open = cordova.InAppBrowser.open;
+          }
+
+          // var val = location.href.substr(location.href.lastIndexOf('=') + 1);
+          // if(val == "show_stylist") {
+          //   $('ul.tabs').tabs("select_tab", "test-swipe-2");
+          // }
+
+        });
+      </script>
+
+      <title>platfrom_test</title>
+
+  </head>
+  <body>
+    <header>
+      <div id="header_wrapper" style="background-color:black">
+        <div class="logo_container">
+          <a href="#" data-activates="slide-out" class="button-collapse menu_icon"><i class="material-icons some_margin_top">menu</i></a>     <!-- side-nav tab -->
+          <img class='logo' src="img/logo_temp.png"> </img>
+        </div>
+        <div class="tabs_container">
+          <ul id="tabs-swipe-demo" class="tabs">
+            <li class="tab col s3"><a href="#test-swipe-1"> 스타일링 보기 </a></li>
+            <li class="tab col s3"><a href="#test-swipe-2"> MY 코디몬스터</a></li>
+            <li class="tab col s3"><a href="#test-swipe-3"> 스타일 평가 </a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- side-nav items -->
+    <ul id="slide-out" class="side-nav">
+      <li><div class="user-view">
+        <div class="background">
+          <img src="img/main_background.png">
+        </div>
+        <a href="#!user"><img class="circle" src="img/logo.png"></a>
+        <a href="#!name"><span class="white-text name">John Doe</span></a>
+        <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+      </div></li>
+      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+      <li><a href="#!" class="logout">LogOut</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Subheader</a></li>
+      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+
+    <div id="main_wrap">
+      <div id="test-swipe-1" class="col s12"> 스타일링 보기 </div>
+      <div id="test-swipe-2" class="col s12"> MY 코디몬스터 </div>
+      <div id="test-swipe-3" class="col s12"> 스타일링 평가 </div>
+
+      <!-- Modal Trigger -->
+      <div class="fixed-action-btn">
+        <!-- <a class="waves-effect waves-light btn-floating btn-large modal-trigger" href="#modal1">Modal</a> -->
+        <a class="waves-effect waves-light btn-floating btn-large request">Modal</a>
+      </div>
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content float_left">
+          <h4 class="modal_btn">남자</h4>
+        </div>
+        <div class="modal-content float_left">
+          <h4 class="modal_btn">여자</h4>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+
+      // 스타일링 보기 페이지 불러오기
+      // $('#test-swipe-1').load("show_style.html");
+      $('.name').html(sessionStorage.getItem('id'));
+
+      $.get(
+        'http://192.168.0.8:2012/show_style',
+        function(res) {
+          $('#test-swipe-1').html(res);
+        }
+      );
+
+      // $.ajax({
+      //   url: 'http://192.168.0.8:2012/show_style',
+      //   headers: { 'Access-Control-Allow-Origin' : 'http://192.168.0.8:2012'},
+      //   type: 'GET',
+      //   success: function(data) {
+      //     console.log('data = ' + data);
+      //     // $('#test-swipe-1').innerHTML(data.result);
+      //   },
+      //   error: function(e) {
+      //     console.log('error:' + e);
+      //   },
+      //   beforeSend: function(isdata) {
+      //     console.log('isdata_befor = ' + isdata);
+      //   }
+      // });
+
+      // MY 코디몬스터 페이지 불러오기
+      $('#test-swipe-2').load("my_codymonster.html");
+
+
+      // 스타일링 평가 페이지 불러오기
+      $('#test-swipe-3').load("appraisal_style.html");
+
+
+      // if ('scrollRestoration' in history) {
+      //   // Back off, browser, I got this...
+      //   history.scrollRestoration = 'manual';
+      // }
+
+      $(function() {
+        // var scrolly; // 화면 스크롤 값
+        // hash값에 따른 tab 메뉴 선택
+        if(window.location.hash) {
+          $('a[href*='+window.location.hash.substr(1)+']').addClass('active');
+          $(window.location.hash).addClass('active');
+          console.log('isisisis  = ' + localStorage.scrolly);
+          $('body').animate({scrollTop : localStorage.scrolly}, 400);
+        } else {
+          console.log('first page scroll = ' + localStorage.scrolly);
+          window.location.hash = "#test-swipe-1";
+          $('body').scrollTop(0); // 화면 상단으로 이동
+        }
+
+
+        // hide logo when scroll display
+        var headerHeight = $('#header_wrapper').height();
+        var hideHeader = headerHeight - $('.logo_container').outerHeight();
+        var startPoint;
+        var ishide = false;
+        $(window).on('touchmove', function(event){
+          didScroll = true;
+          // console.log('window = ' + $(window).height() + " /// document = " + $(document).height() + " //// thisTop = " + $(this).scrollTop() + " //// thisheight = " + $(this).height());
+          // console.log('start = ' + startPoint + " /// moved = " + ($(this).scrollTop() + 10));
+          if(startPoint < $(this).scrollTop() && !ishide) {
+            $('.logo_container').hide();
+            $('#header_wrapper').height(hideHeader);
+            // console.log('scroll down');
+            ishide = true;
+          } else if((startPoint > $(this).scrollTop() && ishide) || $(this).scrollTop() == 0) {
+            $('.logo_container').show();
+            $('#header_wrapper').height(headerHeight);
+            // console.log('scroll up');
+            ishide = false;
+          }
+        }).on('touchstart', function(event) {
+          startPoint = $(this).scrollTop();
+        });
+
+        // click the 'logout'
+        $('.logout').on('click', function() {
+          // history.back();
+          localStorage.removeItem('user_id');
+          localStorage.removeItem('user_password');
+          location.href="index.html";
+          // window.open('index.html', '_self', 'location=yes');
+        });
+
+        // modal init
+        // $('.modal').modal();
+        // contents in modal
+        // $('.modal_btn').on('touchstart', function(e) {
+        //   e.preventDefault();
+        //   if($(this).text() == "남자") {
+        //     $(this).parent().css('background', '#8b9bce');
+        //   } else {
+        //     $(this).parent().css('background', '#8b9bce');
+        //   }
+        // }).on('touchend', function(e) {
+        //   e.preventDefault();
+        //   $(this).parent().css('background', '#ffffff');
+        //   if($(this).text() == "남자") {
+        //     location.href = "style_profile_1.html";
+        //   } else {
+        //     location.href = "style_profile_1.html";
+        //   }
+        // });
+
+         $('.request').on('click', function(e) {
+          // location.href = "request_styling.html";
+          var ref = window.open("request_styling.html", "_blank", "location=no");
+          ref.addEventListener('loadstop', function(event) {
+            if(event.url.match('close.html')) {
+              ref.close();
+            }
+          });
+        });
+
+        // var touchmoved;
+        // var style_imgs = document.getElementsByClassName('.style_img');
+        // $(style_imgs).each(function(index, value) {
+        //   alert(style_imgs.className);
+        //   style_imgs[index].addEventListener('touchstart', function(e) {
+        //     touchmoved = false;
+        //     // alert($(this).find('#provider_name').text());
+        //     console.log("touchstart");
+        //     var providerName_parameter = $(this).find('#provider_name').text();
+        //     // alert($(this).find('#provider_name').text());
+        //     location.href="show_goods.html?name=" + providerName_parameter;
+        //     });
+        //     style_imgs[index].addEventListener('touchend', function(e) {
+        //       console.log("touchend");
+        //       if(!touchmoved) {
+        //         var providerName_parameter = $(this).find('#provider_name').text();
+        //         // alert($(this).find('#provider_name').text());
+        //         location.href="show_goods.html?name=" + providerName_parameter;
+        //       }
+        //     });
+        //     style_imgs[index].addEventListener('touchmove', function(e) {
+        //       touchmoved = true;
+        //       // alert($(this).find('#provider_name').text());
+        //       console.log("touchmove");
+        //     });
+        //     style_imgs[index].addEventListener('touchcancel', function(e) {
+        //       touchmoved = true;
+        //       // alert($(this).find('#provider_name').text());
+        //       console.log("touchcancel");
+        //     });
+        // });
+
+        // $('.style_img').on('click touchstart', function() {
+        //   var providerName_parameter = $(this).find('#provider_name').text();
+        //   // alert($(this).find('#provider_name').text());
+        //   location.href="show_goods.html?name=" + providerName_parameter;
+        // });
+
+        // $(document).on("click", ".style_img", function() {
+        //   var providerName_parameter = $(this).find('#provider_name').text();
+        //   //   // alert($(this).find('#provider_name').text());
+        //   location.href="show_goods.html?name=" + providerName_parameter;
+        // });
+
+        // var touchmoved;
+        // $(document).on("touchend touchcancel", ".style_img", function(e) {
+        //   e.preventDefault();
+        //   console.log("touchend");
+        //   alert(e);
+        //   if(touchmoved != true) {
+        //     var providerName_parameter = $(this).find('#provider_name').text();
+        //     //   // alert($(this).find('#provider_name').text());
+        //     location.href="show_goods.html?name=" + providerName_parameter;
+        //   }
+        // }).on('touchmove', '.style_img', function(e) {
+        //   touchmoved = true;
+        //   console.log("touchmove");
+        // }).on('touchstart', '.style_img', function(e) {
+        //   e.preventDefault();
+        //   touchmoved = false;
+        //   console.log("touchstart");
+        //   // alert(e.originalEvent.touches[0].screenX);
+        // });
+
+        // var touchmoved;
+        // $(document).on("touchstart", ".style_img", function(e) {
+        //   e.preventDefault();
+        //   touchmoved = false;
+        //   console.log("touchstart");
+        //   // e.preventDefault();
+        // }).on('touchmove', '.style_img', function(e) {
+        //   e.preventDefault();
+        //   touchmoved = true;
+        //   console.log("touchmove");
+        // }).on('touchend', ".style_img", function(e) {
+        //   e.preventDefault();
+        //   console.log("touchend");
+        //   alert(e);
+        //   if(touchmoved != true) {
+        //     var providerName_parameter = $(this).find('#provider_name').text();
+        //     //   // alert($(this).find('#provider_name').text());
+        //     location.href="show_goods.html?name=" + providerName_parameter;
+        //   }
+        // }).on('touchcancel', '.style_img', function(e) {
+        //   e.preventDefault();
+        //   console.log("touchcancel");
+        //   alert(e);
+        //   if(touchmoved != true) {
+        //     var providerName_parameter = $(this).find('#provider_name').text();
+        //     //   // alert($(this).find('#provider_name').text());
+        //     location.href="show_goods.html?name=" + providerName_parameter;
+        //   }
+        // });
+
+
+
+        var touchmoved;
+        $("#test-swipe-1").on("touchend touchcancel", ".style_img", function(e) {
+          e.preventDefault();
+          if(touchmoved != true) {
+            localStorage.scrolly = window.scrollY;
+            console.log('scrolly = ' + localStorage.scrolly);
+            // window.open("show_goods.html?name=" + providerName_parameter, "_self", 'location=yes');
+            var providerName_parameter = $(this).find('#provider_name').text();
+            location.href="show_goods.html?name=" + providerName_parameter;
+          }
+        }).on("touchmove", ".style_img", function(e) {
+          touchmoved = true;
+        }).on("touchstart", ".style_img", function(e) {
+          touchmoved = false;
+        });
+
+
+        var touchmoved;
+        $("#test-swipe-2").on("touchend touchcancel", ".monster_wrapper", function(e) {
+          e.preventDefault();
+          if(touchmoved != true) {
+            var providerName_parameter = $(this).find('#monster_name').text();
+            location.href="show_stylist_info.html?name=" + providerName_parameter;
+          }
+        }).on("touchmove", ".monster_wrapper", function(e) {
+          touchmoved = true;
+        }).on("touchstart", ".monster_wrapper", function(e) {
+          touchmoved = false;
+        });
+
+
+        // $(".style_img").on("touchend",function(e) {
+        //   console.log("touchend");
+        //   // var providerName_parameter = $(this).find('#provider_name').text();
+        //   // alert($(this).find('#provider_name').text());
+        //   // location.href="show_goods.html?name=" + providerName_parameter;
+        // });
+
+        // $('.style_img').on('click touchstart', function() {
+        //   var providerName_parameter = $(this).find('#provider_name').text();
+        //   // alert($(this).find('#provider_name').text());
+        //   location.href="show_goods.html?name=" + providerName_parameter;
+        // });
+
+        // $('.style_img').live('click', function() {
+        //   location.href="show_goods.html";
+        // });
+
+        // $.ajax({url: "show_style.html",
+        //       type : 'GET',
+        //       async: true,
+        //       success: function(result) {
+        //         $('#test-swipe-2').html(result);
+        //       }});
+
+        // $('.style_img').click(function() {
+        //   alert("click style_img");
+        //   location.href="show_goods.html";
+        // });
+
+        // // 스타일링 보기 페이지 불러오기
+        // $('#test-swipe-2').load("show_style.html", function() {
+        //   $('style_img').live('click', function() {
+        //     location.href="show_goods.html";
+        //   });
+        // });
+
+        // $('ul.tabs').tabs();
+        // $('ul.tabs').tabs('select_stab', 'tab_id');
+
+        // 상단 탭 swipe 가능하도록 설정
+
+        $('ul.tabs').tabs({
+          onShow: function(tab) {
+            window.location.hash = "#" + tab[0].id;
+            // console.log(window.location.hash);
+            if(tab[0].id == "test-swipe-2") {
+              $('.fixed-action-btn').hide();
+              // $('.fixed-action-btn').css('display', 'none');
+            } else {
+              $('.fixed-action-btn').show();
+              // $('.fixed-action-btn').css('display', 'inline-block');
+            }
+            $('body').scrollTop(0); // 화면 상단으로 이동
+        }});
+
+
+        // $('ul.tabs').tabs({
+        //   swipeable: true,
+        //   onShow: function(tab) {
+        //     // console.log(tab);
+        //     // if(tab[0].id == "test-swipe-1") {
+        //     //   $('ul.tabs').tabs('select_tab', '#test-swipe-2');
+        //     //   $('.fixed-action-btn').hide();
+        //     //   // $('.fixed-action-btn').css('display', 'none');
+        //     // } else {
+        //     //   $('.fixed-action-btn').show();
+        //     //   // $('.fixed-action-btn').css('display', 'inline-block');
+        //     // }
+        //     var current_position = $('#test-swipe-1').css('-webkit-transform').split(/[()]/)[1];
+        //     var pos = current_position.split(',')[4];
+        //     console.log(pos);
+        //
+        // }});
+
+        // $('ul.tabs').tabs({swipeable: true});
+
+
+        // 추가된 element(node)가 있으면 이벤트 발생
+        // $('#main_wrap').on('DOMNodeInserted', '#test-swipe-2', function() {
+        //   console.log("change");
+        //   if($('#test-swipe-2').hasClass('active')) {
+        //     $('.fixed-action-btn').css('display', 'none');
+        //   } else {
+        //     $('.fixed-action-btn').css('display', 'inline-block');
+        //   }
+        // });
+
+
+        // $('ul.tabs').tabs();
+
+        // $('.carousel.carousel-slider').carousel({fullWidth: true});
+
+        // $('ul.tabs').bind("tabsselect", function(e, tab) {
+        //   alert(tab.index + "selected");
+        // });
+
+
+        // side-nav
+        // Initialize collapse button
+        $('.button-collapse').sideNav();
+
+        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+        // $('.collapsible').collapsible();
+        // Show sideNav
+        // $('.button-collapse').sideNav('show');
+        // Hide sideNav
+        // $('.button-collapse').sideNav('hide');
+
+
+
+      });
+    </script>
+  </body>
+</html>

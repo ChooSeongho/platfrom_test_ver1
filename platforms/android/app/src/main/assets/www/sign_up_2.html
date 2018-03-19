@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
+      <link rel="stylesheet" type="text/css" href="css/sign_up_1.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
+
+      <!-- 아이콘 불러오기 -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <script type="text/javascript" src="cordova.js"></script>
+
+      <script>
+        var pictureSource;   // picture source
+        var destinationType; // sets the format of returned value 
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        function onDeviceReady() {
+            // control the statusbar
+            // console.log("onready_main : " + StatusBar.isVisible);
+            // StatusBar.overlaysWebView(false);
+            // StatusBar.backgroundColorByName("black");
+            // StatusBar.styleLightContent();
+
+          pictureSource=navigator.camera.PictureSourceType;
+          destinationType=navigator.camera.DestinationType;
+        }
+        console.log("pictureSource :   " + pictureSource);
+
+        // Called when a photo is successfully retrieved
+        //
+        function onPhotoDataSuccess(imageData) {
+            // Uncomment to view the base64 encoded image data
+            // console.log(imageData);
+
+            // Get image handle
+            //
+            // var smallImage = document.getElementById('smallImage');
+
+            // Unhide image elements
+            //
+            // smallImage.style.display = 'block';
+
+            // Show the captured photo
+            // The inline CSS rules are used to resize the image
+            //
+            // smallImage.src = "data:image/jpeg;base64," + imageData;
+        }
+
+        // Called when a photo is successfully retrieved
+        //
+        function onPhotoURISuccess(imageURI) {
+            // Uncomment to view the image file URI 
+            // console.log(imageURI);
+
+            // Get image handle
+            //
+            var smallImage = document.getElementById('smallImage');
+
+            // Unhide image elements
+            //
+            smallImage.style.display = 'block';
+
+            // Show the captured photo
+            // The inline CSS rules are used to resize the image
+            //
+            smallImage.src = imageURI;
+        }
+
+        // A button will call this function
+        //
+        function capturePhoto() {
+            // Take picture using device camera and retrieve image as base64-encoded string
+            navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+            destinationType: destinationType.DATA_URL });
+        }
+
+        // A button will call this function
+        //
+        function capturePhotoEdit() {
+            // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
+            navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+            destinationType: destinationType.DATA_URL });
+        }
+
+        // A button will call this function
+        //
+        function getPhoto(source) {
+            // Retrieve image file location from specified source
+            navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+            destinationType: destinationType.FILE_URI,
+            sourceType: source });
+        }
+
+        // Called if something bad happens.
+        // 
+        function onFail(message) {
+            alert('Failed because: ' + message);
+        }
+      </script>
+
+      <title>platfrom_test</title>
+
+      <!-- <script>
+      $(function() {
+        $('#main_wrap').load("show_goods.html");
+      });
+      </script> -->
+  </head>
+  <body>
+    <header>
+      <div id="header_wrapper">
+        <div id="back_btn_wrapper">
+          <i id="back_btn" class="material-icons small">chevron_left</i>
+        </div>
+        <div class="page_title_wrapper">
+          <span class="page_title"> 회원가입 </span>
+        </div>
+      </div>
+    </header>
+
+    <div id="sign_up_container" class="sign_up_container">
+      <form id="personal_information_wrapper">
+        <div class="input-field col s6">
+          <span class="info_question">아이디</span>
+          <a id="confirm_duplication" class="waves-effect waves-light btn confirm_btn">중복확인</a>
+          <input placeholder="3-15자" id="input_id" type="text" class="input_id" autocapitalize="off">
+          <label for="input_id"></label>
+        </div>
+        <div class="divider_gray"></div>
+        <div class="input-field col s6">
+          <span class="info_question">비밀번호</span>
+          <input placeholder="8-16자 영문/숫자 조합으로 입력" id="input_password" type="password" class="input_password">
+          <label for="input_password"></label>
+        </div>
+        <div class="divider_gray"></div>
+        <div class="input-field col s6">
+          <p class="info_question">비밀번호 확인</p>
+          <input placeholder="비밀번호를 한번 더 입력해 주세요" id="input_password_confirm" type="password" class="input_password_confirm">
+          <label for="input_password_confirm"></label>
+        </div>
+        <div class="divider_gray"></div>
+        <div class="input-field col s6">
+          <span class="info_question">이름</span>
+          <input placeholder="코디몬스터에서 사용하실 이름" id="input_name" type="text" class="input_name" autocapitalize="off">
+          <label for="input_name"></label>
+        </div>
+        <div class="divider_gray"></div>
+        <div class="input-field col s6">
+          <span class="info_question">나이</span>
+          <input placeholder="나이를 입력해 주세요(매칭에 필요합니다.)" id="input_age" type="text" class="input_name" autocapitalize="off">
+          <label for="input_age"></label>
+        </div>
+        <div class="divider_gray"></div>
+        <div class="input-field col s6" style="overflow:auto;">
+            <span class="info_question">프로필 사진</span>
+            <div class="margin3vh" style="width:100%;height:6vh;"></div>
+            <a id="input_image" class="waves-effect waves-light btn default-blue">프로필 사진 설정</a>
+            <div class="margin3vh" style="width:100%;height:3vh;"></div>
+            <!-- <img id="smallImage" src="" style="display:none;width:60px;height:60px;" /> -->
+            <div id="images"></div>
+        </div>
+      </form>
+
+      <form id="phone_confirm_wrapper">
+        <div class="input-field col s6">
+          <span class="info_question">- 제외 휴대폰 번호</span>
+          <a id="send_confirm_num" class="waves-effect waves-light btn confirm_btn">인증번호발송</a>
+          <input placeholder="-를 제외하고 입력해 주세요" id="input_phone_num" type="number" class="input_phone_num">
+          <label for="input_phone_num"></label>
+        </div>
+        <div class="divider_gray"></div>
+        <div class="input-field col s6">
+          <span class="info_question">인증번호</span>
+          <a id="input_confirm_num" class="waves-effect waves-light btn confirm_btn">확인</a>
+          <input placeholder="인증번호를 입력 해 주세요" id="input_confirm_num" type="number" class="input_confirm_num">
+          <label for="input_confirm_num"></label>
+        </div>
+      </form>
+
+      <div class="agree_receive_sms_wrapper">
+        <input type="checkbox" id="receive_sms">
+        <label for="receive_sms" class="input-label receive_sms">SMS를 통해 코디몬스터의 다양한 정보를 받아보겠습니다.</label>
+      </div>
+
+      <p class="margin5vh"></p>
+
+      <span class="access_terms">이용약관</span>
+      <div class="access_terms_wrapper">
+        <input type="checkbox" id="access_terms_agree_all">
+        <label for="access_terms_agree_all" class="input-label access_terms_agree">약관 전체동의</label>
+        <div class="divider_gray"></div>
+        <input type="checkbox" id="access_terms_agree">
+        <label for="access_terms_agree" class="input-label access_terms_agree">이용약관에 동의합니다.</label>
+        <i class="access_terms_content material-icons small confirm_content_btn">chevron_right</i>
+        <br>
+        <input type="checkbox" id="access_terms_agree_personal_info">
+        <label for="access_terms_agree_personal_info" class="input-label access_terms_agree">개인정보 수집/이용에 동의합니다.</label>
+        <i class="personal_info_content material-icons small confirm_content_btn">chevron_right</i>
+      </div>
+      
+    </div>
+
+    
+
+      <!-- <div class="agree_receive_sms_wrapper">
+        <input type="checkbox" id="receive_sms">
+        <label for="receive_sms" class="input-label receive_sms">SMS를 통해 코디몬스터의 다양한 정보를 받아보겠습니다.</label>
+      </div>
+
+      <p class="margin5vh"></p>
+
+      <span class="access_terms">이용약관</span>
+      <div class="access_terms_wrapper">
+        <input type="checkbox" id="access_terms_agree_all">
+        <label for="access_terms_agree_all" class="input-label access_terms_agree">약관 전체동의</label>
+        <div class="divider_gray"></div>
+        <input type="checkbox" id="access_terms_agree">
+        <label for="access_terms_agree" class="input-label access_terms_agree">이용약관에 동의합니다.</label>
+        <i class="access_terms_content material-icons small confirm_content_btn">chevron_right</i>
+        <br>
+        <input type="checkbox" id="access_terms_agree_personal_info">
+        <label for="access_terms_agree_personal_info" class="input-label access_terms_agree">개인정보 수집/이용에 동의합니다.</label>
+        <i class="personal_info_content material-icons small confirm_content_btn">chevron_right</i>
+      </div> -->
+
+
+
+    <!-- <div id="question_wrapper">
+      <div class="question">
+        <span id="question_content"> 당신은 옷 쇼핑을 즐기시는 편인가요? </span>
+      </div>
+      <div class="question_detail">
+      </div>
+    </div> -->
+
+    <p class="margin5vh"></p>
+
+    <footer>
+      <div class="footer_wrapper">
+        <a id="next_btn" class="waves-effect waves-light btn btn_long default-blue">코디몬스터 회원가입</a>
+      </div>
+    </footer>
+
+    <script>
+
+      // $(document).ready(function(){
+
+      //   // Select from gallery 
+      //   $("#input_image").click(function(){
+      //       navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+      //           sourceType: Camera.PictureSourceType.PHOTOLIBRARY, 
+      //           allowEdit: true,
+      //           destinationType: Camera.DestinationType.FILE_URI
+      //       });
+      //   });
+
+      //   // Change image source
+      //   function onSuccess(imageData) {
+      //       var image = document.getElementById('img');
+      //       image.src = imageData + '?' + Math.random();;
+      //   }
+
+      //   function onFail(message) {
+      //       alert('Failed because: ' + message);
+      //   }
+
+      // });
+
+      $(function() {
+
+        $('#input_image').on('click', function() {
+          // getPhoto(pictureSource.PHOTOLIBRARY);
+          window.imagePicker.getPictures(
+              function(results) {
+                  // alert('in imagePicker');
+                  for(var i=0; i<results.length; i++) {
+                    if($('.image_wrapper')) {
+                      $('.image_wrapper').remove();
+                    }
+                    $('#images').append('<div class="image_wrapper" style="width:23vw;height:23vw;float:left;"><img class="image" style="width:23vw;height:23vw;" src=' + results[i] + '></div>')
+                    // alert.log('images : ' + results[i]);
+                  }
+              }, function(error) {
+                  alert.log('Error : ' + error);
+              },
+              {
+                maximumImagesCount : 1
+              }
+          );
+        });
+
+        // '뒤로가기' 버튼 클릭
+        $('#back_btn').on('click', function() {
+          location.href="sign_up_1.html";
+        });
+
+        // '다음' 버튼 클릭
+        // $('#next_btn').on('click', function() {
+        //   location.href="sign_up_finish.html";
+        // });
+
+        $('#next_btn').on('click', function() {
+          var idInput = $('#sign_up_container input[id=input_id]');
+          var pwInput = $('#sign_up_container input[id=input_password]');
+          var puConfirmInput = $('#sign_up_container input[id=input_password_confirm]');
+          var telInput = $('#sign_up_container input[id=input_phone_num]');
+          var telConfirmInput = $('#sign_up_container input[id=input_confirm_num]');
+          var agreeCheck = $('#sign_up_container input[id=access_terms_agree_all]:checkbox');
+
+          if(!idInput.val() || $.trim(idInput.val()) == "") {
+            alert('아이디를 입력해주세요');
+            idInput.focus();
+            return false;
+          }
+
+          if($.trim(idInput.val()).length < 3 || $.trim(idInput.val()).length > 15) {
+            alert('아이디를 3~15로 입력해주세요');
+            idInput.focus();
+            return false;
+          }
+
+          if(!pwInput.val() || $.trim(pwInput.val()) == "") {
+            alert('비밀번호를 입력해주세요');
+            pwInput.focus();
+            return false;
+          }
+
+          if(!puConfirmInput.val() || $.trim(puConfirmInput.val()) == "") {
+            alert('비밀번호를 확인해주세요');
+            puConfirmInput.focus();
+            return false;
+          }
+
+          if(!telInput.val() || $.trim(telInput.val()) == "") {
+            alert('연락처를 입력해주세요');
+            telInput.focus();
+            return false;
+          }
+
+          if(!telConfirmInput.val() || $.trim(telConfirmInput.val()) == "") {
+            alert('인증번호를 입력해주세요');
+            telConfirmInput.focus();
+            return false;
+          }
+
+          if(!agreeCheck.is(':checked')) {
+            alert('이용약관 및 개인정보 수집/이용에 동의해주세요');
+            agreeCheck.focus();
+            return false;
+          }
+
+          $.post("http://192.168.0.8:2012/user/sign_up", {
+            id : $.trim(idInput.val()), 
+            pw : $.trim(pwInput.val()), 
+            tel : $.trim(telInput.val())
+          })
+          .done(function(res){
+            var response = res.split(' ');
+            if(response[0] == "200") {
+              sessionStorage.setItem('id', response[1]);
+              location.href="sign_up_finish.html";
+            } else {
+              alert('회원가입이 완료되지 않았습니다');
+            }
+          });
+          // return location.href="sign_up_finish.html";
+        });
+
+
+        $('label[for=access_terms_agree_all]').on('click', function() {
+          if($("input[id=access_terms_agree]:checkbox").is(":checked")
+          && $("input[id=access_terms_agree_personal_info]:checkbox").is(":checked")) {
+            $("input[id=access_terms_agree]:checkbox").prop("checked", false);
+            $("input[id=access_terms_agree_personal_info]:checkbox").prop("checked", false);
+          } else {
+            $("input[id=access_terms_agree]:checkbox").prop("checked", true);
+            $("input[id=access_terms_agree_personal_info]:checkbox").prop("checked", true);
+          }
+        });
+
+        $('label[for=access_terms_agree]').on('click', function() {
+          if($("input[id=access_terms_agree_all]:checkbox").is(":checked")){
+            $("input[id=access_terms_agree_all]:checkbox").prop("checked", false);
+          } else if($("input[id=access_terms_agree_personal_info]:checkbox").is(":checked")) {
+             $("input[id=access_terms_agree_all]:checkbox").prop("checked", true);
+           }
+        });
+
+        $('label[for=access_terms_agree_personal_info]').on('click', function() {
+          if($("input[id=access_terms_agree_all]:checkbox").is(":checked")){
+            $("input[id=access_terms_agree_all]:checkbox").prop("checked", false);
+          } else if($("input[id=access_terms_agree]:checkbox").is(":checked")) {
+            $("input[id=access_terms_agree_all]:checkbox").prop("checked", true);
+          }
+        });
+
+
+        $('.confirm_content_btn').on('click', function(e) {
+          var temp_class_name = $(this).attr('class').split(' ')[0];
+          if(temp_class_name == "access_terms_content") {
+            alert('access_terms_content');
+          } else if(temp_class_name == "personal_info_content"){
+            alert('personal_info_content');
+          }
+        });
+
+
+
+      });
+    </script>
+  </body>
+</html>

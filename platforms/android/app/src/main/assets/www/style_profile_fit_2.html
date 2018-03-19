@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
+      <link rel="stylesheet" type="text/css" href="css/style_profile_fit.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
+
+      <!-- 아이콘 불러오기 -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <script>
+        $(function() {
+        });
+      </script>
+
+      <title>platfrom_test</title>
+
+      <!-- <script>
+      $(function() {
+        $('#main_wrap').load("show_goods.html");
+      });
+      </script> -->
+  </head>
+  <body>
+    <header>
+      <div id="header_wrapper">
+        <div id="back_btn_wrapper">
+          <i id="back_btn" class="material-icons">chevron_left</i>
+        </div>
+        <div class="page_title_wrapper">
+          <span class="page_title"> 스타일프로필 </span>
+        </div>
+      </div>
+      <div id="progressbar_wrapper">
+        <div id="progressbar">
+          <div id="progress_size">
+          </div>
+        </div>
+        <div class="row white">
+          <div class="col percent_20"> SIZE </div>
+          <div class="col percent_20"><b> FIT/CUT </b></div>
+          <div class="col percent_20"> STYLE </div>
+          <div class="col percent_20"> PRICE </div>
+          <div class="col percent_20"> ABOUT YOU </div>
+        </div>
+      </div>
+    </header>
+
+    <form id="question_wrapper">
+      <div class="question">
+        <span id="question_content" class="default-blue-text"> 진(청바지)에서 선호하는 핏을 모두 선택해주세요. </span>
+      </div>
+      <p>
+      <div class="question_detail">
+        <div class="question_detail_content">
+          <img src="img/w_jean_skinny.jpg" width="300px" height="300px">
+          <input type="checkbox" name="jean" id="jean_skinny" class="check_btn" value="skinny">
+          <label for="jean_skinny" class="input-label radio"> 스키니핏 </label>
+          <p>
+            <img src="img/w_jean_slim.jpg" width="300px" height="300px">
+          <input type="checkbox" name="jean" id="jean_slim" class="check_btn" value="slim">
+          <label for="jean_slim" class="input-label radio"> 슬림핏 </label>
+          <p>
+            <img src="img/w_jean_straight.jpg" width="300px" height="300px">
+          <input type="checkbox" name="jean" id="jean_straight" class="check_btn" value="straight">
+          <label for="jean_straight" class="input-label radio"> 스트레이트핏 </label>
+          <p>
+            <img src="img/w_jean_boots.jpg" width="300px" height="300px">
+          <input type="checkbox" name="jean" id="jean_boots" class="check_btn" value="boots">
+          <label for="jean_boots" class="input-label radio"> 부츠컷 </label>
+          <p>
+            <img src="img/w_jean_wide.jpg" width="300px" height="300px">
+          <input type="checkbox" name="jean" id="jean_wide" class="check_btn" value="wide">
+          <label for="jean_wide" class="input-label radio"> 와이드핏 </label>
+          <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
+        </div>
+      </div>
+      <p>
+      <div class="question">
+        <span id="question_content" class="default-blue-text"> 바지(슬랙스, 면바지 등)에서 선호하는 핏을 모두 선택해주세요. </span>
+      </div>
+      <p>
+      <div class="question_detail">
+        <div class="question_detail_content">
+          <input type="checkbox" name="pants" id="pants_slim" class="check_btn" value="slim">
+          <label for="pants_slim" class="input-label radio"> 슬림핏 </label>
+          <p>
+          <input type="checkbox" name="pants" id="pants_straight" class="check_btn" value="straight">
+          <label for="pants_straight" class="input-label radio"> 스트레이트핏 </label>
+          <p>
+          <input type="checkbox" name="pants" id="pants_boots" class="check_btn" value="boots">
+          <label for="pants_boots" class="input-label radio"> 부츠컷 </label>
+          <p>
+          <input type="checkbox" name="pants" id="pants_wide" class="check_btn" value="wide">
+          <label for="pants_wide" class="input-label radio"> 와이드핏 </label>
+          <!-- <input type="radio" name="interesting_top" value="top"> 매우 즐깁니다! 쇼핑은 인생의 낙이죠! -->
+        </div>
+      </div>
+    </form>
+    <!-- <div id="question_wrapper">
+      <div class="question">
+        <span id="question_content"> 당신은 옷 쇼핑을 즐기시는 편인가요? </span>
+      </div>
+      <div class="question_detail">
+      </div>
+    </div> -->
+
+    <footer>
+      <div class="footer_wrapper">
+        <a id="next_btn" class="waves-effect waves-light btn btn_long default-blue">다음</a>
+      </div>
+    </footer>
+
+    <script>
+
+      $(function() {
+        $('#progress_size').css('width', '33%');
+
+        // '뒤로가기' 버튼 클릭
+        $('#back_btn').on('click', function() {
+          location.href="style_profile_fit_1.html";
+        });
+
+        // '다음' 버튼 클릭
+        $('#next_btn').on('click', function() {
+          var jean = [];
+          var pants = [];
+          $('input[name=jean]').each(function(index, ele) {
+            if($(ele).prop('checked')) {
+              jean.push($(ele).val());
+            }
+          });
+          $('input[name=pants]').each(function(index, ele) {
+            if($(ele).prop('checked')) {
+              pants.push($(ele).val());
+            }
+          });
+          $.ajaxSettings.traditional = true;
+          $.post("http://192.168.0.8:2012/user/fit_2/" + sessionStorage.getItem('id'), {
+            fit_jean : jean, 
+            fit_pants : pants
+          })
+          .done(function(res){
+            if(res == "200") {
+              location.href="style_profile_fit_3.html";
+            } else {
+              alert('서버저장 실패. 다시 시도해 주세요');
+            }
+          });
+          // location.href="style_profile_fit_3.html";
+        });
+
+      });
+    </script>
+  </body>
+</html>

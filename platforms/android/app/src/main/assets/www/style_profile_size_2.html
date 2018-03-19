@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
+      <link rel="stylesheet" type="text/css" href="css/style_profile_size.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
+
+      <!-- 아이콘 불러오기 -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <script>
+        $(function() {
+        });
+      </script>
+
+      <title>platfrom_test</title>
+
+      <!-- <script>
+      $(function() {
+        $('#main_wrap').load("show_goods.html");
+      });
+      </script> -->
+  </head>
+  <body>
+    <header>
+      <div id="header_wrapper">
+        <div id="back_btn_wrapper">
+          <i id="back_btn" class="material-icons samll">chevron_left</i>
+        </div>
+        <div class="page_title_wrapper">
+          <span class="page_title"> 스타일프로필 </span>
+        </div>
+      </div>
+      <div id="progressbar_wrapper">
+        <div id="progressbar">
+          <div id="progress_size">
+          </div>
+        </div>
+        <div class="row white">
+          <div class="col percent_20"><b> SIZE </b></div>
+          <div class="col percent_20"> FIT/CUT </div>
+          <div class="col percent_20"> STYLE </div>
+          <div class="col percent_20"> PRICE </div>
+          <div class="col percent_20"> ABOUT YOU </div>
+        </div>
+      </div>
+    </header>
+
+    <form id="personal_information_wrapper">
+      <div class="size_wrapper input-field col s12">
+        <span class="info_question default-blue-text">어깨</span>
+        <select id="select_shoulder">
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="넓음">넓음</option>
+          <option value="보통">보통</option>
+          <option value="좁음">좁음</option>
+        </select>
+      </div>
+      <div class="size_wrapper input-field col s12">
+        <span class="info_question default-blue-text">팔</span>
+        <select id='select_arm'>
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="긴편">긴편</option>
+          <option value="보통">보통</option>
+          <option value="짧은편">짧은편</option>
+        </select>
+      </div>
+      <div class="size_wrapper input-field col s12">
+        <span class="info_question default-blue-text">밑위</span>
+        <select id="select_pelvis">
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="긴편">긴편</option>
+          <option value="보통">보통</option>
+          <option value="짧은편">짧은편</option>
+        </select>
+      </div>
+      <div class="size_wrapper input-field col s12">
+        <span class="info_question default-blue-text">엉덩이</span>
+        <select id="select_bottom">
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="넓음">넓음</option>
+          <option value="보통">보통</option>
+          <option value="좁음">좁음</option>
+        </select>
+      </div>
+      <div class="size_wrapper input-field col s12">
+        <span class="info_question default-blue-text">다리</span>
+        <select id="select_leg">
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="긴편">긴편</option>
+          <option value="보통">보통</option>
+          <option value="짧은편">짧은편</option>
+        </select>
+      </div>
+      <div class="size_wrapper input-field col s12">
+        <span class="info_question default-blue-text">발볼</span>
+        <select id="select_ball">
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="넓음">넓음</option>
+          <option value="보통">보통</option>
+          <option value="좁음">좁음</option>
+        </select>
+      </div>
+      <div class="size_wrapper input-field col s12">
+        <span class="info_question default-blue-text">허벅지</span>
+        <select id="select_thigh">
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="넓음">넓음</option>
+          <option value="보통">보통</option>
+          <option value="좁음">좁음</option>
+        </select>
+      </div>
+      <div class="size_wrapper input-field col s12">
+        <span class="info_question default-blue-text">체형</span>
+        <select id="select_body">
+          <!-- <option value="" disabled selected>Choose your option</option> -->
+          <option value="넓음">넓음</option>
+          <option value="보통">보통</option>
+          <option value="좁음">좁음</option>
+        </select>
+      </div>
+    </form>
+    <!-- <div id="question_wrapper">
+      <div class="question">
+        <span id="question_content"> 당신은 옷 쇼핑을 즐기시는 편인가요? </span>
+      </div>
+      <div class="question_detail">
+      </div>
+    </div> -->
+
+    <footer>
+      <div class="footer_wrapper">
+        <a id="next_btn" class="waves-effect waves-light btn btn_long default-blue">다음 : FIT/CUT</a>
+      </div>
+    </footer>
+
+    <script>
+
+      $(function() {
+        $('#progress_size').css('width', '20%');
+
+        if($(document).height() > $('#personal_information_wrapper').height()) {
+          $('.footer_wrapper').css('position', 'absolute');
+        }
+
+        // '뒤로가기' 버튼 클릭
+        $('#back_btn').on('click', function() {
+          location.href="style_profile_size_1.html";
+        });
+
+        // '다음' 버튼 클릭
+        $('#next_btn').on('click', function() {
+          var shoulder = $('#select_shoulder option:selected').val();
+          var arm = $('#select_arm option:selected').val();
+          var pelvis = $('#select_pelvis option:selected').val();
+          var bottom = $('#select_bottom option:selected').val();
+          var leg = $('#select_leg option:selected').val();
+          var ball = $('#select_ball option:selected').val();
+          var thigh = $('#select_thigh option:selected').val();
+          var body = $('#select_body option:selected').val();
+          console.log('shoulder = ' + shoulder);
+          console.log('arm = ' + arm);
+          console.log('pelvis = ' + pelvis);
+          console.log('bottom = ' + bottom);
+          console.log('leg = ' + leg);
+          console.log('ball = ' + ball);
+          // location.href="style_profile_fit_1.html";
+
+          $.post('http://192.168.0.8:2012/user/bodytype/' + sessionStorage.getItem('id'), {
+            bodytype_shoulder : shoulder,
+            bodytype_arm : arm,
+            bodytype_pelvis : pelvis,
+            bodytype_bottom : bottom,
+            bodytype_leg : leg,
+            bodytype_ball : ball,
+            bodytype_thigh : thigh,
+            bodytype_body : body
+          })
+          .done(function(res) {
+            if(res == '200') {
+              location.href = "style_profile_fit_1.html";
+            } else {
+              alert('서버 저장 실패. 다시시도해 주세요');
+            }
+          });
+        });
+
+        // select option
+        $('select').material_select();
+      });
+    </script>
+  </body>
+</html>

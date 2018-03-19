@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+      <link rel="stylesheet" type="text/css" href="css/style_profile.css" />
+      <link rel="stylesheet" type="text/css" href="css/color.css" />
+
+      <!-- 아이콘 불러오기 -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <title>platfrom_test</title>
+
+  </head>
+  <body>
+    <div id="start_container">
+      <div class="style_profile_content">편안함과 스타일 중<br>어떤 것을 추구하나요?</div>
+      <div class="select_btn_container">
+        <div id="comfortable_btn" class="select_btn waves-effect waves-light">편안함</div>
+        <span class="versus">vs</span>
+        <div id="style_btn" class="select_btn waves-effect waves-lightn">스타일</div>
+      </div>
+    </div>
+
+    <script>
+
+      $(function() {
+        // contents in sex_btn
+        $('.select_btn').on('touchstart', function(e) {
+          e.preventDefault();
+          if($(this).text() == "편안함") {
+            $(this).css('background', '#8b9bce');
+          } else {
+            $(this).css('background', '#8b9bce');
+          }
+        }).on('touchend', function(e) {
+          e.preventDefault();
+          $(this).css('background', '#ffffff');
+          if($(this).text() == "편안함") {
+            $.post("http://192.168.0.8:2012/user/comfortable_style/" + sessionStorage.getItem('id'), {
+            comfortable_style : 'comfortable'
+            })
+            .done(function(res){
+              if(res == "200") {
+                location.href="style_profile_size_1.html";
+              } else {
+                alert('서버 저장 실패 다시 시도해 주세요');
+              }
+            });
+            // location.href = "style_profile_2.html";
+          } else {
+            $.post("http://192.168.0.8:2012/user/comfortable_style/" + sessionStorage.getItem('id'), {
+            comfortable_style : 'style'
+            })
+            .done(function(res){
+              if(res == "200") {
+                location.href="style_profile_size_1.html";
+              } else {
+                alert('서버 저장 실패 다시 시도해 주세요');
+              }
+            });
+            // location.href = "style_profile_2.html";
+          }
+          // location.href="style_profile_size_1.html"
+        });
+      });
+    </script>
+  </body>
+</html>
