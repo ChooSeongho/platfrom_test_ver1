@@ -99,7 +99,7 @@
       <input id="id" placeholder="아이디" type="text" class="input_sign" autocapitalize="off">
       <input id="password" placeholder="비밀번호" type="password" class="input_sign">
       <div class="auto_login_wrapper">
-        <input type="checkbox" id="auto_login">
+        <input type="checkbox" id="auto-login" name="auto-login">
         <label for="auto_login" class="input-label"> 자동 로그인 </label>
       </div>
       <a id="signin" class="waves-effect waves-light btn btn_long default-blue">로그인</a>
@@ -123,6 +123,22 @@
     <script type="text/javascript">
         // app.initialize();
 
+        if(localStorage.getItem('user_id') || localStorage.getItem('user_password')) {
+          $.post('http://192.168.0.8:2012/login/login', {
+              id : localStorage.getItem('user_id'),
+              pw : localStorage.getItem('user_password')
+            })
+            .done(function(res) {
+              if(res == '200') {
+                location.href = "main.html";
+              } else if(res == '201') {
+                location.href = "provider_main.html";
+              } else {
+                alert('자동 로그인 실패. 다시 로그인 해 주세요 ㅠ');
+              }
+            });
+        }
+
         $(document).ready(function() {
 
           // app.initialize();
@@ -131,6 +147,7 @@
           $('#signin').on('click', function() {
             var id = $('#id');
             var pw = $('#password');
+            var auto_login = $('input[name=auto-login]:checkbox').is(":checked");
             if(!id || $.trim(id.val()) == "") {
               alert('아이디를 입력해주세요.');
               id.focus();
@@ -148,10 +165,21 @@
             })
             .done(function(res) {
               if(res == '200') {
+                if(auto_login) {
+                  localStorage.setItem('user_id', $.trim(id.val()));
+                  localStorage.setItem('user_password', $.trim(id.val()));
+                }
                 sessionStorage.setItem('id', $.trim(id.val()));
                 location.href = "main.html";
+              } else if(res == '201') {
+                if(auto_login) {
+                  localStorage.setItem('user_id', $.trim(id.val()));
+                  localStorage.setItem('user_password', $.trim(id.val()));
+                }
+                sessionStorage.setItem('id', $.trim(id.val()));
+                location.href = "provider_main.html";
               } else {
-                alert('아이디 또는 비밀번호가 틀렸습니다.')
+                alert('아이디 또는 비밀번호가 틀렸습니다.');
               }
             });
             // location.href="main.html";
