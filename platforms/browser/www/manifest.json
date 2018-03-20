@@ -3,7 +3,7 @@
   "display": "standalone",
   "name": "test_ver_1",
   "short_name": "test_ver_1",
-  "version": "platfrom.testVer1",
+  "version": "com.platfrom.test_ver_1",
   "description": "CODYMONSTER's test_ver_1",
   "author": "Sharelong Team",
   "icons": [],

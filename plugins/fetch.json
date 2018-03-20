@@ -26,7 +26,7 @@
   "cordova-plugin-file": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-file@4.0.0"
+      "id": "cordova-plugin-file@~4.1.1"
     },
     "is_top_level": true,
     "variables": {}
@@ -163,14 +163,6 @@
     "source": {
       "type": "registry",
       "id": "cordova-plugin-image-picker"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-fcm": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-fcm"
     },
     "is_top_level": true,
     "variables": {}

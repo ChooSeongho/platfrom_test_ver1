@@ -56,7 +56,6 @@
 
 
       $(function() {
-        var devicePlatform;
 
         document.addEventListener("deviceready", onDeviceReady, false);
 
@@ -66,7 +65,6 @@
           StatusBar.overlaysWebView(false);
           StatusBar.backgroundColorByName("white");
           StatusBar.styleDefault();
-          devicePlatform = device.platform;
         }
       });
     </script>
@@ -160,22 +158,10 @@
               pw.focus();
               return false;
             }
-            var user_token
-            if(localStorage.getItem('token')) {
-              FCMPlugin.getToken(function(token) {
-                user_token = token;
-              });
-            } else {
-              localStorage.setItem('token', user_token);
-            }
-            
-
             // alert('signin');
             $.post('http://192.168.0.8:2012/login/login', {
               id : $.trim(id.val()),
-              pw : $.trim(pw.val()),
-              device : devicePlatform,
-              token : localStorage.getItem('token')
+              pw : $.trim(pw.val())
             })
             .done(function(res) {
               if(res == '200') {
