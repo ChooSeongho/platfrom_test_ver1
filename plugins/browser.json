@@ -42,6 +42,9 @@
     },
     "cordova-plugin-image-picker": {
       "PACKAGE_NAME": "com.platfrom.test_ver_1"
+    },
+    "cordova-plugin-fcm": {
+      "PACKAGE_NAME": "com.platfrom.test_ver_1"
     }
   },
   "dependent_plugins": {}

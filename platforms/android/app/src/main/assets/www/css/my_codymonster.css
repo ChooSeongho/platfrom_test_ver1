@@ -1,0 +1,45 @@
+#monsters {
+
+}
+
+#top_explain {
+  width: 100%;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  margin-top: 2vh;
+  text-align: center;
+  background: #abcdef;
+}
+
+.monster_wrapper {
+  margin: 3vh;
+  height: 20vh;
+  background: rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+
+.monster_info {
+  width: 100%;
+  height: 100%;
+  padding: 5vh;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.monster_name_info {
+  padding-left: 5vh;
+  width: calc(100% - 10vh - 56px);
+}
+
+.stylist_span {
+  width: 100%;
+}
+
+#monster_name {
+  width: 100%;
+}
+
+.monster_img {
+  width: 10vh;
+  height: 10vh;
+}

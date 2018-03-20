@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <script text="text/javascript" src="js/star.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="css/appraisal_style.css" />
+  </head>
+  <body>
+    <div id="appraisal_wrap">
+      <!-- <div id="appraisal_img" class="appraisal_img">
+        <div class="appraisal_grade_container">
+          <div class="appraisal_question_wrap">
+            <span id="appraisal_question">이 스타일링이 마음에 드시나요?</span>
+          </div>
+
+          <div class="star_container">
+            <i class="material-icons dp48 star_grade_1 star_btn">star_border</i>
+            <i class="material-icons dp48 star_grade_2 star_btn">star_border</i>
+            <i class="material-icons dp48 star_grade_3 star_btn">star_border</i>
+            <i class="material-icons dp48 star_grade_4 star_btn">star_border</i>
+            <i class="material-icons dp48 star_grade_5 star_btn">star_border</i>
+          </div>
+
+        </div>
+      </div> -->
+    </div>
+
+
+    <!-- <a id='show_goods' class="waves-effect waves-light btn-large btn_long">스타일링 상품 보러가기</a> -->
+    <script>
+
+        for(i=0; i<3; i++) {
+
+          // var appraisalImg = document.createElement("div");
+          // appraisalImg.id = "appraisal_img_"+i;
+          // appraisalImg.className = "appraisalImg";
+          // var contents = "<div class='appraisal_grade_container'>" +
+          //   "<div class='appraisal_question_wrap'>" +
+          //     "<span id='appraisal_question'>이 스타일링이 마음에 드시나요?</span>" +
+          //   "</div>" +
+          //   "<div class='star_container'>" +
+          //     "<i class='material-icons dp48 star_grade_1 star_btn'>star_border</i>" +
+          //     "<i class='material-icons dp48 star_grade_2 star_btn'>star_border</i>" +
+          //     "<i class='material-icons dp48 star_grade_3 star_btn'>star_border</i>" +
+          //     "<i class='material-icons dp48 star_grade_4 star_btn'>star_border</i>" +
+          //     "<i class='material-icons dp48 star_grade_5 star_btn'>star_border</i>" +
+          //   "</div>" +
+          // "</div>";
+          //
+          // appraisalImg.append(contents);
+          // $('#appraisal_wrap').html(appraisalImg);
+
+          var appraisalImg = document.createElement("div");
+          appraisalImg.id = "appraisal_img_"+i;
+          appraisalImg.className = "appraisal_img";
+          $(appraisalImg).css('background', "url('img/appraisal_" + (i+1) + ".png') no-repeat");
+          $(appraisalImg).css('background-size', "100% 100%");
+
+          var appraisalContainer = document.createElement("div");
+          appraisalContainer.className = "appraisal_grade_container";
+          var questionWrap = document.createElement("div");
+          questionWrap.className = "appraisal_question_wrap";
+          var question = document.createElement("span");
+          question.id = "appraisal_question";
+          question.innerHTML = "이 스타일링이 마음에 드시나요?";
+          questionWrap.appendChild(question);
+
+
+          var starContainer = document.createElement("div");
+          starContainer.className = "star_container";
+          for(j=0; j<5; j++) {
+            var starBtn = document.createElement("i");
+            starBtn.className = "material-icons small dp48 star_grade_"+ (j+1) +" star_btn";
+            starBtn.innerHTML = "star_border";
+            starContainer.appendChild(starBtn);
+          }
+          appraisalContainer.appendChild(questionWrap);
+          appraisalContainer.appendChild(starContainer);
+          appraisalImg.appendChild(appraisalContainer);
+
+          var contents = document.getElementById("appraisal_wrap");
+          contents.appendChild(appraisalImg);
+        }
+
+
+
+
+        $(function() {
+          $('.star_btn').on("touchend", function(e) {
+            e.preventDefault();
+            var split_for_grade = this.className.split(" ");
+            var length = split_for_grade[3].charAt(11);
+            // for(i=1; i<=length; i++) {
+            //   // $('.star_grade_'+i).text("star");
+            //   this.parent.children('.star_grade_'+i).text("star");
+            // }
+            var temp_prev;
+            for(i=length; i>0; i--) {
+              if(i == length) {
+                $(this).text("star");
+                temp_prev = $(this).prev()
+              } else {
+                temp_prev.text("star");
+                temp_prev = temp_prev.prev();
+              }
+            }
+            var temp_next = $(this).next();
+            for(j=length; j<=5; j++) {
+              temp_next.text("star_border");
+              temp_next = temp_next.next();
+            }
+          });
+
+      });
+    </script>
+  </body>
+</html>

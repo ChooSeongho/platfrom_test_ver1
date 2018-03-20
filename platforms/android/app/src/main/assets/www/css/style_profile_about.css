@@ -1,0 +1,147 @@
+body {
+  /* padding-top: 18vh;
+  padding-bottom: 10vh; */
+}
+
+#header_wrapper {
+  width: 100%;
+  height: 10vh;
+  background: #ffffff;
+  color: #8B9BCE;
+  font-size: 1.3em;
+  position: fixed;
+  top: 0;
+  z-index: 2012;
+}
+
+#back_btn_wrapper {
+  padding-top: 2vh;
+  float: left;
+}
+
+#progressbar_wrapper {
+  width: 100%;
+  position: fixed;
+  top: 10vh;;
+  z-index: 2012;
+}
+
+#progressbar {
+  width: 100%;
+  background-color: #EEEEEE;
+}
+
+#progress_size {
+  width: 0;
+  height: 1vh;
+  background-color: #9B8BCE;
+}
+
+.percent_20 {
+  text-align: center;
+  width: 20%;
+}
+
+.page_title_wrapper {
+  padding-top: 2vh;
+  padding-right: 4vh;
+  text-align: center;
+}
+
+#question_wrapper {
+  display: block;
+  padding-top: 20vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  /* height: 86vh; */
+}
+
+.question {
+  padding: 2vh;
+  font-size: 1.3rem !important;
+  border-radius: 2px;
+}
+
+.can_max_select {
+  font-size: 1rem;
+}
+
+.margin5vh {
+  margin: 5vh;
+}
+
+.question_detail {
+  width: 100%;
+}
+
+.question_detail_content {
+  display: inline-block;
+  cursor: pointer;
+  width: 27vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  text-align: center;
+  margin: 1vw;
+  border: 2px solid #EEEEEE;
+  color: #EEEEEE;
+  border-top-left-radius: 4vh;
+  border-bottom-left-radius: 4vh;
+  border-top-right-radius: 4vh;
+  border-bottom-right-radius: 4vh;
+  background-color: #ffffff;
+}
+
+.selected {
+  background-color: #8B9BCE !important;
+  color: #FFFFFF !important;
+}
+
+.question_detail_content_two {
+  display: inline-block;
+  cursor: pointer;
+  width: 38vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  text-align: center;
+  margin: 3vw;
+  border: 2px solid #EEEEEE;
+  color: #EEEEEE;
+  border-top-left-radius: 4vh;
+  border-bottom-left-radius: 4vh;
+  border-top-right-radius: 4vh;
+  border-bottom-right-radius: 4vh;
+  background-color: #ffffff;
+}
+
+/* input color */
+.input-field input[type=text] {
+  /* border: 1px solid #880e4f; */
+}
+/* label color */
+.input-field label {
+  color: #3e2723;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  /* border: 1px solid #880e4f !important; */
+  border-bottom: 1px solid #8B9BCE !important;
+  box-shadow: 0 1px 0 0 #8B9BCE !important;
+  -webkit-box-shadow: 0 1px 0 0 #8B9BCE !important;
+}
+
+
+.btn_long {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+  height: 10vh;
+  line-height: 10vh;
+  text-align: center;
+}
+
+.footer_wrapper {
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  margin-bottom: 0;
+}

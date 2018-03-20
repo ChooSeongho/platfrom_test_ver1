@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <script text="text/javascript" src="js/star.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="css/my_codymonster.css" />
+  </head>
+  <body>
+    <div id="top_explain">3명의 스타일리스트가 스타일링을 원해요!</div>
+    <div id="monsters">
+      <!-- <div class="monster_wrapper">
+        <div class="monster_info valign-wrapper">
+          <img src="img/appraisal_1.png" alt="" class="circle monster_img">
+          <div class="monster_name_info">
+            <div class="stylist_span">스타일리스트</div>
+            <div id="monster_name">MONO SANA</div>
+          </div>
+          <a href="#!" class="secondary-content"><i class="medium material-icons">chevron_right</i></a>
+        </div>
+      </div> -->
+    </div>
+
+    <script>
+
+      $(function() {
+        for(i = 1; i < 4; i++) {
+          var monster_wrap = document.createElement("div");
+          monster_wrap.className = "monster_wrapper";
+          var monsterInfo = document.createElement("div");
+          monsterInfo.className = "monster_info valign-wrapper";
+          var monsterImg = document.createElement("img");
+          monsterImg.src = "img/appraisal_" + i + ".png";
+          monsterImg.className = "circle monster_img";
+          monsterInfo.appendChild(monsterImg);
+
+          var monsterNameInfo = document.createElement("div");
+          monsterNameInfo.className = "monster_name_info";
+          var span = document.createElement("div");
+          span.className = "stylist_span";
+          span.innerHTML = "스타일리스트";
+          var monsterName = document.createElement("div");
+          monsterName.id = "monster_name";
+          monsterName.innerHTML = "choo_"+i;
+          monsterNameInfo.appendChild(span);
+          monsterNameInfo.appendChild(monsterName);
+          monsterInfo.appendChild(monsterNameInfo);
+
+          var icon_a = document.createElement("a");
+          icon_a.href = "#!";
+          icon_a.className = "secondary-content";
+          var icon_i = document.createElement("i");
+          icon_i.className = "medium material-icons";
+          icon_i.innerHTML = "chevron_right";
+          icon_a.appendChild(icon_i);
+          monsterInfo.appendChild(icon_a);
+
+          monster_wrap.appendChild(monsterInfo);
+
+          var contents = document.getElementById("monsters");
+          contents.appendChild(monster_wrap);
+        }
+      });
+    </script>
+  </body>
+</html>
