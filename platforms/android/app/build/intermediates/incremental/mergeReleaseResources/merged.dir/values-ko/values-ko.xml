@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g>에서 Google Play 서비스를 사용하는 데 문제가 있습니다. 다시 시도하세요."</string>
+    <string name="discard">Cancel</string>
+    <string name="done">OK</string>
+    <string name="error_database">이미지 데이터베이스를 여는 데 오류가 발생했습니다. 문제를 보고하세요.</string>
+    <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"기타"</string>
+    <string name="free_version_label">무료 버전 - 남은 이미지: %d</string>
+    <string name="maximum_selection_count_error_header">Limit reached</string>
+    <string name="maximum_selection_count_error_message">You can only select %d photos at once.</string>
+    <string name="multi_app_name">MultiImageChooser</string>
+    <string name="processing_images_header">Processing Images</string>
+    <string name="processing_images_message">This may take a few moments</string>
+    <string name="requesting_thumbnails">썸네일 요청 중. 기다려주세요</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>
