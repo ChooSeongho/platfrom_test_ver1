@@ -108,7 +108,7 @@
     <allow-navigation href="*" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <resource-file src="google-services.json" target-dir="./" />
+        <resource-file src="google-services.json" target="./google-services.json" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
