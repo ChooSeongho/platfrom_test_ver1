@@ -9,7 +9,7 @@
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="15" />
+    <preference name="android-minSdkVersion" value="16" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0" />
@@ -108,7 +108,6 @@
     <allow-navigation href="*" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <resource-file src="google-services.json" target="google-services.json" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
@@ -116,7 +115,6 @@
         <resource-file src="GoogleService-Info.plist" />
     </platform>
     <feature name="StatusBar">
-        <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
     <preference name="StatusBarOverlaysWebView" value="false" />
     <plugin name="cordova-plugin-statusbar" spec="~2.4.1" />

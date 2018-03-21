@@ -1,0 +1,60 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\workspace\\phonegap\\test_ver_1\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ja\\values-ja.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\성호\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.8.0.aar\\7d46791b22071f8508769b58bf76b658\\res\\values-ja\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "283",
+                        "endColumns": "180",
+                        "endOffsets": "463"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "180",
+                        "endOffsets": "281"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\성호\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-messaging-11.8.0.aar\\781bbb02714e4a5bf6ac201045036cec\\res\\values-ja\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "241",
+                        "endColumns": "97",
+                        "endOffsets": "338"
+                    },
+                    "to": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "444",
+                        "endColumns": "101",
+                        "endOffsets": "541"
+                    }
+                },
+                {
+                    "source": "C:\\workspace\\phonegap\\test_ver_1\\platforms\\android\\app\\src\\main\\res\\values-ja\\multiimagechooser_strings_ja.xml",
+                    "from": {
+                        "startLines": "10,11,4,3,8,9,2,6,7,5",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "669,712,179,116,485,564,55,332,403,258",
+                        "endColumns": "42,35,78,62,78,104,60,70,81,73",
+                        "endOffsets": "707,743,253,174,559,664,111,398,480,327"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "286,329,365,546,609,688,793,854,925,1007",
+                        "endColumns": "42,35,78,62,78,104,60,70,81,73",
+                        "endOffsets": "324,360,439,604,683,788,849,920,1002,1076"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\workspace\\phonegap\\test_ver_1\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hu\\values-hu.xml",
+            "map": [
+                {
+                    "source": "C:\\workspace\\phonegap\\test_ver_1\\platforms\\android\\app\\src\\main\\res\\values-hu\\multiimagechooser_strings_hu.xml",
+                    "from": {
+                        "startLines": "10,11,4,3,8,9,2,6,7,5",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "745,788,201,116,561,640,55,408,479,312",
+                        "endColumns": "42,35,110,84,78,104,60,70,81,95",
+                        "endOffsets": "783,819,307,196,635,740,111,474,556,403"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "341,384,420,635,720,799,904,965,1036,1118",
+                        "endColumns": "42,35,110,84,78,104,60,70,81,95",
+                        "endOffsets": "379,415,526,715,794,899,960,1031,1113,1209"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\성호\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.8.0.aar\\7d46791b22071f8508769b58bf76b658\\res\\values-hu\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "283",
+                        "endColumns": "235",
+                        "endOffsets": "518"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "235",
+                        "endOffsets": "336"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\성호\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-messaging-11.8.0.aar\\781bbb02714e4a5bf6ac201045036cec\\res\\values-hu\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "241",
+                        "endColumns": "99",
+                        "endOffsets": "340"
+                    },
+                    "to": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "531",
+                        "endColumns": "103",
+                        "endOffsets": "630"
+                    }
+                }
+            ]
+        }
+    ]
+}
