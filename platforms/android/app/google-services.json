@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "153478141113",
+    "firebase_url": "https://cody-test-and.firebaseio.com",
+    "project_id": "cody-test-and",
+    "storage_bucket": "cody-test-and.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153478141113:android:6eba9b5f0cee146f",
+        "android_client_info": {
+          "package_name": "platfrom.testVer1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153478141113-9bd40hcktvetd7i0mu7tpccqfb9qbu5a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGo_mGtrUSgMhe32fdmC4iJR4PI46pkPc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
