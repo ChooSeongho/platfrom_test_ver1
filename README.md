@@ -1,6 +1,6 @@
 # Hello World PhoneGap Template [![bitHound Score][bithound-img]][bithound-url]
 
-Use a PhoneGap Hello World template
+A PhoneGap Hello World template
 
 ## Usage
 
@@ -27,8 +27,6 @@ Minimum SDK version supported on the target device. Maximum version is blank by 
 This template sets the minimum to `14`.
 
     <preference name="android-minSdkVersion" value="14" />
-
-    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 
 #### &lt;access ...&gt; (All)
 
