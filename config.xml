@@ -122,5 +122,5 @@
     <plugin name="cordova-plugin-image-picker" spec="~1.1.1" />
     <plugin name="cordova-plugin-file" spec="~4.0.0" />
     <plugin name="cordova-plugin-fcm" spec="~2.1.2" />
-    <plugin name="cordova-plugin-fcm-config" spec="cordova-plugin-fcm-config" />
+    <plugin name="cordova-plugin-fcm-config" spec="1.0.0" />
 </widget>
