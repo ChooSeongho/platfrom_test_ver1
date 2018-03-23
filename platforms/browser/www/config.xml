@@ -16,7 +16,10 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <allow-navigation href="*" />
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-minSdkVersion" value="19" />
+    <preference name="phonegap-version" value="cli-8.0.0" />
+    <preference name="pgb-builder-version" value="1" />
     <preference name="StatusBarOverlaysWebView" value="false" />
 </widget>

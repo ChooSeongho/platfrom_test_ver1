@@ -682,7 +682,7 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-statusbar": "2.4.1",
     "cordova-plugin-image-picker": "1.1.1",
-    "phonegap-plugin-push": "2.2.2"
+    "phonegap-plugin-push": "2.1.2"
 }
 // BOTTOM OF METADATA
 });
