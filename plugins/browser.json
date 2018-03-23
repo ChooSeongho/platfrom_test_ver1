@@ -31,12 +31,6 @@
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "com.platfrom.test_ver_1"
     },
-    "cordova-plugin-file": {
-      "PACKAGE_NAME": "com.platfrom.test_ver_1"
-    },
-    "cordova-plugin-file-transfer": {
-      "PACKAGE_NAME": "com.platfrom.test_ver_1"
-    },
     "cordova-plugin-statusbar": {
       "PACKAGE_NAME": "com.platfrom.test_ver_1"
     },
@@ -47,6 +41,12 @@
       "PACKAGE_NAME": "com.platfrom.test_ver_1"
     },
     "phonegap-plugin-push": {
+      "PACKAGE_NAME": "com.platfrom.test_ver_1"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.platfrom.test_ver_1"
+    },
+    "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "com.platfrom.test_ver_1"
     }
   },
