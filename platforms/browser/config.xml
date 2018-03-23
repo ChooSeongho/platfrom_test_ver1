@@ -16,7 +16,9 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <allow-navigation href="*" />
-    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" />
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+        <supports-screens android:largeScreens="false" android:smallScreens="false" android:xlargeScreens="false" />
+    </edit-config>
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="phonegap-version" value="cli-8.0.0" />

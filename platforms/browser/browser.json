@@ -18,6 +18,18 @@
             }
           ]
         }
+      },
+      "app/src/main/AndroidManifest.xml": {
+        "parents": {
+          "/manifest/application": [
+            {
+              "xml": "<supports-screens android:largeScreens=\"false\" android:smallScreens=\"false\" android:xlargeScreens=\"false\" />",
+              "count": 1,
+              "mode": "merge",
+              "id": "config.xml"
+            }
+          ]
+        }
       }
     }
   },
@@ -746,6 +758,23 @@
       "pluginId": "phonegap-plugin-push",
       "clobbers": [
         "PushNotification"
+      ]
+    },
+    {
+      "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+      "id": "cordova-plugin-inappbrowser.inappbrowser",
+      "pluginId": "cordova-plugin-inappbrowser",
+      "clobbers": [
+        "cordova.InAppBrowser.open",
+        "window.open"
+      ]
+    },
+    {
+      "file": "plugins/cordova-plugin-inappbrowser/src/browser/InAppBrowserProxy.js",
+      "id": "cordova-plugin-inappbrowser.InAppBrowserProxy",
+      "pluginId": "cordova-plugin-inappbrowser",
+      "merges": [
+        ""
       ]
     }
   ],
