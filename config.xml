@@ -127,6 +127,6 @@
     <engine name="ios" spec="~4.5.4" />
     <plugin name="phonegap-plugin-push" spec="~2.1.2">
         <variable name="FCM_VERSION" value="11.0.1" />
-        <edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application" mode="merge">
     </plugin>
+    <edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application" mode="merge" />
 </widget>
