@@ -127,7 +127,7 @@
     
     <plugin name="cordova-plugin-file-transfer" spec="~1.5.1" />
     <plugin name="phonegap-plugin-push" spec="~2.1.2" />
-    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" />
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" >
         <supports-screens
             android:xlargeScreens="false"
             android:largeScreens="false"
