@@ -67,7 +67,45 @@
           StatusBar.backgroundColorByName("white");
           StatusBar.styleDefault();
           devicePlatform = device.platform;
+          
+          //fcm에서는 android SENDER_ID 필요 없음.
+          const push = PushNotification.init({
+              android : {},
+              browser : {
+                pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+              },
+            ios: {
+              alert: "true",
+              badge: "true",
+              sound: "true"
+            },
+            windows: {}
+          });
         }
+
+        push.on('registration', function(data) {
+          var oldRegId = localStorage.getItem('registrationId');
+          if (oldRegId !== data.registrationId) {
+            // Save new registration ID
+            localStorage.setItem('registrationId', data.registrationId);
+            // Post registrationId to your app server as the value has changed
+          }
+        });
+
+        push.on('error', function(err) {
+          console.log('push error = ' + err.message);
+        });
+
+        push.on('notification', function(data) {
+          console.log('notification event');
+          navigator.notification.alert(
+            data.message,         // message
+            null,                 // callback
+            data.title,           // title
+            //'Ok'                  // buttonName
+          );
+        });
+
       });
     </script>
 
@@ -160,14 +198,14 @@
               pw.focus();
               return false;
             }
-            var user_token
-            if(localStorage.getItem('token')) {
-              FCMPlugin.getToken(function(token) {
-                user_token = token;
-              });
-            } else {
-              localStorage.setItem('token', user_token);
-            }
+            // var user_token
+            // if(localStorage.getItem('token')) {
+            //   FCMPlugin.getToken(function(token) {
+            //     user_token = token;
+            //   });
+            // } else {
+            //   localStorage.setItem('token', user_token);
+            // }
             
 
             // alert('signin');
@@ -175,7 +213,8 @@
               id : $.trim(id.val()),
               pw : $.trim(pw.val()),
               device : devicePlatform,
-              token : localStorage.getItem('token')
+              // token : localStorage.getItem('token')
+              token : localStorage.getItem('registrationId')
             })
             .done(function(res) {
               if(res == '200') {
