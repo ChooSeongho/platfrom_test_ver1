@@ -124,7 +124,13 @@
     <plugin name="cordova-plugin-image-picker" spec="~1.1.1" />
     <plugin name="cordova-plugin-file" spec="~6.0.1" />
     <engine name="ios" spec="~4.5.4" />
-    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" />
+    
     <plugin name="cordova-plugin-file-transfer" spec="~1.5.1" />
     <plugin name="phonegap-plugin-push" spec="~2.1.2" />
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" />
+        <supports-screens
+            android:xlargeScreens="false"
+            android:largeScreens="false"
+            android:smallScreens="false" />
+    </edit-config>
 </widget>
