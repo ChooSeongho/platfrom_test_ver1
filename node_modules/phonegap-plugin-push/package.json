@@ -1,27 +1,27 @@
 {
-  "_from": "phonegap-plugin-push@2.1.2",
-  "_id": "phonegap-plugin-push@2.1.2",
+  "_from": "phonegap-plugin-push@2.0.0",
+  "_id": "phonegap-plugin-push@2.0.0",
   "_inBundle": false,
-  "_integrity": "sha1-9ke0wcOwL6vJTFsjWpFpZeF/Y0s=",
+  "_integrity": "sha1-FhKJtP3r0LUqTVoQUg0VYIPuz3M=",
   "_location": "/phonegap-plugin-push",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "phonegap-plugin-push@2.1.2",
+    "raw": "phonegap-plugin-push@2.0.0",
     "name": "phonegap-plugin-push",
     "escapedName": "phonegap-plugin-push",
-    "rawSpec": "2.1.2",
+    "rawSpec": "2.0.0",
     "saveSpec": null,
-    "fetchSpec": "2.1.2"
+    "fetchSpec": "2.0.0"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/phonegap-plugin-push/-/phonegap-plugin-push-2.1.2.tgz",
-  "_shasum": "f647b4c1c3b02fabc94c5b235a916965e17f634b",
-  "_spec": "phonegap-plugin-push@2.1.2",
+  "_resolved": "https://registry.npmjs.org/phonegap-plugin-push/-/phonegap-plugin-push-2.0.0.tgz",
+  "_shasum": "161289b4fdebd0b52a4d5a10520d156083eecf73",
+  "_spec": "phonegap-plugin-push@2.0.0",
   "_where": "C:\\workspace\\phonegap\\test_ver_1",
   "author": {
     "name": "Adobe PhoneGap Team"
@@ -57,7 +57,7 @@
     "eslint-plugin-react": "^5.2.2",
     "jasmine-node": "1.14.5",
     "nodemon": "^1.9.2",
-    "pluginpub": "^0.0.9"
+    "pluginpub": "^0.0.8"
   },
   "engines": {
     "cordovaDependencies": {
@@ -71,20 +71,10 @@
         "cordova-android": ">=6.2.1",
         "cordova-ios": ">=4.4.0"
       },
-      "2.1.2": {
-        "cordova": ">=7.1.0",
-        "cordova-android": ">=6.3.0",
-        "cordova-ios": ">=4.5.0"
-      },
       "<2.0.0": {
         "cordova": ">=6.4.0",
         "cordova-android": ">=6.0.0",
         "cordova-ios": ">=4.3.0"
-      },
-      "<2.1.2": {
-        "cordova": ">=7.1.0",
-        "cordova-android": ">=6.3.0",
-        "cordova-ios": ">=4.4.0"
       }
     }
   },
@@ -108,11 +98,9 @@
   "scripts": {
     "build": "babel src/js --out-dir www",
     "build:watch": "nodemon -w ./src/js -e js -x npm run build",
-    "eslint": "node node_modules/.bin/eslint src/js",
     "jasmine": "jasmine-node --color spec",
-    "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
     "test": "npm run build && npm run jasmine"
   },
   "types": "./types/index.d.ts",
-  "version": "2.1.2"
+  "version": "2.0.0"
 }
