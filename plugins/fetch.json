@@ -26,7 +26,7 @@
   "cordova-plugin-file": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-file@~4.1.1"
+      "id": "cordova-plugin-file@4.0.0"
     },
     "is_top_level": true,
     "variables": {}
@@ -170,7 +170,7 @@
   "phonegap-plugin-push": {
     "source": {
       "type": "registry",
-      "id": "phonegap-plugin-push@2.2.2"
+      "id": "phonegap-plugin-push@2.1.2"
     },
     "is_top_level": true,
     "variables": {}
