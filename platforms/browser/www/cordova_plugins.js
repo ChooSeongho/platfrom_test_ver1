@@ -642,11 +642,19 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
-        "id": "cordova-plugin-fcm.FCMPlugin",
-        "pluginId": "cordova-plugin-fcm",
+        "file": "plugins/phonegap-plugin-push/www/push.js",
+        "id": "phonegap-plugin-push.PushNotification",
+        "pluginId": "phonegap-plugin-push",
         "clobbers": [
-            "FCMPlugin"
+            "PushNotification"
+        ]
+    },
+    {
+        "file": "plugins/phonegap-plugin-push/www/browser/push.js",
+        "id": "phonegap-plugin-push.BrowserPush",
+        "pluginId": "phonegap-plugin-push",
+        "clobbers": [
+            "PushNotification"
         ]
     }
 ];
@@ -674,7 +682,7 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-statusbar": "2.4.1",
     "cordova-plugin-image-picker": "1.1.1",
-    "cordova-plugin-fcm": "2.1.2"
+    "phonegap-plugin-push": "2.2.2"
 }
 // BOTTOM OF METADATA
 });
