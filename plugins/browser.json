@@ -40,13 +40,19 @@
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "com.platfrom.test_ver_1"
     },
-    "cordova-plugin-file": {
-      "PACKAGE_NAME": "com.platfrom.test_ver_1"
-    },
     "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "com.platfrom.test_ver_1"
     },
     "cordova-plugin-fcm": {
+      "PACKAGE_NAME": "platfrom.testVer1"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "platfrom.testVer1"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "platfrom.testVer1"
+    },
+    "cordova-plugin-media": {
       "PACKAGE_NAME": "platfrom.testVer1"
     }
   },

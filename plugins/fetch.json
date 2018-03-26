@@ -162,15 +162,7 @@
   "cordova-plugin-file-transfer": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-file-transfer@1.7.0"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-file": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-file@5.0.0"
+      "id": "cordova-plugin-file-transfer@1.5.1"
     },
     "is_top_level": true,
     "variables": {}
@@ -179,6 +171,14 @@
     "source": {
       "type": "registry",
       "id": "cordova-plugin-fcm"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-file": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-file@4.0.0"
     },
     "is_top_level": true,
     "variables": {}
