@@ -97,7 +97,7 @@
     "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "com.platfrom.test_ver_1"
     },
-    "phonegap-plugin-push": {
+    "cordova-plugin-fcm": {
       "PACKAGE_NAME": "platfrom.testVer1"
     }
   },
@@ -738,19 +738,11 @@
       ]
     },
     {
-      "file": "plugins/phonegap-plugin-push/www/push.js",
-      "id": "phonegap-plugin-push.PushNotification",
-      "pluginId": "phonegap-plugin-push",
+      "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
+      "id": "cordova-plugin-fcm.FCMPlugin",
+      "pluginId": "cordova-plugin-fcm",
       "clobbers": [
-        "PushNotification"
-      ]
-    },
-    {
-      "file": "plugins/phonegap-plugin-push/www/browser/push.js",
-      "id": "phonegap-plugin-push.BrowserPush",
-      "pluginId": "phonegap-plugin-push",
-      "clobbers": [
-        "PushNotification"
+        "FCMPlugin"
       ]
     }
   ],
@@ -776,6 +768,6 @@
     "cordova-plugin-image-picker": "1.1.1",
     "cordova-plugin-file": "5.0.0",
     "cordova-plugin-file-transfer": "1.7.1",
-    "phonegap-plugin-push": "2.0.0"
+    "cordova-plugin-fcm": "2.1.2"
   }
 }

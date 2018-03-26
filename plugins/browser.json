@@ -46,7 +46,7 @@
     "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "com.platfrom.test_ver_1"
     },
-    "phonegap-plugin-push": {
+    "cordova-plugin-fcm": {
       "PACKAGE_NAME": "platfrom.testVer1"
     }
   },
