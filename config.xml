@@ -125,8 +125,4 @@
     <plugin name="cordova-plugin-file" spec="~4.3.3" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.3.0" />
     <plugin name="phonegap-plugin-push" spec="~2.0.0" />
-    <edit-config file="AndroidManifest.xml" target="/manifest/application" mode="merge" platform="android">
-        <application android:allowBackup="false"/>
-        <application android:theme="@android:style/Theme.Light.NoTitleBar"></application>
-    </edit-config>
 </widget>
