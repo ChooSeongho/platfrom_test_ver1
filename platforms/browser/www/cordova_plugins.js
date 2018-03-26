@@ -747,7 +747,8 @@ module.exports.metadata =
     "cordova-plugin-image-picker": "1.1.1",
     "cordova-plugin-file-transfer": "1.7.1",
     "cordova-plugin-fcm": "2.1.2",
-    "cordova-plugin-file": "4.0.0"
+    "cordova-plugin-file": "4.0.0",
+    "cordova-support-google-services": "1.1.0"
 }
 // BOTTOM OF METADATA
 });

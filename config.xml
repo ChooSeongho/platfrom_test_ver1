@@ -125,4 +125,5 @@
     <plugin name="cordova-plugin-fcm" spec="~2.1.2" />
     <plugin name="cordova-plugin-file" spec="~4.0.0" />
     <plugin name="cordova-plugin-file-transfer" spec="~1.5.1" />
+    <plugin name="cordova-support-google-services" spec="^1.1.0" />
 </widget>

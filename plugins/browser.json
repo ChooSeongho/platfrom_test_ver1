@@ -54,6 +54,9 @@
     },
     "cordova-plugin-media": {
       "PACKAGE_NAME": "platfrom.testVer1"
+    },
+    "cordova-support-google-services": {
+      "PACKAGE_NAME": "platfrom.testVer1"
     }
   },
   "dependent_plugins": {}
